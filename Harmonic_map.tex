@@ -1,0 +1,107 @@
+\section*{Preliminaries}
+
+
+The energy functional for map $f:M\ra N$ between Riemannian manifolds
+$(M,g)$ and $(N,h)$ is defined by
+\begin{align}\label{eq:En_general}
+  E(u)=\frac{1}{2}\int_M h_{AB}(f)\frac{\partial f^A}{\partial
+    x^i}\frac{\partial f^B}{\partial x^j}g^{ij}dV_M\ge0
+\end{align}
+in local coordinates $x^i$ in $M$ and $f^A$ in $N$. In our case
+$M=N=S^k$ with $k\ge3$. Now we use the setup from [Bizon] (TODO excuse
+such setup and the details of the domain of the functional), which
+simplifies \eqref{eq:En_general} to
+\begin{align}
+  \label{eq:En_Sk}
+  E(u)=\frac{1}{2} V(S^{k-1})\int_{-\pi/2}^{\pi/2}
+  \left(f'^2+(k-1)\frac{\sin^2f}{\sin^2\psi}\right) \sin^{k-1}\psi
+  d\psi.
+\end{align}
+The term $V(S^{k-1})$ has no qualitative impact on the behaviour of
+the system and we shall drop it from now on. Critical points of such
+functional are solutions to the corresponding Euler-Lagrange equation
+\begin{align}
+  \label{eq:f_psi_EL}
+  -\frac{\delta E}{\delta f}=\frac{1}{\sin^{k-1}\psi}\left(\sin^{k-1}\psi
+    f'\right)'-\frac{(k-1)}{2}\frac{\sin2f}{\sin^2\psi}=0.
+\end{align}
+
+This equation has been extensively studied by Bison and Wald and the
+solutions are well known with their properties described in
+[]. However, we will approach this problem with the means of the
+gradient flow by considering the flow
+\begin{equation}
+  \label{eq:en_flow}
+  \begin{split}
+    f_t&=-\frac{\delta E}{\delta f}=\frac{1}{\sin^{k-1}\psi}\left(\sin^{k-1}\psi
+      f'\right)'-\frac{(k-1)}{2}\frac{\sin2f}{\sin^2\psi}\\
+    f\left(t,0\right)&=0\\
+    f\left(t,\pi\right)&=\delta\pi\\
+    \delta\in{0,1}
+  \end{split}
+\end{equation}
+Such flow is also known as harmonic map flow because stationary points
+of it coincide with the harmonic maps as they are solutions of the ODE
+\eqref{eq:f_psi_EL}. The choice of $\delta$ reduces the class of
+possible stationary points to maps of homotopy degree up to one. Under
+evolution according to \eqref{eq:en_flow} the energy decreases
+\begin{align}
+  \label{eq:en_t}
+  E_t(f)&=\lim_{h\ra0}\frac{E(f(t+h))-E(f(t))}{h}\\
+  &=\lim_{h\ra0}\frac{E(f+h f_t+\mathcal{O}(h^2))-E(f)}{h}\\
+  % =\lim_{h\ra0}\left(\frac{\delta E}{\delta f}(f_t)+\mathcal{O}h\right)\\
+  &=\int_{-\pi/2}^{\pi/2}\frac{\delta E}{\delta f}f_t\sin^{k-1}\psi d\psi\\
+  &=-\int_{-\pi/2}^{\pi/2}f_t^2\sin^{k-1}\psi d\psi\le0
+\end{align}
+with $E_t(f)=0$ iff $f_t=0$. On the other hand, $E(f)\ge0$ so for
+generic initial data we would expect energy to asymptotically decrease
+to one of its local minimas. Such minimas can be located only at
+stationary points which are not unstable under linear
+perturbation. Due to the existence of conformal Killing field
+$K=\sin(\psi)\frac{\partial}{\partial \psi}$ (with $\mathcal{L}_K
+g=-2\cos\psi g$ TODO:check) the only local minimas are constant
+solutions $f_0=k\pi$. One can show this by analysing the second
+variation of the energy along the $v:=\mathcal{L}_K f=\sin\psi
+f'(\psi)$ around the critical point
+\begin{align}
+  \delta^2E(v,v)
+  &=\int_{-\pi/2}^{\pi/2}
+  \left(
+    v'^2+(k-1)\frac{\cos2f}{\sin^2\psi}v^2
+  \right)\sin^{k-1}\psi d\psi\\
+  &=-\int_{-\pi/2}^{\pi/2}
+  \left(\frac{1}{\sin^{k-1}\psi}\left(\sin^{k-1}\psi
+      v'\right)'-(k-1)\frac{\cos2f}{\sin^2\psi}v\right)v\sin^{k-1}\psi
+  d\psi\\
+  &=-\int_{-\pi/2}^{\pi/2}(Lv)(\psi)v(\psi)\sin^{k-1}\psi d\psi
+\end{align}
+Now from \eqref{eq:strange_variation} for critical points we have
+$Lv=(k-2)v$ and thus $\delta^2 E(v,v)\le0$ and the direction
+$v=\sin\psi f'(\psi)$ is unstable. This argument works for any
+nonconstant $f$ which is the solution to \eqref{eq:f_psi_EL}. For any
+constant solution such vector is null and is the trivial solution to
+the linearized equation. On the other hand the only constant solutions
+to \eqref{eq:f_psi_EL} are $f_0=0$, $\bar{f}_0=\pi$ and $f_e=\pi/2$
+($e$ as in \emph{equatorial}) and using the results from the following
+sections we claim that $f_0$ and $\bar{f}_0$ are linearly stable but
+$f_e$ is of infinite index for $3\le k\le6$, thus for such choice of
+$k$ it is the local maximum rather then local minimum.
+
+% Now when we have briefly introduced the possible local attractors we
+% shall ask what is their impact on the global dynamics.
+% Apart from being linearly stable, $f_0$ and $\bar{f}_0$ are separated
+% (TODO: in what sense?) global minimas of energy functional
+% ($E(f_0)=E(\bar{f}_0)=0$), so we would expect that for generic initial
+% data the solution should fall into one of such attractors. However, we
+% shall see that in the phase space there exists the set of solutions
+% that fall to neither of the attractors and thus imply the existence of
+% nontrivial solution to \eqref{eq:f_psi_EL}.
+
+(TODO: condition for solution to converge to particular constant
+solution)
+(TODO: is the attraction pool an open set - yes, from continuity?)
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "master"
+%%% End:

@@ -1,0 +1,33 @@
+\section*{Stability of the ground states}
+
+Given the solution $f_0=0$ we consider the small perturbation of the
+form $f=f_0+e^{\lambda t} v$ with $v<<1$. The equation for $v$ is thus
+of the form
+\begin{align}\label{eq:f0_L}
+  v''+(k-1)\cot\psi v'-(k-1)\frac{v}{\sin^2\psi}=\lambda v.
+\end{align}
+The critical exponents at $\psi=0$ are $1$ and $1-k$. The latter will
+be rejected because the finitness of the energy condition yields that
+the exponent $\alpha$ at $\psi=0$ has to fulfill
+$\alpha>1-\frac{k}{2}$. Now when we know that $v$ and $v'$ are square
+integrable we can multiply \eqref{eq:f0_L} by $\sin^{k-1}\psi v$ and
+integrate on the interval $[0,\pi]$ to get
+\begin{align}
+  \lambda\int_0^\pi v^2w d\psi=-\int_0^\pi\left(v'^2+\frac{k-1}{\sin^2\psi}v^2\right)\sin^{k-1}d\psi.
+\end{align}
+All the terms under the integrals are positive for $v\ne0$ so
+$\lambda<0$ and $f_0$ is linearly stable.\\
+
+We use the similar reasoning for $f_1=\psi$ to get same critical
+exponents and
+\begin{align}
+  \label{eq:f1_lambda}
+  \lambda\int_0^\pi v^2w d\psi=-\int_0^\pi\left(v'^2+(k-1)\frac{\cos2\psi}{\sin^2\psi}v^2\right)\sin^{k-1}d\psi.
+\end{align}
+This time the term $\cos2\psi$ can change its sign, but if we restrict
+to perturbations that are antisymmetric around the point $\pi/2$ the
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "master"
+%%% End:
