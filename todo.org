@@ -1,0 +1,3 @@
+* TODO natural self-adjoin expansion, the diagram
+* TODO numerical eigenvalues calculation
+* TODO bisection due to blowup and attractor
