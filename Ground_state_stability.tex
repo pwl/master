@@ -13,19 +13,26 @@ $\alpha>1-\frac{k}{2}$. Now when we know that $v$ and $v'$ are square
 integrable we can multiply \eqref{eq:f0_L} by $\sin^{k-1}\psi v$ and
 integrate on the interval $[0,\pi]$ to get
 \begin{align}
-  \lambda\int_0^\pi v^2w d\psi=-\int_0^\pi\left(v'^2+\frac{k-1}{\sin^2\psi}v^2\right)\sin^{k-1}d\psi.
+  \lambda\int_0^\pi v^2w d\psi=-\int_0^\pi\left(v'^2+\frac{k-1}{\sin^2\psi}v^2\right)\sin^{k-1}d\psi<0.
 \end{align}
 All the terms under the integrals are positive for $v\ne0$ so
 $\lambda<0$ and $f_0$ is linearly stable.\\
 
 We use the similar reasoning for $f_1=\psi$ to get same critical
-exponents and
+exponents and after integration on the interval $[0,\pi/2]$ we obtain
 \begin{align}
   \label{eq:f1_lambda}
-  \lambda\int_0^\pi v^2w d\psi=-\int_0^\pi\left(v'^2+(k-1)\frac{\cos2\psi}{\sin^2\psi}v^2\right)\sin^{k-1}d\psi.
+  \lambda\int_0^{\pi/2} v^2w d\psi=-\int_0^{\pi/2}\left(v'^2+(k-1)\frac{\cos2\psi}{\sin^2\psi}v^2\right)\sin^{k-1}d\psi<0
 \end{align}
-This time the term $\cos2\psi$ can change its sign, but if we restrict
-to perturbations that are antisymmetric around the point $\pi/2$ the
+where we have used the antisymmetry of $v$ during the integration by
+parts. This suggests that we could split the phase space into two
+subspaces of symmetric and antisymmetric functions with respect to the
+point symmetry around $(\psi,f)=(\pi/2,\pi/2)$. Such subspaces are
+preserved by \eqref{eq:grad_flow}, we shall call them $H^+$ and $H^-$
+respectively. Due to the stability properties of $f_0$ and $f_1$ we
+will call them the ground states of $H^+$ and $H^-$. (TODO: $f_1$
+minimizes energy for $H^-$).
+
 
 %%% Local Variables:
 %%% mode: latex

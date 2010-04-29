@@ -2,27 +2,28 @@
 
 For $f$ to extremalize the energy it is required that
 \begin{gather}\label{eq:el}
-  \frac{1}{\sin^{k-1}\psi}\big(\sin^{k-1}\psi f'\big)'-\frac{k-1}{2}\frac{\sin 2 f}{\sin^2\psi}=0.
+  \frac{1}{\sin^{k-1}\psi}\big(\sin^{k-1}\psi
+  f'\big)'-\frac{k-1}{2}\frac{\sin 2 f}{\sin^2\psi}=0.
 \end{gather}
+
 Stability of such mapping can be studied by investigating the energy
 of linear perturbations of solutions of \eqref{eq:el}. The energy of
 such perturbation is given by
 \begin{gather}\label{eq:infE}
-  \epsilon(h)=\delta^2E(f)(h,h)=\frac{1}{2}V(S^{k-1})\int_0^{\pi}\bigg(h'^2+(k-1)\frac{\cos 2f}{\sin^2\psi }h^2\bigg)\sin^{k-1}\psi d\psi.
+  \epsilon(h)=\delta^2E(f)(h,h)=\frac{1}{2}V(S^{k-1})\int_0^{\pi}\bigg(h'^2+(k-1)\frac{\cos
+    2f}{\sin^2\psi }h^2\bigg)\sin^{k-1}\psi d\psi.
 \end{gather}
 We set the domain of $\epsilon$ to be the set of twice differentiable
-functions, square integrable w.r.t. the weight
-$w(\psi)=\sin^{k-1}\psi$, which will further be denoted as $H_k$. If
-we consider the lowest power of the Laurent series expansion of $h$ to
-be $\alpha$, the square integrability of its derivative requires
-$\alpha>\alpha_{\text{crit}}$, where $\alpha_{\text{crit}}=1-k/2$. On
-the other hand, the symmetry $\psi\rightarrow\pi-\psi$ of
-\eqref{eq:baseE} implies the symmetries $h\rightarrow h$ and
-$h\rightarrow-h$, so the domain of $H_k$ can be split into the
-symmetric and antisymmetric parts without the loss of generality, such
-parts will be denoted as $H^+_k$ and $H^-_k$ respectively, which in
-turn lets us restrict the interval $[0,\pi]$ to its half:
-$[0,\pi/2]$. Moreover it is easy to show by a direct calculation, that
+functions for which $\epsilon<\infty$, and $\mathcal{D}(\epsilon)$
+will further be denoted as $D_k$. If we consider the lowest power of
+the Laurent series expansion of $h$ to be $\alpha$, the square
+integrability of its derivative requires
+$\alpha>\alpha_{\text{crit}}$, where $\alpha_{\text{crit}}=1-k/2$. The
+domain $D_k$ can be split into the symmetric and antisymmetric
+parts without the loss of generality, such parts will be denoted as
+$D^+_k$ and $D^-_k$ respectively, which in turn lets us restrict the
+interval $[0,\pi]$ to its half: $[0,\pi/2]$. Moreover it is easy to
+show by a direct calculation, that
 \begin{gather}
   \epsilon(h)=-(h,Lh)
 \end{gather}
@@ -33,7 +34,7 @@ with
   (g,Lf)-(Lg,f)=0
 \end{gather}
 and the question of stability is brought to the eigenvalue problem for
-self-adjoint operator $L$.\\
+symmetric operator $L$.\\
 
 The mapping of our interest is $f(\psi)=\frac{\pi}{2}$, the eigenvalue
 problem states that
@@ -49,8 +50,8 @@ $1$ and $\infty$:
 The general solution of the latter is of the form
 \begin{gather}
   g=c_1\phi_1+c_2\phi_2\\
-  \phi_1(y)=y^{\frac{-4\alpha-k+2}{4}}{}_2F_1 (-\alpha-\beta+\frac{1}{4},-\alpha+\beta+\frac{1}{4};1-2\alpha;y)\\
-  \phi_2(y)=y^{\frac{+4\alpha-k+2}{4}}{}_2F_1 (\alpha-\beta+\frac{1}{4},\alpha+\beta+\frac{1}{4};1+2\alpha;y)\label{eq:sol}
+  \phi_1(y)=y^{\frac{-4\alpha-k+2}{4}}{}_2F_1 \left(-\alpha-\beta+\frac{1}{4},-\alpha+\beta+\frac{1}{4};1-2\alpha;y\right)\\
+  \phi_2(y)=y^{\frac{+4\alpha-k+2}{4}}{}_2F_1 \left(\alpha-\beta+\frac{1}{4},\alpha+\beta+\frac{1}{4};1+2\alpha;y\right)\label{eq:sol}
 \end{gather}
 with
 \begin{gather}
@@ -63,41 +64,54 @@ $\psi\rightarrow0$. The series expansion reveals that
   \phi_1(y)=y^{\frac{-4\alpha-k+2}{4}}(1+O(y))\\
   \phi_2(y)=y^{\frac{4\alpha-k+2}{4}}(1+O(y))
 \end{gather}
-First, one should notice that, for $\Im(\alpha)\ne0$, $y^\alpha$ is
-not integrable on $[0,1]$. This introduces the condition
-$k>2(2+\sqrt{2})$ or $k<2(2-\sqrt{2})$. The latter case shall not be
-considered as we assume $k\ge3$. Moreover, for $k>2(2+\sqrt{2})$ we
-have $\frac{-\alpha-k+2}{4}<\frac{\alpha_{\text{crit}}}{2}$, so the
+% First, one should notice that, for $\Im(\alpha)\ne0$, $y^\alpha$ is
+% not integrable on $[0,1]$. This introduces the condition
+% $k>2(2+\sqrt{2})$ or $k<2(2-\sqrt{2})$. The latter case shall not be
+% considered as we assume $k\ge3$.
+Moreover, for $k>2(2+\sqrt{2})$ we
+have $\frac{-4\alpha-k+2}{4}<\frac{\alpha_{\text{crit}}}{2}$, so the
 first solution will be discarded. At $y\rightarrow1$ the values of $h$
 and $h'$ are
-\begin{gather}
-  h=g\sim\frac{\Gamma(1+2\alpha)}{\Gamma(\alpha-\beta)\Gamma(\alpha+\beta)}+O(1-y),\\
-  h'=2y^{1/2}(1-y)^{1/2}g'\sim\frac{\Gamma(2+2\alpha)}{\Gamma(\alpha-\beta+1)\Gamma(\alpha+\beta+1)}+O(1-y).
-\end{gather}
-The antisymmetry of $h$, requires that $h(\pi/2)=g(1)=0$, and this is true
-iff $\alpha-\beta=-m$ or $\alpha+\beta=-m$ for
-$m\in\mathbb{N}_0$. Both conditions give rise to the same following
-quantization of $\lambda^-$
-\begin{gather}
-  \lambda^-_m=2\alpha (-4 m-3)+\frac{1}{2}(3 k-8
-  m^2-12 m-8).
-\end{gather}
-Analogously for symmetric solution
-\begin{gather}
-  \lambda^+_m=2\alpha(-4 m-1)+\frac{1}{2} (3 k-8
-  m^2-4 m-4).
-\end{gather}
-With $\lambda_n$ defined as
-\begin{gather}
-  \lambda_n=\frac{1}{2}\big(-4\alpha(2n+1)+
-  (3k-2n^2-2n-4)\big)
-\end{gather}
-for $n\in\mathbb{N}_0$, those two families of eigenvalues can be combined
-using the relation
-\begin{gather}
-  \lambda_{2m}=\lambda_m^+\\
-  \lambda_{2m+1}=\lambda_m^-
-\end{gather}
+\begin{align}
+  h=g&
+  \sim\frac{\Gamma(1+2\alpha)}{\Gamma(\frac{3}{4}+\alpha-\beta)\Gamma(\frac{3}{4}+\alpha+\beta)}+O(1-y),\\
+  h'=2y^{1/2}(1-y)^{1/2}g'&
+  \sim\frac{((\frac{1}{4}+\alpha)^2-\beta^2)\Gamma(2+2\alpha)}{\Gamma(\frac{5}{4}+\alpha-\beta)\Gamma(\frac{5}{4}+\alpha+\beta)}+O(1-y)
+\end{align}
+The antisymmetry of $h$, requires that $h(\pi/2)=g(1)=0$, and this is
+true iff $\beta^2=(m_1-3/4-\alpha)^2$ for
+$m_1\in\mathbb{N}_0$. Similarly if $h'(\pi/2)$ vanishes then
+necessarily $\beta^2=(m_2-5/4-\alpha)^2$ for $m_2\in\mathbb{N}_0$ (the
+special case when numerator is zero is covered by the $m_2=1$). Both
+formulas can be combined into $\beta^2=(\alpha+(5-2n)/4)^2$ for
+$n\in\mathbb{N}_0$ with $n$ even for symmetric modes and odd for
+antisymmetric ones. We can calculate $\lambda_n$ as
+\begin{align}
+  \lambda_n=\frac{1}{2}(\alpha(2n-5)+(3k-2n^2+10n-16))
+\end{align}
+
+% This
+% condition gives rise to the following quantization of $\lambda^-$
+% \begin{gather}
+%   \lambda^-_m=2\alpha (-4 m-3)+\frac{1}{2}(3 k-8
+%   m^2-12 m-8).
+% \end{gather}
+% Analogously for symmetric solution
+% \begin{gather}
+%   \lambda^+_m=2\alpha(-4 m-1)+\frac{1}{2} (3 k-8
+%   m^2-4 m-4).
+% \end{gather}
+% With $\lambda_n$ defined as
+% \begin{gather}
+%   \lambda_n=\frac{1}{2}\big(-4\alpha(2n+1)+
+%   (3k-2n^2-2n-4)\big)
+% \end{gather}
+% for $n\in\mathbb{N}_0$, those two families of eigenvalues can be combined
+% using the relation
+% \begin{gather}
+%   \lambda_{2m}=\lambda_m^+\\
+%   \lambda_{2m+1}=\lambda_m^-
+% \end{gather}
 The noticeable fact is, that the only eigenvalues grater than zero are
 for $n=0$ (symmetric) and $n=1$ (antisymmetric), and as
 $k\rightarrow\infty$ one has $\lambda_0= k + O(1/k)\rightarrow\infty$
@@ -141,7 +155,6 @@ hypergeometric function
 
 
 \section{Stability below $k_{crit}$}
-\label{sec:Notes}
 
 $\phi_1=\bar{\phi_2}$ for $k<k_\text{crit}$ and $\lambda\in R$ (from
 $\overline{F(a,b;c;y)}=F(\bar{a},\bar{b};\bar{c};\bar{y})$, and the
@@ -199,74 +212,6 @@ $\lambda\rightarrow\infty$. (tu policzylem przy pomocy Mathematici, ze
 $\arg(\phi(1))\rightarrow\log(\lambda)$, wiec sie nie zbiega do zadnej
 wartosci, ale wstrzymam sie ze szczegolami, zanim nie policze tego
 wlasnorecznie).
-
-\section{Self-similar ansatz}
-
-
-Equation for gradient flow for the map considered is
-\begin{equation}
-  \label{eq:grad_flow}
-  \partial_t f=f''+(k-1)\cot \psi f'-\frac{k-1}{2}\frac{\sin2f}{\sin^2 \psi})\\
-  f\in [0,\pi]\\
-  \psi\in [0,\pi]
-\end{equation}
-
-
-For $\psi<<1$ we have
-\begin{equation}
-  \partial_t f=f''+(k-1)\frac{1}{\psi} f'-\frac{k-1}{2}\frac{\sin2f}{\psi^2})\\
-  \psi\in [0,\infty]
-\end{equation}
-
-Introducing self similar variables $\xi=\frac{\psi}{\sqrt{T-t}}$ and
-$\tau=-\log(T-t)$, $F(\xi,\tau)$ the above equation becomes
-\begin{equation}
-  \partial_\tau F=F''+((k-1)\frac{1}{\xi}-\frac{\xi}{2}) F'-\frac{k-1}{2}\frac{\sin2F}{\xi^2})
-\end{equation}
-with blowup solutions
-\begin{equation}
-  0=F''+((k-1)\frac{1}{\xi}-\frac{\xi}{2}) F'-\frac{k-1}{2}\frac{\sin2F}{\xi^2}).
-\end{equation}
-The existance of the monotonic solutions to the above equation with
-boundary conditions $F(0)=0$ and $F(\infty)=\pi$ has been prooven by
-A. Gastel. The linearized form of the above equation around the blowup
-solution is
-\begin{equation}
-  \partial_\tau \epsilon=\epsilon''+((k-1)\frac{1}{\xi}-\frac{\xi}{2}) \epsilon'-(k-1)\frac{\cos2F}{\xi^2}\epsilon=L\epsilon
-\end{equation}
-
-By construction, one of the unstable modes is $\xi F'$ (J. Eggers and
-M.A. Fontelos, p.R20).
-
-% \begin{equation}
-%   0=h''-(k-2)\tanh x h'+\frac{k-1}{2}\sin2h
-% \end{equation}
-
-
-% For $y=1/\cosh^2x$ becomes
-% \begin{equation}
-%   \label{eq:grad_flow_y}
-%   \partial_t h=4(1-y)y h''+2(k(1-y)-y)h'+\frac{k-1}{2y}\sin2h,
-% \end{equation}
-% which for $x^2>>1$ (or equivalently $y<<1$) becomes
-% \begin{equation}
-%   \label{eq:grad_flow_y_small}
-%   \partial_t h=4y h''+2k h'+\frac{k-1}{2y}\sin2h,
-% \end{equation}
-% for which the self-similar variables can be introduced by defining
-% \begin{equation}
-%   \label{eq:self_sim_vars}
-%   \begin{split}
-%     \tau&=-\ln(T-t)\\
-%     \xi &=\frac{y}{T-t},
-%   \end{split}
-% \end{equation}
-% then we have
-% \begin{equation}
-%   \label{eq:self_sim_flow}
-%   \partial_\tau h= 4\xi h''+(2k-\xi) h'+\frac{k-1}{2\xi}\sin2h
-% \end{equation}
-
 
 %%% Local Variables:
 %%% mode: latex
