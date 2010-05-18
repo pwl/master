@@ -10,7 +10,7 @@ The critical exponents at $\psi=0$ are $1$ and $1-k$. The latter will
 be rejected because the finitness of the energy condition yields that
 the exponent $\alpha$ at $\psi=0$ has to fulfill
 $\alpha>1-\frac{k}{2}$. Now when we know that $v$ and $v'$ are square
-integrable we can multiply \eqref{eq:f0_L} by $\sin^{k-1}\psi v$ and
+integrable we can multiply \eqref{eq:f0_L} by $v\sin^{k-1}\psi$ and
 integrate on the interval $[0,\pi]$ to get
 \begin{align}
   \lambda\int_0^\pi v^2w d\psi=-\int_0^\pi\left(v'^2+\frac{k-1}{\sin^2\psi}v^2\right)\sin^{k-1}d\psi<0.
@@ -28,10 +28,15 @@ where we have used the antisymmetry of $v$ during the integration by
 parts. This suggests that we could split the phase space into two
 subspaces of symmetric and antisymmetric functions with respect to the
 point symmetry around $(\psi,f)=(\pi/2,\pi/2)$. Such subspaces are
-preserved by \eqref{eq:grad_flow}, we shall call them $H^+$ and $H^-$
-respectively. Due to the stability properties of $f_0$ and $f_1$ we
-will call them the ground states of $H^+$ and $H^-$. (TODO: $f_1$
-minimizes energy for $H^-$).
+preserved by \eqref{eq:en_flow}, we shall call them $H^+$ and $H^-$
+respectively. However each of $H^+$ and $H^-$ when considered as a
+subspace of $H$ has instability due to the Killing field
+$K=\sin\psi\frac{\partial}{\partial\psi}$, which is perpendicular to
+both of them. (TODO: does $K$ decrease energy for all maps?)
+
+Due to the energy minimizing properties of $f_0$ and $f_1$ we shall
+call them the ground states of $H^+$ and $H^-$. (TODO: $f_1$ globally
+minimizes the energy for $H^-$).
 
 
 %%% Local Variables:
