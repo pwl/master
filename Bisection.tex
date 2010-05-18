@@ -1,0 +1,67 @@
+\section*{Bisection}
+
+Now as we know, that for $k<k_{\text{crit}}$ equatorial map is of infinite
+index and thus does not play any role in the dynamics of the
+time-dependent equation we can proceed to the actual problem of
+finding the solutions to the nonlinear equation of harmonic maps. Let
+us first focus on the subspace $H_+$ (functions which are symmetric around
+$\pi/2$). We assume
+\begin{align}
+  f(0,\psi)=f(0,\pi-\psi).
+\end{align}
+Our aim is to prepare the one parameter family of initial data i.e.
+\begin{align}
+  f(0,x)=g_A(x)=A\cdot g(x)
+\end{align}
+and observe how do the asymptotic states look like for different
+choices of $A$. First of all, we take $g$ such that the flow for $A=1$
+converges to $\bar{f}_0$. As mentioned, the convergence to $\bar{f}_0$
+is preceded by the blow up of the first derivative at $\psi=0$.  On
+the other hand, if $0<A<<1$ then $g_A$ is just a linear perturbation
+of the ground state $f_0$, thus the flow will converge to
+$f_0$.
+
+% The sets of $A$
+% for which $f$ converges to one of the ground states are open, which
+% means that there is a closed set between them for which $f$ does not
+% converge to any of the ground states. (TODO: formalize!). (TODO: what
+% is an argument for such set to be one element only?).
+
+% \begin{align}
+%   \Gamma&=\{A\in\mathbb{R}_+|\lim_{t\ra\infty} f=f_0\}\\
+%   \bar{\Gamma}&=\{A\in\mathbb{R}_+|\lim_{t\ra\infty} f=\bar{f}_0\}.
+% \end{align}
+
+With such choice of $g$ there will be only one $A^*$ such that for
+$A<A^*$ solution tends to the ground state $f_0$ and for $A>A^*$ it
+converges to $\bar{f}_0$ (TODO: how to show this?). For any initial
+data the energy has to decrease along the flow and for $A=A^*$ it
+cannot asymptotically decrease to $0$, so it has to be bounded from
+below by some constant $E^*$
+\begin{align}
+  E(t)>E^*>0\quad E_t(t)<0.
+\end{align}
+Thus there is a limit
+\begin{align}
+  \lim_{t\ra\infty}E(t)=E^*\quad \lim_{t\ra\infty}E_t(t)=0
+\end{align}
+but, by \eqref{eq:en_t}, $E_t(t)\ra0$ can happen only if $f_t\ra0$ so
+\begin{align}
+  \lim_{t\ra\infty}f(t,\psi)=f^*(\psi)
+\end{align}
+which means, that $f^*$ is a symmetric solution to \eqref{eq:en_flow}
+Apart From  $f_0$ As any change of $A^*$ in initial data $A^*\cdot g$
+changes the attractor to one of the ground states, $f^*$ will have at
+least one unstable mode due to the continuity of the solution
+w.r.t. the perturbation in $A$. Moreover, as $f^*$ is nonconstant, it
+has an additional unstable mode due to the Killing vector
+$K=\sin(\psi)\frac{\partial}{\partial\psi}$. Those two unstable modes
+do not coincide because $Kf^*$ is antisymmetric while $\partial_A f$
+is symmetric (as the perturbated data is in $H^+$), so $f^*$ is of
+index at least $2$. Given, we choose $g$ to be generic, we will obtain
+the critical point $f_2:=f^*$ of index $2$.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "master"
+%%% End:

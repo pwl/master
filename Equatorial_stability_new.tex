@@ -1,0 +1,117 @@
+\section*{Stability of the equatorial map}
+
+The stability of the equatorial map is governed by the eigenvalues of
+\begin{align}
+  \label{eq:4}
+  -v''-(k-1)\cot\psi v'-(k-1)\frac{v}{\sin^2\psi}=\Lambda v.
+\end{align}
+According to our convention, $\Lambda<0$ corresponds to unstable
+direction. The above equation can be considered as an eigenproblem of
+the operator $L$ such that
+\begin{align}
+  \label{eq:5}
+  Lv=-v''-(k-1)\cot\psi v'-(k-1)\frac{v}{\sin^2\psi}.\\
+  \D{L}=\{C^\infty_0(0,\pi)\}
+\end{align}
+(TODO:explain $L$ symmetric) where $C^\infty_0(0,\pi)$ is the set of
+infinitely differentiable functions with support away from $0$ and
+$\pi$. The Hilbert space in this case is
+$L^2([0,\pi],\sin^{k-1}\psi)$. We can utilize the unitary map
+$U:L^2([0,\pi],\sin^{k-1}\psi)\ra L^2([0,\pi])$ such that
+$U:f(\psi)\ra f(\psi)\sin^{(k-1)/2}\psi$. $U$ maps $C_0^\infty(0,\pi)$
+onto itself and transforms the middle term in \eqref{eq:5} into the
+potential term
+\begin{align}
+  \label{eq:7}
+  ULU^{-1}=\left(
+    -\frac{d^2}{d\psi^2}+V(\psi)-\frac{3}{2}(k-1)\right)\\
+  V(\psi)=\frac{1}{4}(k-7)(k-1)\cot^2\psi.
+\end{align}
+(Unitary maps leave the eigenvalues $\Lambda$ untouched.) We will get
+rid of the constant potential term by defining
+\begin{align}
+  \label{eq:8}
+  \lambda=\Lambda+\frac{3}{2}(k-1).
+\end{align}
+The eigenproblem changed its form to
+\begin{align}
+  \label{eq:9}
+  Kf=\lambda f
+\end{align}
+or
+\begin{align}
+  \label{eq:15}
+  -f''+V(\psi)f=\lambda f.
+\end{align}
+Now as the proper dynamics may be generated only by the self-adjoint
+operators we will have to verify weather $K$ (and thus $L$) is a
+self-adjoint operator.
+\begin{theorem}
+  $K$ is essentially self-adjoint iff $4-2\sqrt{3}\ge
+  k\ge4+2\sqrt{3}$.
+\end{theorem}
+\begin{proof}
+  We will use the Weyl's limit-point/limit-circle criterion to
+  determine the deficiency indices of $K$ (see [Simon,Reed,theorem
+  X.7]). To do that, we have to investigate the number of solutions to
+  the equations
+  \begin{align}
+    \label{eq:12}
+    -f''+Vf=if\\
+    -f''+Vf=-if
+  \end{align}
+  As $K$ commutes with complex conjugation, by the von Newmann's
+  theorem, it has equal deficiency indices and it is enough to
+  consider solutions to
+  \begin{align}
+    \label{eq:14}
+    -f''+Vf=if
+  \end{align}
+  with $f\in\LSq$. As $V$ is infinitely differentiable at every point
+  $\psi$ from $(0,\pi)$, it is enough to check the number of
+  admittable solutions at $\psi=0$ and at $\psi=\pi$. But the
+  potential $V$ is symmetric under the reflection $\psi\ra\pi-\psi$
+  and thus so is $K$, therefore the exponents at $\psi=0$ and at
+  $\psi=\pi$ are the same. At $\psi=0$ the possible solutions to
+  \eqref{eq:14} behave as $\psi^{\gamma_+}$ and $\psi^{\gamma_-}$ with
+  \begin{align}
+    \label{eq:10}
+    \gamma_\pm=\frac{1}{2}\left(1\pm\sqrt{k^2-8k+8}\right).
+  \end{align}
+  For $\psi^{\gamma_-}$ not to be in $\LSq$ we need $4-2\sqrt{3}\ge
+  k\ge4+2\sqrt{3}$, so for such $k$ there would be only one solution
+  to \eqref{eq:14} at each boundary. By the Weyl's limit-point,
+  limit-circle criterion we obtain the claimed theorem.
+\end{proof}
+As the byproduct of this proof we get the following corollary
+\begin{corollary}
+  The deficiency indices of $K$ are $<2,2>$ for
+  $k\in(4-2\sqrt{3},4+2\sqrt{3})$.
+\end{corollary}
+The exponents of the solutions to \eqref{eq:15} at $\psi=0$ can be
+written in the more compact form by defining
+\begin{align}
+  \label{eq:18}
+  \alpha=\frac{1}{2}\sqrt{k^2-8k+8},
+  \gamma_\pm=\frac{1}{2}\pm\alpha.
+\end{align}
+As $\alpha$ can be either real or purely imaginary depending on $k$ we
+shall further split our problem into three possible sets of $k$
+\begin{align}
+  \label{eq:20}
+  \Gamma_1&=(-\infty,4-2\sqrt{3}]\cup[4+2\sqrt{3},\infty),\\
+  \Gamma_2&=(4-2\sqrt{3},4-2\sqrt{2}]\cup[4+2\sqrt{2},4+2\sqrt{3}),\\
+  \Gamma_3&=(4-2\sqrt{2},4+\sqrt{2}).
+\end{align}
+For $\Gamma_1$ $K$ is essentially self-adjoint, and thus admits the
+dense set of eigenvectors. For $k\in\Gamma_2$ the exponents are real,
+and for $k\in\Gamma_3$ the exponents have imaginary parts which
+generate oscillations around the origins.\\
+
+As $\Gamma_i$ for different $i$ need different treatment we continue
+the stability analysis for each of them in three separate sections.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "master"
+%%% End:
