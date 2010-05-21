@@ -1,16 +1,141 @@
-\subsection*{The case $k\in\Gamma_2$}
+\subsection{The case $k\in\Gamma_2$}
+\label{sec:case-kingamma_2}
 
-As the deficiency indices pair is $<2,2>$ we would end up with the
-possible self-adjoint extensions of $K$ parametrized by $U(2)$. To
-simplify matter a bit we shall impose some arbitrary conditions on the
-domain of $K^*$, by restricting it to functions which are symmetric or
-antisymmetric. Such restricition is motivated by the following
-chapters, where we focus on symmetric or antisymmetric solutions to
-\eqref{eq:en_flow}. Let us introduce $K_+$ and $K_-$ each acting on
-either symmetric or antisymmetric subspaces of $C_0^\infty(0,\pi)$.
+Under such condition for $k$, the domain of $K^*$ is the set of
+functions from $\LSq$ and both solutions to \eqref{eq:14} are
+valid. However, one of the solutions blows-up at $\psi=0$ as
+$\psi^{1/2-\alpha}$ while the other one tends to zero as
+$\psi^{1/2+\alpha}$, the same happens at $\psi=\pi$. It seems natural,
+to select the self-adjoint extension which would allow only the
+eigenvectors which fall off to zero at $\psi=0$ and $\psi=\pi$.
+To achieve this we set the extended domain of $K$ to be
+\begin{align}
+  \label{eq:13}
+  \D{K_2}=\{f\in C^\infty(0,\pi)|\quad f(0)=f(\pi)=0\}.
+\end{align}
+With respect to the above domain, the domain of the operator and its
+adjoint have to be the same and thus $K_2=K_2^*$. It can be
+seen by utilizing the fact, that for every vector $g\in\D(K_2^*)$
+and $f\in\D(K_2^*)$ we shall have
+\begin{align}
+  \label{eq:17}
+  0&=(g,K_2 f)-(K_2^*g,f)\\
+  &=f'(\pi)g(\pi)-f(\pi)g'(\pi)+f'(0)g(0)-f(0)g'(0)\\
+  &=f'(\pi)g(\pi)-f'(0)g(0).
+\end{align}
+This implies $g(0)=g(\pi)=0$. Thus $K_2$ is one of the possible
+self-adjoint extensions of $K$. As $\alpha$ is real for $k\in\Gamma_2$
+the same reasoning as in \ref{sec:case-kingamma_1} holds and we find
+the eigenvectors of $K_2$ to be the same which is another argument
+behind choosing such extension. Such selection of the domain however,
+produces self-adjoint extension only for $\alpha>1/2$ for which one of
+the solutions blows up at $0$ and for the special case $k=7$ and $k=1$
+for which $\alpha=1/2$ and one of the solutions is constant near the
+boundaries.
 
-By the similar reasoning as in (Thm1) we conclude, that each, $K_1$
-and $$
+As a matter of fact if we had chosen the domain \eqref{eq:13} in the
+beginning we would have not reached the necessity of extending $K$ for
+$\Gamma_2$. However, we have seen that such choice of the extension is
+not an unique one thus without continuity in eigenvalues w.r.t $k$ as
+a motivation we would not have any justification in our choice of
+$K_2$. Another motivation is that the presence of any admixture of the
+modes with singular behaviour at the boundaries in the spectrum would
+produce, during the dynamical evolution, the singular behaviour even
+for initial data without a singularities at the boundaries.
+
+
+% To
+% achieve this we have to calculate more explicitly how the choice of
+% the possible extension of $K$, lets say $T$,
+% \begin{align}
+%   \label{eq:4}
+%   T=-\frac{d^2}{d\psi^2}+V(\psi)
+% \end{align}
+% influences the domain of its adjoint. We have introduced the new
+% letter $T$\\
+
+% For vectors $f\in\D{T}$ and $g\in\D{T^*}$ we have
+% \begin{align}
+%   \label{eq:1}
+%   (g,Tf)-(T^*g,f)=W(f,g)(\pi)-W(f,g)(0)=0.
+% \end{align}
+% Where $W(f,g)$ is the Wrońskian determinant for $f$ and $g$:
+% \begin{align}
+%   \label{eq:3}
+%   W(f,g)(\psi)=f'(\psi)g(\psi)-f(\psi)g'(\psi)
+% \end{align}
+% We are considering the functions which possibly blow-up at $\psi=0$ or
+% $\psi=\pi$ so we have to put limits into the formula
+% \begin{align}
+%   \label{eq:2}
+%   (g,Tf)-(T^*g,f)=\lim_{\psi\ra\pi}W(f,g)(\psi)-\lim_{\psi\ra0}W(f,g)(\psi).
+% \end{align}
+% Assume, that $f\in\D{T}$ behaves as $\psi^{1/2+\delta_1}$ near
+% $\psi=0$, and analogously $\D{T^*}\ni g\sim\psi^{1/2+\delta_2}$ for some
+% real $\delta_1$ and $\delta_2$. Then
+% \begin{align}
+%   \label{eq:6}
+%   W(f,g)(\psi)\sim(\delta_1-\delta_2)\psi^{\delta_1+\delta_2}.
+% \end{align}
+% The requirement for the Wrońskian to vanish in the limit $\psi\ra0$ is
+% \begin{align}
+%   \label{eq:7}
+%   \delta_1+\delta_2>0\quad\text{or}\quad\delta_1=\delta_2.
+% \end{align}
+% We are interested in the case, where the singular eigenfunctions are
+% not allowed to show up in the domain of $T$, so we set
+% $\delta_1=\alpha>0$ and the second condition in \eqref{eq:7} is
+% included in the first one. Thus the domain of
+
+% The similar formula can be derived for
+
+
+% This can be done, by expanding the
+% domain of $K$ to the set of functions which do not grow faster than
+% $\psi^{1/2+\alpha}$ at $\psi=0$ and $(\pi-\psi)^{1/2+\alpha}$ at
+% $\psi=\pi$.
+% \begin{align}
+%   \label{eq:16}
+%   D_1=\{f\in C^\infty(0,\pi)|\quad
+%   \forall{\epsilon>0}\exists{M>0}:|f(\psi)|+|f(-\psi)|\}.TODO
+% \end{align}
+% With such domain, we expect
+
+% The fact that both solutions belong to the $\LSq$
+
+% In this case, the imposing self-adjoint extension
+% is one for which we admit only solutions behaving nicely at $\psi=0$
+% and at $\psi=\pi$, thus the set
+% \begin{align}
+%   \label{eq:16}
+%   \{f\in C^\infty(0,\pi)|\quad f(0)=f(\pi)=0\}.
+% \end{align}
+
+% This choice of the domain guarantees that the solutions
+
+% , as the deficiency indices pair is
+% $<2,2>$, we end up with the possible self-adjoint extensions of $K$
+% parametrized by $U(2)$.
+
+
+% However, we can simplify the situation by admitting only
+% symmetric or antisymemtric perturbations equivalent to considering the
+% operators $L_+$ and $L_-$ for which respective domains are
+% $\D(L_+)=\{f\in C^\infty(0,\pi)|\quad f(\psi)=f(-\psi)\}$ and
+% $\D(L_-)=\{f\in C^\infty(0,\pi/2)|\quad f(\psi)=-f(-\psi)\}$. $L_+$ and
+% $L_-$ when considered
+
+
+
+% a bit we shall impose some arbitrary conditions on the
+% domain of $K^*$, by restricting it to functions which are symmetric or
+% antisymmetric. Such restricition is motivated by the following
+% chapters, where we focus on symmetric or antisymmetric solutions to
+% \eqref{eq:en_flow}. Let us introduce $K_+$ and $K_-$ each acting on
+% either symmetric or antisymmetric subspaces of $C_0^\infty(0,\pi)$.
+
+% By the similar reasoning as in (Thm1) we conclude, that each, $K_1$
+% and $a$
 
 %%% Local Variables:
 %%% mode: latex

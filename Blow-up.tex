@@ -1,39 +1,133 @@
-\section*{Blow-up}
+\section{Blow-up}
+\label{sec:blow-up}
 
 As we mentioned, apart from the first global attractor $f_0$ there
 exists its image by the reflection symmetry $\bar{f}_0=\pi$ which is
 also a global minimum of the energy. It turns out that before reaching
 the second attractor the spatial derivative of the solution blows up
-at the edges of the interval $[0,\pi]$. As the blow up is localized,
-let's say at $\psi=0$, we can rewrite \eqref{eq:en_flow} up to first
-corrections in $\psi$
+at the edges of the interval $[0,\pi]$.\\
+
+This statement was however verified by the numerical simulations only
+as the proof of such theorem would exceed the level of this thesis by
+far. This is due to the fact, that apart from the blow up scenario
+presented here, there might exist also some other scenarios. Also the
+stability analysis proposed here is only local (linear), and it might
+turn out that for some large enough perturbations the blow up would
+exhibit different behaviour.\\
+
+We now proceed to the explanation of the proposed blow up mechanism.
+The blow up can be localized only on the edge of the interval
+$[0,\pi]$. This can be argued by the fact that the energy
+\eqref{eq:En_Sk} decreases, so is finite for all times.  This in turn
+implies that $f'$ has to be locally $L^2$ for all times inside the
+open interval $(0,\pi)$. However, on the sides of the interval the
+measure tends to zero and the discontinuity at $\psi=0$ or $\psi=\pi$
+does not disagree with the finiteness of the energy. We conclude, that
+the blow up is localized at the boundary. Because of the reflection
+symmetry $f(\psi)\ra f(\pi-\psi)$ of the Euler-Legendre equations we
+can focus on one of the edges solely, lets say $\psi=0$. We write the
+equation \eqref{eq:en_flow} up to first corrections in $\psi$ to
+obtain
 \begin{align}
   \label{eq:2}
-  \partial_t h=f''+\frac{(k-1)}{\psi}f'-\frac{k-1}{2}\frac{\sin2h}{\psi^2}.
+  \partial_t
+  h=h''+\frac{(k-1)}{\psi}h'-\frac{k-1}{2}\frac{\sin2h}{\psi^2}+\mathcal{O}((h/\psi^2)^2).
 \end{align}
 This equation has the scaling symmetry of the form
-$\psi\ra\lambda\psi$ and $t\ra\lambda^2t$ therefore we use the
-self-similar ansatz of the form
+\begin{align}
+  \label{eq:6}
+  \psi&\ra\lambda\psi \\
+  (T-t)&\ra\lambda^2(T-t)
+\end{align}
+for some arbitrary $T$. We therefore use the self-similar variables of
+the form
+\begin{align}
+  \label{eq:3}
+  y=\frac{y}{\sqrt{T-t}}\quad s=-\log(T-t)\quad H(s,y)=h(t,\psi),
+\end{align}
+to transform \eqref{eq:2} into
+\begin{align}
+  \label{eq:4}
+  \partial_s
+  H=H''+\left(\frac{(k-1)}{y}-\frac{y}{2}\right)H'-\frac{k-1}{2}\frac{\sin2H}{y^2}.
+\end{align}
+The given change of variables is tuned to the analysis of the
+self-similar type of blow up which is the stationary points of the
+above equation. If $H_0$ is such stationary point we have
+\begin{align}
+  \label{eq:5}
+  H_0=H_0(y)=H_0\left(\frac{\psi}{\sqrt{T-t}}\right),
+\end{align}
+this $H_0$ is sometimes also called the self-similar anasatz. The
+intuition behind such approach is that given an initial data
+$h(0,\psi)=H_0(\psi/\sqrt{T})$, the solution to \eqref{eq:2} will
+shrink with the rate $1/\sqrt{T-t}$ until it reaches some singular
+state at $t=T$. Now, by the fact that the solution has to be regular
+for any finite $\psi>0$ and any time $t$ including $t=T$ we have to
+impose the condition on $H_0$
+\begin{align}
+  \label{eq:1}
+  \forall{\psi>0}:\lim_{t\ra
+    T}H_0\left(\frac{\psi}{\sqrt{T-t}}\right)=H_0(\infty)<\infty.
+\end{align}
+Such requirement, together with $0=f(t,0)=H(s,0)$, gives us the proper
+boundary conditions for possible static solutions to \eqref{eq:4}. We
+are therefore looking for the possible solutions to the ODE
+\begin{align}
+  \label{eq:7}
+  H_0''+\left(\frac{(k-1)}{y}-\frac{y}{2}\right)H_0'-\frac{k-1}{2}\frac{\sin2H_0}{y^2},\\
+  H_0(0)=0\quad H_0'(\infty)=0.
+\end{align}
+The existence of solutions to \eqref{eq:7} were proved in [] and
+[]. Both authors have found the countable family of solutions
+$\{H_n\}_{n\ge0}$ displaying some interesting properties (possibly
+mentioned in the appendix), with the important one being the fact that
+$n$-th solution has exactly $n$ extremas.\\
 
+If we want the possible solution $H_n$ to appear as a final sate of
+some class of the initial data broader than $H_n$ itself, we
+additionally demand that $H_n$ is linearly stable. The stability
+analysis leads to the eigenproblem of the operator
+\begin{align}
+  \label{eq:8}
+  A_n u=u''+\left(\frac{(k-1)}{y}-\frac{y}{2}\right)u'-(k-1)\frac{\cos2H_n}{\sin
+    y^2}u.
+\end{align}
+Using the identity \eqref{eq:strange_variation}, one can check, that
+$A_n$ is bounded, self-adjoint and possesses an eigenvector $yH_n'(y)$
+to the eigenvalue $-1$ (TODO:check the quantity). By the standard
+results of the Sturm-Liouville theory we know that the eigenvector of
+$A_n$ to the smallest eigenvalue shall have no zeroes at all, and the
+eigenvectors to the successive eigenvalues ordered by magnitude shall
+have one zero more then the previous ones. By this fact, and by the
+number of zeroes of $H_n'$ we deduce that $A_n$ has $n$ eigenvalues
+smaller that $-1$. This leaves us with the hypothesis that there are
+no eigenvalues in the interval $(-1,0]$ which, by the time of writing
+this thesis, can be verified only by numerical calculations.\\
+The prescription $yH_n'(y)$ for the unstable mode, common for all the
+static solutions, originates from our arbitrary choice of the blow up
+time $T$, without the restrictions on the initial data. As it was
+already mentioned, author is not aware of any explicit criterion for
+the given initial data to blow up, not to even mention the time of the
+blow up. Now as the coordinate system \eqref{eq:3} is fine tuned to
+match the blow up time $T$, we shall ask what happens if the real blow
+up time is a bit different, lets say $T'=T+\delta$. We shall have
+\begin{align}
+  \label{eq:9}
+  H_0\left(\frac{\psi}{\sqrt{T+\delta-t}}\right)
+  &=H_0\left(\frac{\psi}{\sqrt{T-t}}\right)-\delta\frac{1}{2}\frac{\psi}{(T-t)^{3/2}}H_0'\left(\frac{\psi}{\sqrt{T-t}}\right)+\mathcal{O}(\delta^2)\\
+  &=H_0(y)-\delta\frac{1}{2} e^{-(-1)s} \underbrace{yH_0'(y)}_{\text{unstable
+    mode}}+\mathcal{O}(\delta^2)
+\end{align}
+which means that the change of the blow up time by $\delta$ results in
+the exponentially increasing perturbation in the coordinates
+\eqref{eq:3}, thus the mode $yH_n'(y)$ arises from the coordinate
+system not tuned to the blow up time.
 
-% We shall now answer the question
-% of how the convergence to this attractor is realized for initial data
-% $g$ consistent with \eqref{eq:en_flow} for $\delta=0$
-% \begin{align}
-%   \label{eq:2}
-%   f(\psi,0)=g(\psi)\\
-%   g(0)=g(\pi)=0.
-% \end{align}
-% It is clear, that for $g$ close enough to $\pi$ in $L^2([0,\pi])$ the
-% solution can have arbitrary small energy and thus should converge to
-% $\pi$. However, the boundary conditions prevent the solution from
-% converging to $\bar{f}_0$ uniformly,
-
-% First of all, we notice that there exist continous functions $g$ of
-% arbitrary small energy, yet close to $\pi$. Such functions are
-% obtained by
-
-
+Assuming that the last hypothesis (...) holds, the only stable blow up
+profile is $H_0$. The more detailed analysis of the blow up scenario
+and the possibility of continuation after the blow up will show up in
+the, now in preparation, paper.
 
 
 %%% Local Variables:

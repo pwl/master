@@ -1,4 +1,5 @@
-\subsection*{The case $k\in\Gamma_1$}
+\subsection{The case $k\in\Gamma_1$}
+\label{sec:case-kingamma_1}
 
 As $K$ is already self-adjoint we shall proceed to solving the
 eigenproblem
@@ -14,7 +15,7 @@ The general solutions to above ODE are the conical functions
   \alpha&=\frac{1}{2}\sqrt{k^2-8k+8}>0\\
   \beta&=\frac{1}{2}\left(-1+\sqrt{4\alpha^2-1+4\lambda}\right).
 \end{align}
-As $\sqrt{\sin\psi}P_\beta^{\alpha}(\cos\psi)\sim\psi^{1/2-\alpha}$
+(TODO: $\Lambda_m>0$) As $\sqrt{\sin\psi}P_\beta^{\alpha}(\cos\psi)\sim\psi^{1/2-\alpha}$
 grows too rapidly at $\psi=0$, we set $A=0$. We now analyse the
 behaviour at $\psi=\pi$ by expanding $P_\beta^{-\alpha}$ around
 $\cos\pi=-1$
@@ -33,7 +34,7 @@ $\beta\in\R$. But then $\beta+\alpha+1>0$ and the only possible zeroes
 are for
 \begin{align}
   \label{eq:3}
-  \alpha-\beta=m\\
+  \alpha-\beta=-m\\
   m\in\mathbb{N}_0
 \end{align}
 which gives rise to the following quantization of $\Lambda$
@@ -42,17 +43,17 @@ which gives rise to the following quantization of $\Lambda$
   \Lambda_m&=m^2+m(1+2\alpha)+\alpha+2-\frac{3}{2}k\\
   &=(m+\frac{1}{2}(1+2\alpha))^2-\frac{1}{4}(k-1)^2\\
   &=(m+\alpha+1-\frac{k}{2})(m+\alpha+\frac{k}{2})\\
-  &>0\quad\text{for } k\in\Gamma_1
+  &>0\quad\text{for } k\in\Gamma_1 (TODO, not true!!)
 \end{align}
 so, the equatorial map is stable for $k\in\Gamma_1$.  The general
 solutions to \eqref{eq:21} form an orthogonal basis
 \begin{align}
   \label{eq:11}
-  f_m(\psi)=\sqrt{\sin\psi}P_{\alpha-m}^{-\alpha}(\cos\psi)=\sqrt{\sin\psi}P_{m-1-\alpha}^{-\alpha}(\cos\psi).
+  f_m(\psi)=\sqrt{\sin\psi}P_{\alpha+m}^{-\alpha}(\cos\psi)
 \end{align}
-The sum of the coefficients $-\alpha$ and $\alpha-m$ is an integer
-$-m$ which means that $P_{\alpha-m}^{-\alpha}(z)$ and
-$P_{\alpha-m}^{-\alpha}(-z)$ are linearly dependent, therefore
+The sum of the coefficients $\alpha$ and $\alpha-m$ is an non-positive
+integer $-m$ which means that $P_{\alpha+m}^{-\alpha}(z)$ and
+$P_{\alpha+m}^{-\alpha}(-z)$ are linearly dependent, therefore
 $f_m(\psi)$ is either, symmetric or antisymmetric
 w.r.t. $\psi\ra\pi-\psi$.
 
