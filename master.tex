@@ -1,11 +1,12 @@
-% \documentclass{article}
+\documentclass{article}
 % \documentclass[preprint,prl,nofootinbib]{revtex4}
-\documentclass[preprint]{revtex4-1}
+% \documentclass[prl]{revtex4-1}
 
 \usepackage{graphicx}% Include figure files
 \usepackage{dcolumn}% Align table columns on decimal point
 \usepackage{amsmath,amsthm,amssymb,amscd}
 \usepackage[utf8]{inputenc}
+\usepackage{cite}
 % \usepackage[pdftex]{hyperref}
 
 \begin{document}
@@ -17,11 +18,19 @@
 \newcommand{\D}[1]{\mathcal{D}(#1)}
 \newcommand{\LSq}{L^2([0,\pi])}
 \newcommand{\R}{\mathbb{R}}
-\newtheorem{theorem}{Theorem}
-\newtheorem{corollary}{Corollary}
+\newcommand{\id}{\text{id}}
+% \newcommand{\dim}{\text{dim}}
 
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+
+\setlength{\parindent}{0in}
 
 \input{Harmonic_map.tex}
+
+\input{SkToSk.tex}
 
 \input{Equatorial_stability_new.tex}
 
@@ -41,9 +50,13 @@
 
 \input{Bisection.tex}
 
+\input{Static_solutions.tex}
+
 % \input{k_le_kcrit.tex}
 
 \input{Appendix.tex}
+
+\input{Bibliography.tex}
 
 \end{document}
 

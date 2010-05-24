@@ -1,0 +1,165 @@
+\section{Harmonic maps for $F:S^k\ra S^k$}
+\label{sec:harmonic-maps-skra}
+
+From now on we shall set both, the domain and target manifolds to
+$S^k$. We will use the equation \eqref{eq:31} in coordinates
+
+\subsection{Basic setup}
+\label{sec:basic-setup}
+
+We choose the coordinate frame on the domain sphere as
+$(\psi,\theta)$, where $\psi\in(0,\pi)$ is the longitudal angle with
+south pole at $\psi=0$ and $\theta$ is the set of coordinates on
+$S^{k-1}$ -- the equator of $S^k$. Analogously we introduce
+coordinates $(\Psi,\Theta)$ on the target sphere. The metric tensors
+for the given coordinate frames are
+\begin{align}
+  \label{eq:23}
+  &\text{domain:}&\quad &ds^2=d\psi^2+\sin^2\psi^2ds^2\big|_{S^{k-1}}\\
+  &\text{target:}&\quad &dS^2=d\Psi^2+\sin^2\Psi^2dS^2\big|_{S^{k-1}}.
+\end{align}
+Solving equations \eqref{eq:31} without any further assumptions
+presents an impossible task so we shall simplify our problem by
+assuming that $\Theta=\theta$ and $\Psi=f(\psi)$ so the map $F$ takes
+the form
+\begin{align}
+  \label{eq:24}
+  F:(\psi,\theta)\ra(f(\psi),\theta),
+\end{align}
+which leaves us with one function as a degree of freedom. The given
+setup has been introduced in ~\cite{Eells1964} and it consists of the
+idea that after removing the poles $S^k$ can be regarded as
+$(0,\pi)\times S^{k-1}$, and by applying remarks \ref{rem:1} and
+\ref{rem:2}.\\
+
+For $F$ to be continuous, we require that
+\begin{align}
+  \label{eq:27}
+  \lim_{\psi\ra0}f(\psi)=0\quad\lim_{\psi\ra\pi}f(\psi)=m\pi.
+\end{align}
+The choice of $f\ra0$ for $\psi\ra0$ was only the matter of
+convenience -- we haven't lost any generality because the situation is
+symmetric
+w.r.t. $f\ra f+n\pi$. Moreover, closing the domain of $\psi$ will not
+have any implications so we can drop the limits from \eqref{eq:27} \\
+
+The Dirichlet energy of the considered map now has a more transparent
+form
+\begin{align}
+  \label{eq:En_Sk}
+  E(f)=\frac{1}{2} V(S^{k-1})\int_{0}^{\pi}
+  \left(f'^2+(k-1)\frac{\sin^2f}{\sin^2\psi}\right) \sin^{k-1}\psi
+  d\psi.
+\end{align}
+Where we have changed the argument of $E$ from $F$ to $f$ as
+effectively it is a functional of $f$. The term $V(S^{k-1})$ has no
+qualitative impact on the behaviour of the system and we shall drop it
+from now on. The notable fact is the nontrivial $Z_2$ symmetry of the
+functional $E(f)$ manifested as the reflection
+\begin{align}
+  \label{eq:33}
+  f&\ra\pi-f,\\
+  E(f)&\ra E(\pi-f)=E(f),
+\end{align}
+leads to the immediate conclusion that every possible critical point
+will have its partner of the same homotopy degree (they will however
+not fulfill our artificial boundary condition $f(0)=0$, but we leave
+this problem until the next sections). This does not hold for the
+function invariant to \eqref{eq:33}, denoted as $f_e=\frac{\pi}{2}$,
+which by \eqref{eq:27} is not continuous, so it
+cannot be harmonic.\\
+
+Critical points of $E(f)$ are solutions to the corresponding
+Euler-Lagrange equation
+\begin{align}
+  \label{eq:f_psi_EL}
+  \frac{1}{\sin^{k-1}\psi}\left(\sin^{k-1}\psi f'\right)'-\frac{(k-1)}{2}\frac{\sin2f}{\sin^2\psi}=0.
+\end{align}
+with the boundary values
+\begin{align}
+  \label{eq:32}
+  f(0)=0\quad f(\pi)=m\pi.
+\end{align}
+The boundary conditions imply that the acceptable solutions of
+\eqref{eq:f_psi_EL} behave at $\psi=0$ as $f\sim\psi$, and analogously
+for $\psi=\pi$, $f\sim(\psi-\pi)$. Moreover, \eqref{eq:f_psi_EL} has
+trivial solution of the form $f=0$. By remark \ref{rem:1}, the
+identity map $f=\psi$ is also the solution. This is all what can we
+say about \eqref{eq:f_psi_EL} without diving into the theory of
+ODE's. The following section presents merely the results of the works
+~\cite{Corlette2001,Bizon1997}, where the infinite countable family of
+solutions to \eqref{eq:f_psi_EL} have been proved to exist. TO BE CONTINUED\\
+
+
+The possible solutions of the above equation have been extensively
+studied in ~\cite{Corlette2001,Bizon1997}, where the two infinite
+countable family of solutions have been proved to exist. The
+representatives of each family are harmonic maps of degree zero or one
+only. The authors have also shown a few properties of the possible
+solutions which are summarized in the following paragraph.
+
+\subsection{Solution family}
+\label{sec:solution-family}
+
+We shall denote a solution to \eqref{eq:f_psi_EL} as $f_n$,
+$n\in\mathbb{N}_0$ with $f_n$ being the map of degree zero for $n$
+even, and of degree one for $n$ odd. Each of $f_n$ has a partner
+$\bar{f}_n(\psi)=\pi-f_n(\psi)$, as a consequence of the
+$\mathbb{Z}_2$ symmetry of \eqref{eq:f_psi_EL}, which is also a
+solution of the same degree. The first two solutions of degree zero,
+are the two trivial ones, $f_0=0$ and $\bar{f}_0=\pi$, which are the
+only regular constant solutions. Next, corresponding to $n=1$, are the
+identity and anti-identity maps $f_1=\psi$ and $\bar{f}_1=\pi-\psi$,
+which are representatives of the degree one family. The solutions for
+$n>1$ have no closed form, but from ~\cite{Bizon1997} we know that
+each $f_n$ has exactly $n$ intersections with $\pi/2$ and $n-1$
+extrema (the latter holds for $n\ge1$).\\
+
+Due to the existence of conformal Killing field
+$K=\sin(\psi)\frac{\partial}{\partial \psi}$ (with $\mathcal{L}_K
+g=-2\cos\psi g$ TODO:check) the only local minimas are constant
+solutions $f_0=k\pi$. One can show this by analysing the second
+variation of the energy along the $v:=\mathcal{L}_K f=\sin\psi
+f'(\psi)$ around the critical point
+\begin{align}
+  \delta^2E(v,v)
+  &=\int_{-\pi/2}^{\pi/2}
+  \left(
+    v'^2+(k-1)\frac{\cos2f}{\sin^2\psi}v^2
+  \right)\sin^{k-1}\psi d\psi\\
+  &=-\int_{-\pi/2}^{\pi/2}
+  \left(\frac{1}{\sin^{k-1}\psi}\left(\sin^{k-1}\psi
+      v'\right)'-(k-1)\frac{\cos2f}{\sin^2\psi}v\right)v\sin^{k-1}\psi
+  d\psi\\
+  &=-\int_{-\pi/2}^{\pi/2}(Lv)(\psi)v(\psi)\sin^{k-1}\psi d\psi
+\end{align}
+Now from \eqref{eq:strange_variation} for critical points we have
+$Lv=(k-2)v$ and thus $\delta^2 E(v,v)\le0$ and the direction
+$v=\sin\psi f'(\psi)$ is unstable. This argument works for any
+nonconstant $f$ which is the solution to \eqref{eq:f_psi_EL}. For any
+constant solution such vector is null and is the trivial solution to
+the linearized equation. On the other hand the only constant solutions
+to \eqref{eq:f_psi_EL} are $f_0=0$, $\bar{f}_0=\pi$ and $f_e=\pi/2$
+($e$ as in \emph{equatorial}) and using the results from the following
+sections we claim that $f_0$ and $\bar{f}_0$ are linearly stable but
+$f_e$ is of infinite index for $3\le k\le6$, thus for such choice of
+$k$ it is the local maximum rather then local minimum.
+
+% Now when we have briefly introduced the possible local attractors we
+% shall ask what is their impact on the global dynamics.
+% Apart from being linearly stable, $f_0$ and $\bar{f}_0$ are separated
+% (TODO: in what sense?) global minimas of energy functional
+% ($E(f_0)=E(\bar{f}_0)=0$), so we would expect that for generic initial
+% data the solution should fall into one of such attractors. However, we
+% shall see that in the phase space there exists the set of solutions
+% that fall to neither of the attractors and thus imply the existence of
+% nontrivial solution to \eqref{eq:f_psi_EL}.
+
+(TODO: condition for solution to converge to particular constant
+solution)
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "master"
+%%% End:
