@@ -1,39 +1,239 @@
 \section{Gradient flow}
 \label{sec:gradient-flow}
 
+One can approach determining the properties of the critical points of
+a functional by numerous ways. For example one can prove the existence
+of solutions to Euler-Lagrange equations using some ODE techniques,
+but this rarely gives any insight into the geometry underlying the
+functional. Another more sophisticated way is to analyse the level
+sets of the functional and use the infinite dimensional variant of the
+Morse theory to obtain the number of critical points. There is however
+a distinguishable technique called the gradient flow, which consists
+of defining the flow, which solutions move along the gradient lines of
+the functional in the direction of the negative gradient.\\
 
-We will approach this problem with the means of the gradient
-flow by considering the flow
+
+The intuition behind the gradient flow is that if we start with some
+initial state, the gradient flow will push the solution into the
+minimum of the functional (if the functional is bounded from below),
+and if the flow exists for all times it will always obtain its
+asymptotic state. This approach is especially useful for finding the
+harmonic map of a given degree, because the degree is conserved during
+the flow, so the flow can possibly deform any map into its homotopy
+equivalent harmonic map. However, this scenario can hardly ever be
+realized because the flow usually runs into singular solutions in
+finite or infinite time. This is the case for Dirichlet
+energy of the maps $S^k\ra S^k$.\\
+
+The formal setup for the gradient flow of the Dirichlet energy
+\eqref{eq:30} is
+\begin{align}
+  \label{eq:41}
+    \begin{split}
+    F\big|_{t=0}&=F_0\\
+    \partial_t F^A&=-\frac{\delta E}{\delta F_A}=-L(F)^A
+  \end{split}
+\end{align}
+Where $L$ is calculated to be
+\begin{align}
+  \label{eq:43}
+  -L(F)^C=\Delta_g F^C+(\Gamma_{h(F)})_{AB}^{C}\frac{\partial
+    F^A}{\partial x^a}\frac{\partial F^B}{\partial x^b}g^{ab}
+\end{align}
+and generally is a quasi-linear operator. By our assumption on the
+domain and the target, \eqref{eq:41} is the set of parabolic
+PDE's. The differentiation of \eqref{eq:41} w.r.t. $t$ gives
+\begin{align}
+  \label{eq:40}
+  E_t(F)=-\int_M \partial_t F_A\partial_t F_B h^{AB} dV_M\le0
+\end{align}
+with $E_t(F)=0$ if and only if $F$ is harmonic. The flow \eqref{eq:41}
+therefore reduces the energy and asymptotically tends to some
+critical point of $E$.\\
+
+The question if there exists the harmonic map of the same homotopy
+class as the initial data $F_0$ is thus reduced to the existence of
+the solution to \eqref{eq:41} for all $t$ which is not singular at
+$t\ra\infty$. This method was used in \cite{Eells1964} to prove the
+theorem \ref{thm:Eells-Sampson}, which now can be reformulated in the
+following form.
+
+\begin{theorem}[Eells-Sampson \cite{Eells1964}]\label{thm:Eells-Sampson2}
+  If $N$ is compact and has non-positive Riemannian curvature, then
+  for every $F_0$ the solution to \eqref{eq:41} exists for
+  $t\in[0,\infty)$ and converges to a harmonic map for $t\ra\infty$.
+\end{theorem}
+
+As it has been mentioned, the solutions to \eqref{eq:41} are not
+guaranteed to exists for arbitrary large times. The criterion which
+guarantees that the solution will blow up at some time $T$ is given by
+Struwe
+
+\begin{theorem}[Struwe]\label{thm:Struwe}
+  For any time $T>0$ there exists a constant
+  $\epsilon=\epsilon(M,N,T)>0$ such that for any map $F_0:M\ra N$
+  which is not homotopic to a constant and satisfies $E(F_0)<\epsilon$
+  the solution $F$ to \eqref{eq:41} must blow up before time $2T$.
+\end{theorem}
+
+In the case when $M$ has non-positive Riemannian curvature the theorem
+also applies but, within a given homotopy class, the smooth harmonic
+map obtains the global minimum which is greater than the constant
+$\epsilon(M,N,T)$, thus no initial data can fulfill the criterion
+$E(F_0)<\epsilon$.
+
+\subsection{Gradient flow for $S^k\ra S^k$}
+\label{sec:gradient-flow-skra}
+
+Before we write any evolution equations we can state two basic facts
+about the Dirichlet energy \eqref{eq:36}. Due to the existence of the
+one parameter family of conformal maps of a sphere we can decrease the
+energy of a given map $F$ to arbitrary small values. The conformal map
+in local coordinates used in section \ref{sec:basic-setup} has the
+form
+\begin{align}
+  \label{eq:10}
+  \psi_A=2\arctan(e^A\tan(\psi/2)).
+\end{align}
+The above conformal map can be depicted as dragging the whole sphere
+along the longitudal coordinates in the direction of one of its poles
+(for $A$ large, this would be the north pole). We define the map $F_A$
+to be a composition
+\begin{align}
+  \label{eq:11}
+  F_A=F\circ\psi_A.
+\end{align}
+Due to the conformal properties of the map $\psi_A$ we obtain the
+following energy density of $F_A$
+\begin{align}
+  \label{eq:12}
+  e(F_A)_\psi=&e(F)_{\psi_A}\rho_A^2,\\
+  \rho_A=&\frac{1}{\cosh A-\cos\psi\sinh A},
+\end{align}
+where $e(F)_\psi$ is the energy density of $F$ at point $\psi$.  The
+map $F$ is regular, and therefore $e(F)_{\psi_A}$ is bounded by its
+maximal value $C(F)=\max_\psi\left(e(F)_\psi\right)$ and we have the
+following bound
+\begin{align}
+  \label{eq:13}
+  e(F_A)_\psi&\le C(F)\rho_A^2.
+\end{align}
+Assuming $k\ge3$, the Dirichlet energy of $F_A$ can be bounded by
+\begin{align}
+  \label{eq:14}
+  E(F_A)&=\int_{S^k}e(F_A)dV_{S^k}\\
+  &\le C(F)V(S^{k-1})\int_{0}^{\pi}\rho_A^2\sin^{k-1}\psi d\psi\\
+  &\le C(F)V(S^{k-1})\max_\psi(\sin^{k-3}\psi)\int_{0}^{\pi}\rho_A^2\sin^2\psi d\psi\\
+  &\le C_1(F,k)\frac{1}{1+\cosh A}.
+\end{align}
+which can be made arbitrary small by an appropriate choice of $A$. The
+above bound is not optimal, but is enough for our purposes. As the map
+$\psi_A$ leaves the north and south poles of $S^k$ unchanged, the map
+$F_A$ is of the homotopy class that $F$ and we conclude by the
+following theorem.
+
+\begin{theorem}\label{thm:skk-energy-bound}
+  For $k\ge3$ and any given map $F:S^k\ra S^k$ there is a map within
+  the homotopy class of $F$ of arbitrary small Dirichlet energy.
+\end{theorem}
+
+The consequence of theorems \ref{thm:Struwe} and
+\ref{thm:skk-energy-bound} is that in any homotopy class of maps
+$S^k\ra S^k$ there are maps for which the gradient flow will yield a
+singular behaviour. From this point we assume the map $F:S^k\ra S^k$
+is
+consistent with the ansatz \eqref{eq:24}.\\
+
+From this point we will assume the map $F:S^k\ra S^k$ is consistent
+with the ansatz \eqref{eq:24} and we shall consider the functional
+$E(f)$ as defined in \eqref{eq:36}. We state the following.
+
+\begin{theorem}
+  For $k\ge3$ the only local minima of $E(f)$ are $f=n\pi$.
+\end{theorem}
+\begin{proof}
+  To show the thesis it is enough to find a vector $v$ such that along
+  $v$ the energy decreases, or equivalently
+  \begin{align}
+    \label{eq:18}
+    \delta^2E(v,v)<0.
+  \end{align}
+  It turns out that the conformal Killing field
+  \begin{align}
+    \label{eq:20}
+    K=\sin\psi\frac{\partial}{\partial \psi}.
+  \end{align}
+  which is the generator of \eqref{eq:10} has the required
+  property. We now set $v=f'(\psi)\sin\psi$, for which
+  \begin{align}
+    \delta^2E(v,v)
+    &=\int_0^{\pi}
+    \left(
+      v'^2+(k-1)\frac{\cos2f}{\sin^2\psi}v^2
+    \right)\sin^{k-1}\psi d\psi\\
+    &=-\int_0^{\pi}
+    \left(\frac{1}{\sin^{k-1}\psi}\left(\sin^{k-1}\psi
+        v'\right)'-(k-1)\frac{\cos2f}{\sin^2\psi}v\right)v\sin^{k-1}\psi
+    d\psi\\
+    &=(v,\mathcal L v).
+  \end{align}
+  From \eqref{eq:strange_variation} and by the fact that $f$ is the
+  critical point we have
+  \begin{align}
+    \label{eq:21}
+   \mathcal{L}v=(2-k)v
+  \end{align}
+  and thus
+  \begin{align}
+    \label{eq:22}
+    \delta^2 E(v,v)=(2-k)\lVert v\rVert^2\le0.
+  \end{align}
+  This argument works for any non-constant $f$ which is the solution
+  to \eqref{eq:f_psi_EL}. But the only constant regular stationary
+  points $f=n\pi$ are the global minima of the Dirichlet energy which
+  completes the proof.
+\end{proof}
+
+Applying the gradient flow to \eqref{eq:36} we obtain the following
+Cauchy problem
 \begin{equation}
   \label{eq:en_flow}
   \begin{split}
-    f_t&=-\frac{\delta E}{\delta f}=\frac{1}{\sin^{k-1}\psi}\left(\sin^{k-1}\psi
-      f'\right)'-\frac{(k-1)}{2}\frac{\sin2f}{\sin^2\psi}\\
-    f\left(t,0\right)&=0\\
-    f\left(t,\pi\right)&=m\pi\quad m\in\mathbb{N}
+    f_t&=\frac{1}{\sin^{k-1}\psi}\left(\sin^{k-1}\psi
+      f'\right)'-\frac{(k-1)}{2}\frac{\sin2f}{\sin^2\psi},\\
+    f(0,\psi)&=f_0(\psi),\\
+    f(t,0)&=0\quad f(t,\pi)=m\pi.
   \end{split}
 \end{equation}
-Such flow is also known as harmonic map flow because stationary points
-of it coincide with the harmonic maps as they are solutions of the ODE
-\eqref{eq:f_psi_EL}. The choice of $\delta$ reduces the class of
-possible stationary points to maps of homotopy degree up to one. Under
-evolution according to \eqref{eq:en_flow} the energy decreases
+
+
+The choice of $m$ reduces the class of possible stationary points
+to maps of homotopy degree up of $m$. Under evolution according to
+\eqref{eq:40} the energy decreases
 \begin{align}
-  \label{eq:en_t}
-  E_t(f)&=\lim_{h\ra0}\frac{E(f(t+h))-E(f(t))}{h}\\
-  &=\lim_{h\ra0}\frac{E(f+h f_t+\mathcal{O}(h^2))-E(f)}{h}\\
-  % =\lim_{h\ra0}\left(\frac{\delta E}{\delta f}(f_t)+\mathcal{O}h\right)\\
-  &=\int_{-\pi/2}^{\pi/2}\frac{\delta E}{\delta f}f_t\sin^{k-1}\psi d\psi\\
-  &=-\int_{-\pi/2}^{\pi/2}f_t^2\sin^{k-1}\psi d\psi\le0
+  \label{eq:37}
+  E_t(f)=-\int_0^{\pi}f_t^2\sin^{k-1}\psi d\psi
 \end{align}
 with $E_t(f)=0$ iff $f_t=0$. On the other hand, $E(f)\ge0$ so for
 generic initial data we would expect energy to asymptotically decrease
-to one of its local minimas. Such minimas can be located only at
+to one of its local minima. Such minima can be located only at
 stationary points which are not unstable under linear
 perturbation. Due to the existence of conformal Killing field
 $K=\sin(\psi)\frac{\partial}{\partial \psi}$ (with $\mathcal{L}_K
-g=-2\cos\psi g$ TODO:check) the only local minimas are constant
+g=-2\cos\psi g$ TODO:check) the only local minima are constant
 solutions $f_0=k\pi$.
+
+% The parabolic equations of the form $f_t=L(f)$ (with $L$ being
+% elliptic and possibly non-linear) have proved to be the useful tool
+% for finding the solutions to the equation $L(f)=0$. In particular, if
+% $L$ originates from the variation of some non-negative functional,
+% let's say $E(f)\ge0$, its value decreases along the solutions to
+% $f_t=L(f)$, i.e. $(E(f))_t\le0$, so the solutions of the evolution
+% equation should formally converge to some point where $f_t=0$. We say
+% formally, because for some choices of $L$, the evolution equation can
+% lead to singular solutions in finite time, preventing the function $u$
+% from approaching to the stationary point. We shall see that this is
+% the case for \eqref{eq:36}.\\
 
 %%% Local Variables:
 %%% mode: latex

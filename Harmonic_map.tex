@@ -1,7 +1,5 @@
-\section{Preliminaries}
+\section{Harmonic maps}
 \label{sec:preliminaries}
-
-!!!Eels1964!!!\\\\
 
 Given two compact manifolds $(M,g)$ and $(N,h)$ we define the smooth
 map $F:M\ra N$. To comply with the terminology used in literature, we
@@ -35,43 +33,71 @@ indeed, for real function $u$ we have
   e(u)=\frac{1}{2}<g,u^*1>=\frac{1}{2}g^{ij}\partial_i u\partial_j u
   =\frac{1}{2}\lVert\nabla u\rVert^2.
 \end{align}
+(TODO: the generalization of harmonic function)
+\begin{definition}\label{def:regular-map}
+  We say that a map $F$ is regular if the corresponding Dirichlet
+  energy density is finite
+  \begin{align}
+    \label{eq:34}
+    e(F)<\infty.
+  \end{align}
+\end{definition}
+
 Integrating $e(F)$ over $M$, we obtain the Dirichlet energy of the
 mapping $F$
 \begin{align}\label{eq:En_general}
-  E(F)=\frac{1}{2}\int_M e(F)dV_M
+  E(F)=\frac{1}{2}\int_M e(F)dV_M.
 \end{align}
 % For various choices of the source manifold and the target manifold, we
 % obtain various models, which by physicists are also called the sigma
 % models.
+
 By defining a functional on the space of maps $M\ra N$ we distinguish
 the class of maps for which the functional is extremalized. Depending
 on the domain manifold, the extrema of \eqref{eq:En_general} have
 different names in literature. We will be dealing with harmonic maps
-with Riemannian manifold as a domain or with wave maps if the domain
-is a Minkowski manifold. By choosing the local coordinate frames $x^a$
-on $M$ and $F^A$ on $N$ we can write \eqref{eq:En_general} as
+with Riemannian manifold as a domain, or with wave maps if the domain
+is a Minkowski manifold.
+
+\begin{remark}
+  Dirichlet energy of any map from a Riemannian manifold to a
+  Riemannian manifold is non-negative.
+\end{remark}
+
+By choosing the local coordinate frames
+$x^a$ on $M$ and $F^A$ on $N$ we can write \eqref{eq:En_general} as
 \begin{align}
   \label{eq:30}
   E(F)=\frac{1}{2}\int_M h_{AB}(F)\frac{\partial F^A}{\partial
     x^a}\frac{\partial F^B}{\partial x^b}g^{ab}dV_M.
 \end{align}
+
 % which resembles the Lagrangian for a sigma model (TODO:example).
 By the variational calculus, the critical points of \eqref{eq:30} are
 the solutions to the following Euler-Lagrangian equations
 \begin{align}
   \label{eq:31}
   \Delta_g F^C+(\Gamma_{h(F)})_{AB}^{C}\frac{\partial F^A}{\partial
-    x^a}\frac{\partial F^B}{\partial x^b}g^{ab}=0.
+    x^a}\frac{\partial F^B}{\partial x^b}g^{ab}=0,
 \end{align}
-This is a set of $\dim(N)$ elliptic semi linear PDE's.
+where $\Delta_g$ is the Laplace-Beltrami operator on $M$ and
+$\Gamma_{h(F)}$ is the Christoffel symbol of the Levi-Civita
+connection on $N$. From now on, we shall assume that both, the domain
+and the target manifolds, are Riemannian, and in consequence the above
+set of semi-linear PDE's is elliptic.\\
 
 The problem of existence of nontrivial solutions to \eqref{eq:31} in
 general is still open, but there are variety of partial results
 including e.g.
 
-\begin{theorem}[Eels,Sampson]
-  Given the target manifold $N$ has non-positive Riemannian curvature,
-  there exists a harmonic map for every domain manifold $M$.
+\begin{theorem}[Eells-Sampson
+  \cite{Eells1964}]\label{thm:Eells-Sampson}
+  If $N$ is compact and has non-positive Riemannian curvature, then
+  every homotopy class of maps $M\ra N$ contains a harmonic map whose
+  energy is an absolute minimum in the given homotopy class.
+  % Suppose $M$ is compact, $\partial M=\varnothing$ and that the
+  % sectional curvature $K^N$ of $N$ is non-positive. Then there exists
+  % a harmonic map of any given homotopy class.
 \end{theorem}
 
 One can also easily verify that the identity map $\id:M\ra M$ is a
@@ -80,7 +106,7 @@ $F^A=x^A$ into \eqref{eq:31}. The energy density of the identity map
 is $e(\id)=\dim(M)/2$.\\
 
 \begin{remark}\label{rem:1}
-  The identity map $\id:M\ra M$ is harmonic.
+  The identity map $\text{\emph{id}}:M\ra M$ is harmonic.
 \end{remark}
 
 The following remark can be also proved easily.
