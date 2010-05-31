@@ -1,43 +1,207 @@
-\section{Stability of the ground states}
+\section{Stability of harmonic maps}
 \label{sec:stab-ground-stat}
 
-Given the solution $f_0=0$ we consider the small perturbation of the
-form $f=f_0+e^{\lambda t} v$ with $v<<1$. The equation for $v$ is thus
-of the form
-\begin{align}\label{eq:f0_L}
-  v''+(k-1)\cot\psi v'-(k-1)\frac{v}{\sin^2\psi}=\lambda v.
-\end{align}
-The critical exponents at $\psi=0$ are $1$ and $1-k$. The latter will
-be rejected because the finitness of the energy condition yields that
-the exponent $\alpha$ at $\psi=0$ has to fulfill
-$\alpha>1-\frac{k}{2}$. Now when we know that $v$ and $v'$ are square
-integrable we can multiply \eqref{eq:f0_L} by $v\sin^{k-1}\psi$ and
-integrate on the interval $[0,\pi]$ to get
-\begin{align}
-  \lambda\int_0^\pi v^2w d\psi=-\int_0^\pi\left(v'^2+\frac{k-1}{\sin^2\psi}v^2\right)\sin^{k-1}d\psi<0.
-\end{align}
-All the terms under the integrals are positive for $v\ne0$ so
-$\lambda<0$ and $f_0$ is linearly stable.\\
+In this section we calculate the spectra of perturbation operators
+around $f_0$ and $f_1$ in closed form. As we know already, $f_0$ is
+the global minimum of the Dirichlet energy and we expect it to be
+linearly stable. Also $f_1$ should turn out to be linearly stable
+under antisymmetric perturbations, and unstable under the symmetric
+ones due to \ref{thm:harmonic-map-index}. The linear stability can be
+approached by determining the eigenvalues of the Hessian
+$\delta^2E(f_n)$ introduced in \eqref{eq:26} which corresponds to
+solving the eigenproblem
 
-We use the similar reasoning for $f_1=\psi$ to get same critical
-exponents and after integration on the interval $[0,\pi/2]$ we obtain
+\begin{align}
+  \label{eq:f0_L}
+  \mathcal{L}_n v = \lambda v. \\
+  \label{eq:37}
+  \mathcal{L}_n v = -\left(v''+(k-1)\cot\psi
+    v'-(k-1)\frac{\cos(2f_n)}{\sin^2\psi}v\right)
+\end{align}
+
+with Dirichlet boundary conditions for $v$. If we perturb $f_n$ in the
+direction of $v$, the evolution of the perturbed state will evolve as
+
+\begin{align}
+  \label{eq:42}
+  f=f_n+e^{-\lambda t}v
+\end{align}
+as it follows from linearizing \eqref{eq:en_flow} around $f_n$.
+
+By $f_n(0)=0$ and $f_n(\pi)=m\pi$, the critical exponents at $\psi=0$
+and $\psi=\pi$ of solutions to \eqref{eq:37} are $1$ and $1-k$, of
+which only the first one fulfills the Dirichlet condition. Since at
+both ends of the interval $[0,\pi]$ only one solution is allowed the
+operator $\mathcal{L}_n$ does not have degenerate eigenspaces. Along
+with the fact that the potential term is symmetric under
+$\psi\ra\pi-\psi$ (by \eqref{eq:34}), it follows that $v$
+can be either symmetric or antisymmetric.\\
+
+We will denote the $m$-th eigenvalue of $\mathcal{L}_n$ as
+$\lambda_m^n$ along with its respective eigenvectors $v_m^n$ with
+$m\in\mathbb{N}_0$. As mentioned in the proof of
+\ref{thm:harmonic-map-index}, each $f_n$ has one eigenvector generated
+by the conformal Killing field and defined as follows
+\begin{align}
+  \label{eq:43}
+  v_{\text{conf}}^n=\sin\psi f_n'(\psi),
+\end{align}
+corresponding to the $\lambda_{\text{conf}}^n=(2-k)$. As $f_n'$ has
+exactly $n-1$ zeroes, there are $n-2$ eigenvalues smaller than
+$\lambda_{\text{conf}}^n=(2-k)$ which follows from the Sturm-Liouville
+theorem. We shall therefore denote
+\begin{align}
+  \label{eq:46}
+  v_{n-1}^n=\sin\psi f_n'(\psi)\\
+  \lambda_{n-1}^n=(2-k).
+\end{align}
+
+We can use the Sturm-Liouville theorem also for determining the exact
+parity of eigenvectors by the fact that $v_m^n$ should have $m-1$
+zeroes. The parity of $v_m^n$ can then be formulated as
+\begin{align}
+  \label{eq:50}
+  v_m^n(\psi)=(-1)^m v_m^n(\pi-\psi).
+\end{align}
+
+\subsection{Stability of $f_0$}
+\label{sec:stability-f_0}
+
+By \eqref{eq:37}, the eigenproblem for $f_0$ is
+\begin{align}
+  \label{eq:f0_L}
+  \mathcal{L}_0 v = \lambda v. \\
+  \label{eq:37}
+  \mathcal{L}_0 v = -v''-(k-1)\cot\psi v'+\frac{(k-1)}{\sin^2\psi}v
+\end{align}
+We can multiply \eqref{eq:f0_L} by $v\sin^{k-1}\psi$ and integrate on
+the interval $[0,\pi]$ to get
+\begin{align}\label{eq:47}
+  \lambda\int_0^\pi v^2w
+  d\psi=\int_0^\pi\left(v'^2+\frac{k-1}{\sin^2\psi}v^2\right)\sin^{k-1}d\psi<0.
+\end{align}
+
+All the terms under the integrals are positive for $v\ne0$ so
+$\lambda>0$ and $f_0$ is linearly stable. We can however calculate the
+spectrum of \eqref{eq:37} explicitly. First we change the independent
+function to
+\begin{align}
+  \label{eq:38}
+  w(\psi)= v(\psi)\sin^{(k-1)/2}\psi
+\end{align}
+and the eigenproblem simplifies to
+\begin{align}
+  \label{eq:39}
+  -w''+V_0(\psi)w=\left(\lambda-\frac{1}{2}(k-1)\right)w\\
+  V_0(\psi)=\frac{1}{4}(k^2-1)\cot^2\psi.
+\end{align}
+The general solution to \eqref{eq:39} can be written in terms of the
+associated Legendre polynomials
+\begin{align}
+  \label{eq:40}
+  w(\psi)=\sqrt{\sin\psi}\left(
+    AP^\alpha_{\beta}(\cos(\psi))+BP^{-\alpha}_{\beta}(\cos(\psi))
+  \right)\\
+  \label{eq:41}
+  \alpha=\frac{k}{2}\quad \beta=-\frac{1}{2}+\frac{1}{2}\sqrt{(k-1)^2+4\lambda}.
+\end{align}
+As $\sqrt{\sin\psi}P_\beta^{\alpha}(\cos\psi)\sim\psi^{1/2-\alpha}$
+grows too rapidly at $\psi=0$, we set $A=0$. We now analyse the
+behaviour at $\psi=\pi$ by expanding $P_\beta^{-\alpha}$ around
+$\cos\pi=-1$
+\begin{align}
+  \label{eq:2}
+  &P_\beta^{-\alpha}(z)=\\
+  &\frac{2^{\alpha/2}\Gamma(\alpha)}{\Gamma(\alpha-\beta)\Gamma(\beta+\alpha+1)}
+  (z+1)^{-\alpha/2}(1+\mathcal{O}((z+1)))\\
+  &-\frac{1}{\pi}2^{-\alpha/2}\sin(\pi\beta)\Gamma(-\alpha)
+  (1+z)^{\alpha/2}(1+\mathcal{O}((z+1)))
+\end{align}
+We obtain the quantization of $\lambda$ by setting the coefficient in
+the first term to zero. This can be achieved only by setting $\beta$
+so that one of the functions $1/\Gamma(z)$ will zero, which induces
+$\beta\in\R$. But then $\beta+\alpha+1>0$ and the only possible zeroes
+are for
+\begin{align}
+  \label{eq:3}
+  \alpha-\beta=-m\\
+  m\in\mathbb{N}_0
+\end{align}
+which gives rise to the following quantization of $\lambda$
+\begin{align}
+  \label{eq:6}
+  \lambda_m^0&=(1+m)(k+m),
+\end{align}
+which yields positive eigenvalues for any $k\ge1$. The eigenvectors
+corresponding to \eqref{eq:21} are
+\begin{align}
+  \label{eq:11}
+  w_m^0(\psi)=\sqrt{\sin\psi}P_{k/2+m}^{-k/2}(\cos\psi).
+\end{align}
+By the parity properties of $P_{k/2+m}^{-k/2}$ we get the symmetric
+and antisymmetric families of eigenvectors
+\begin{align}
+  \label{eq:44}
+  w_m^0(\psi)=(-1)^m w_m^0(\pi-\psi)
+\end{align}
+which agrees with the parity property. Going back to the eigenvectors
+of $\mathcal{L}_0$ we obtain
+\begin{align}
+  \label{eq:45}
+  v_m(\psi)=\sin(\psi)C^{\left(\frac{1+k}{2}\right)}_m(\cos\psi)
+\end{align}
+where $C^{(\lambda)}_m$ are the Gegenbauer polynomials.
+
+\subsection{Stability of $f_1$}
+\label{sec:stability-f_1}
+
+For $f_1$ the eigenproblem is stated as
+\begin{align}
+  \label{eq:f0_L}
+  \mathcal{L}_1 v = \lambda v. \\
+  \label{eq:37}
+  \mathcal{L}_1 v = -v''-(k-1)\cot\psi v'+(k-1)\frac{\cos2\psi}{\sin^2\psi}v
+\end{align}
+
+We can get the bound similar to \eqref{eq:47} but only for
+antisymmetric eigenvectors by integrating \eqref{eq:37} on the
+interval $[0,\pi/2]$
 \begin{align}
   \label{eq:f1_lambda}
-  \lambda\int_0^{\pi/2} v^2w d\psi=-\int_0^{\pi/2}\left(v'^2+(k-1)\frac{\cos2\psi}{\sin^2\psi}v^2\right)\sin^{k-1}d\psi<0
+  \lambda\int_0^{\pi/2} v^2w
+  d\psi=-\int_0^{\pi/2}\left(v'^2+(k-1)\frac{\cos2\psi}{\sin^2\psi}v^2\right)\sin^{k-1}d\psi<0
 \end{align}
-where we have used the antisymmetry of $v$ during the integration by
-parts. This suggests that we could split the phase space into two
-subspaces of symmetric and antisymmetric functions with respect to the
-point symmetry around $(\psi,f)=(\pi/2,\pi/2)$. Such subspaces are
-preserved by \eqref{eq:en_flow}, we shall call them $H^+$ and $H^-$
-respectively. However each of $H^+$ and $H^-$ when considered as a
-subspace of $H$ has instability due to the Killing field
-$K=\sin\psi\frac{\partial}{\partial\psi}$, which is perpendicular to
-both of them. (TODO: does $K$ decrease energy for all maps?)
+As in the case of $f_0$ we can solve \eqref{eq:f0_L} analytically to
+obtain
+\begin{align}
+  \label{eq:48}
+  v_m^1(\psi)=\sin(\psi)C^{\left(\frac{1+k}{2}\right)}_m(\cos\psi), \\
+  \label{eq:49}
+  \lambda_m^1=2 + k (-1 + m) + m + m^2.
+\end{align}
+The only eigenvalue smaller than zero is as expected $\lambda_0^1=2-k$
+and, by $C^{(a)}_0(x)=1$, the corresponding eigenvector is
+$v_0^1=\sin\psi$.
 
-Due to the energy minimizing properties of $f_0$ and $f_1$ we shall
-call them the ground states of $H^+$ and $H^-$. (TODO: $f_1$ globally
-minimizes the energy for $H^-$).
+\subsection{Stability of $f_2$ and $f_3$}
+\label{sec:stability-f_2-f_3}
+
+Although we cannot solve \eqref{eq:f0_L} analytically for $n\ge2$ we
+know the number of negative eigenvalues from theorem
+\ref{thm:harmonic-map-index} and their parity from \eqref{eq:50}.  We
+utilize that knowledge to cut down the number of unstable directions
+by restricting ourselves to the subspaces $H_+$ and $H_-$. This kills
+all the antisymmetric modes for $f_2$ and the symmetric ones for $f_3$
+reducing the index of both of them to $1$ in the respective
+subspaces. We can thus write the perturbed solutions around $f_2$ and
+$f_3$ as
+\begin{align}
+  \label{eq:53}
+  f_+=f_2+A_0e^{-\lambda_2^0t}v_2^0+A_2e^{-\lambda_2^2t}v_2^2,\\
+  f_-=f_3+B_1e^{-\lambda_3^1t}v_3^1+B_3e^{-\lambda_3^3t}v_3^3.
+\end{align}
+The first modes are the unstable ones while the latter are stable. We
+shall use this prescription in ... .
 
 
 %%% Local Variables:

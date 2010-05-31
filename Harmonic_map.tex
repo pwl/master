@@ -9,27 +9,27 @@ which would engage the metric tensors of both $(M,g)$ and $(N,h)$ and the mappin
 Given the basis $e^i$ on $T_x M$, the simplest scalar function on $T_x
 M\otimes T_x M$ is the scalar product $<,>_x$ defined as
 \begin{align}
-  \label{eq:25}
+  \label{eq:1}
   <e^i\otimes e^j,e^k\otimes e^l>_x=g^{ik}g^{jl}.
 \end{align}
 For two tensors $\tau$ and $\tau'$ from $T_x M\otimes T_x M$ we then
 have
 \begin{align}
-  \label{eq:26}
+  \label{eq:2}
   <\tau,\tau'>_x=\tau^{ij}\tau_{ij}'.
 \end{align}
 Given the map $F$, we can construct the pullback $F^*h\in T_x M\otimes
 T_x M$ and use the above scalar product to contract $g$ and $F^* h$
 and therefore build up a scalar function we intended
 \begin{align}
-  \label{eq:28}
+  \label{eq:3}
   e(F):=\frac{1}{2}<g,F^*h>_x.
 \end{align}
 This is the generalization of the Dirichlet energy density
 $\frac{1}{2}\lVert\nabla u\rVert^2$ for functions $u:M\ra\mathbb{R}$,
 indeed, for real function $u$ we have
 \begin{align}
-  \label{eq:29}
+  \label{eq:4}
   e(u)=\frac{1}{2}<g,u^*1>=\frac{1}{2}g^{ij}\partial_i u\partial_j u
   =\frac{1}{2}\lVert\nabla u\rVert^2.
 \end{align}
@@ -38,7 +38,7 @@ indeed, for real function $u$ we have
   We say that a map $F$ is regular if the corresponding Dirichlet
   energy density is finite
   \begin{align}
-    \label{eq:34}
+    \label{eq:5}
     e(F)<\infty.
   \end{align}
 \end{definition}
@@ -67,16 +67,16 @@ is a Minkowski manifold.
 By choosing the local coordinate frames
 $x^a$ on $M$ and $F^A$ on $N$ we can write \eqref{eq:En_general} as
 \begin{align}
-  \label{eq:30}
+  \label{eq:6}
   E(F)=\frac{1}{2}\int_M h_{AB}(F)\frac{\partial F^A}{\partial
     x^a}\frac{\partial F^B}{\partial x^b}g^{ab}dV_M.
 \end{align}
 
 % which resembles the Lagrangian for a sigma model (TODO:example).
-By the variational calculus, the critical points of \eqref{eq:30} are
+By the variational calculus, the critical points of \eqref{eq:6} are
 the solutions to the following Euler-Lagrangian equations
 \begin{align}
-  \label{eq:31}
+  \label{eq:7}
   \Delta_g F^C+(\Gamma_{h(F)})_{AB}^{C}\frac{\partial F^A}{\partial
     x^a}\frac{\partial F^B}{\partial x^b}g^{ab}=0,
 \end{align}
@@ -86,7 +86,7 @@ connection on $N$. From now on, we shall assume that both, the domain
 and the target manifolds, are Riemannian, and in consequence the above
 set of semi-linear PDE's is elliptic.\\
 
-The problem of existence of nontrivial solutions to \eqref{eq:31} in
+The problem of existence of nontrivial solutions to \eqref{eq:7} in
 general is still open, but there are variety of partial results
 including e.g.
 
@@ -102,7 +102,7 @@ including e.g.
 
 One can also easily verify that the identity map $\id:M\ra M$ is a
 harmonic map, regardless of the choice of $M$, by substituting
-$F^A=x^A$ into \eqref{eq:31}. The energy density of the identity map
+$F^A=x^A$ into \eqref{eq:7}. The energy density of the identity map
 is $e(\id)=\dim(M)/2$.\\
 
 \begin{remark}\label{rem:1}

@@ -1,49 +1,52 @@
 \section{Blow-up}
 \label{sec:blow-up}
 
-As we mentioned, apart from the first global attractor $f_0$ there
-exists its image by the reflection symmetry $\bar{f}_0=\pi$ which is
-also a global minimum of the energy. It turns out that before reaching
-the second attractor the spatial derivative of the solution blows up
-at the edges of the interval $[0,\pi]$.\\
+Although the theorem \ref{thm:Struwe} states that the blow up will
+occur, it does not tell what form will it take. We shall now turn onto
+the mechanism of the blow up for the generic initial data.\\
 
-This statement was however verified by the numerical simulations only
-as the proof of such theorem would exceed the level of this thesis by
-far. This is due to the fact, that apart from the blow up scenario
-presented here, there might exist also some other scenarios. Also the
-stability analysis proposed here is only local (linear), and it might
-turn out that for some large enough perturbations the blow up would
-exhibit different behaviour.\\
-
-We now proceed to the explanation of the proposed blow up mechanism.
-The blow up can be localized only on the edge of the interval
+From now on assume that the blow up time $T$ is known a priori. The
+blow up can be localized only on the edges of the interval
 $[0,\pi]$. This can be argued by the fact that the energy
-\eqref{eq:En_Sk} decreases, so is finite for all times.  This in turn
-implies that $f'$ has to be locally $L^2$ for all times inside the
-open interval $(0,\pi)$. However, on the sides of the interval the
-measure tends to zero and the discontinuity at $\psi=0$ or $\psi=\pi$
-does not disagree with the finiteness of the energy. We conclude, that
-the blow up is localized at the boundary. Because of the reflection
-symmetry $f(\psi)\ra f(\pi-\psi)$ of the Euler-Legendre equations we
-can focus on one of the edges solely, lets say $\psi=0$. We write the
-equation \eqref{eq:en_flow} up to first corrections in $\psi$ to
-obtain
+\eqref{eq:En_Sk} decreases so it is finite for all times. This in turn
+implies that $f'$ has to be locally $L^2$ for $t<T$ inside the open
+interval $(0,\pi)$, so the only places the $f'$ cannot be controlled
+are the boundaries of $[0,\pi]$.\\
+
+Because of the reflection symmetry $f(\psi)\ra f(\pi-\psi)$ of the
+Euler-Legendre equations we can focus our analysis on one of the edges
+solely, lets say $\psi=0$. Also as the possibly uncontrolled behaviour
+is expected within the small neighbourhood of some given point on
+$S^k$ the curvature of the domain of the map won't play any role so we
+change the domain manifold to $\mathbb{R}^k$ being the space tangent
+to $S^k$ at $\psi=0$. Therefore in this section we will analyse the
+behaviour of the gradient flow for maps $\mathbb{R}^k\ra S^k$
+satisfying the ansatz analogous to \eqref{eq:16} where the role of
+$\psi$ is taken by the radial variable $r$ and $f$ is replaced by $h$.
+For such map the energy is
+\begin{align}
+  \label{eq:51}
+  E(h)=\frac{1}{2}\int_0^\infty \left(h'^2+(k-1)\frac{\sin^2 h}{r^2}\right)r^{k-1}dr,
+\end{align}
+while the equation for the gradient flow is
 \begin{align}
   \label{eq:2}
   \partial_t
-  h=h''+\frac{(k-1)}{\psi}h'-\frac{k-1}{2}\frac{\sin2h}{\psi^2}+\mathcal{O}((h/\psi^2)^2).
+  h=h''+\frac{(k-1)}{r}h'-\frac{k-1}{2}\frac{\sin2h}{r^2}.
 \end{align}
-This equation has the scaling symmetry of the form
+The first thing that distinguishes this equation from
+\eqref{eq:en_flow} is that the above equation now possesses the
+scaling symmetry
 \begin{align}
   \label{eq:6}
-  \psi&\ra\lambda\psi \\
+  r&\ra\lambda r \\
   (T-t)&\ra\lambda^2(T-t)
 \end{align}
-for some arbitrary $T$. We therefore use the self-similar variables of
-the form
+where we recall $T$ as the blow up time. This motivates the use of the
+self-similar variables of the form
 \begin{align}
   \label{eq:3}
-  y=\frac{y}{\sqrt{T-t}}\quad s=-\log(T-t)\quad H(s,y)=h(t,\psi),
+  y=\frac{y}{\sqrt{T-t}}\quad s=-\log(T-t)\quad H(s,y)=h(t,r),
 \end{align}
 to transform \eqref{eq:2} into
 \begin{align}
@@ -56,19 +59,19 @@ self-similar type of blow up which is the stationary points of the
 above equation. If $H_0$ is such stationary point we have
 \begin{align}
   \label{eq:5}
-  H_0=H_0(y)=H_0\left(\frac{\psi}{\sqrt{T-t}}\right),
+  H_0=H_0(y)=H_0\left(\frac{r}{\sqrt{T-t}}\right),
 \end{align}
 this $H_0$ is sometimes also called the self-similar anasatz. The
 intuition behind such approach is that given an initial data
-$h(0,\psi)=H_0(\psi/\sqrt{T})$, the solution to \eqref{eq:2} will
+$h(0,r)=H_0(r/\sqrt{T})$, the solution to \eqref{eq:2} will
 shrink with the rate $1/\sqrt{T-t}$ until it reaches some singular
 state at $t=T$. Now, by the fact that the solution has to be regular
-for any finite $\psi>0$ and any time $t$ including $t=T$ we have to
+for any finite $r>0$ and any time $t$ including $t=T$ we have to
 impose the condition on $H_0$
 \begin{align}
   \label{eq:1}
-  \forall{\psi>0}:\lim_{t\ra
-    T}H_0\left(\frac{\psi}{\sqrt{T-t}}\right)=H_0(\infty)<\infty.
+  \forall{r>0}:\lim_{t\ra
+    T}H_0\left(\frac{r}{\sqrt{T-t}}\right)=H_0(\infty)<\infty.
 \end{align}
 Such requirement, together with $0=f(t,0)=H(s,0)$, gives us the proper
 boundary conditions for possible static solutions to \eqref{eq:4}. We
@@ -114,8 +117,8 @@ match the blow up time $T$, we shall ask what happens if the real blow
 up time is a bit different, lets say $T'=T+\delta$. We shall have
 \begin{align}
   \label{eq:9}
-  H_0\left(\frac{\psi}{\sqrt{T+\delta-t}}\right)
-  &=H_0\left(\frac{\psi}{\sqrt{T-t}}\right)-\delta\frac{1}{2}\frac{\psi}{(T-t)^{3/2}}H_0'\left(\frac{\psi}{\sqrt{T-t}}\right)+\mathcal{O}(\delta^2)\\
+  H_0\left(\frac{r}{\sqrt{T+\delta-t}}\right)
+  &=H_0\left(\frac{r}{\sqrt{T-t}}\right)-\delta\frac{1}{2}\frac{r}{(T-t)^{3/2}}H_0'\left(\frac{r}{\sqrt{T-t}}\right)+\mathcal{O}(\delta^2)\\
   &=H_0(y)-\delta\frac{1}{2} e^{-(-1)s} \underbrace{yH_0'(y)}_{\text{unstable
     mode}}+\mathcal{O}(\delta^2)
 \end{align}
