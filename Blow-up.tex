@@ -1,136 +1,212 @@
 \section{Blow-up}
 \label{sec:blow-up}
 
-Although the theorem \ref{thm:Struwe} states that the blow up will
-occur, it does not tell what form will it take. We shall now turn onto
-the mechanism of the blow up for the generic initial data.\\
+Although the theorem \ref{thm:Struwe} states that some kind of
+singular behaviour will occur, it does not tell what form will it
+take. We shall now turn onto the mechanism of the blow up for the
+gradient flow of the maps $S^k\ra S^k$.\\
 
-From now on assume that the blow up time $T$ is known a priori. The
+From now on we assume that the blow up time $T$ is known a priori. The
 blow up can be localized only on the edges of the interval
-$[0,\pi]$. This can be argued by the fact that the energy
-\eqref{eq:En_Sk} decreases so it is finite for all times. This in turn
-implies that $f'$ has to be locally $L^2$ for $t<T$ inside the open
-interval $(0,\pi)$, so the only places the $f'$ cannot be controlled
-are the boundaries of $[0,\pi]$.\\
+$[0,\pi]$. (Jak to łatwo pokazać?).\\
+
+
+% This can be argued by the fact that the energy
+% \eqref{eq:20} is finite for $t\leT$ which is equivalent to $e(f)\in
+% L^2([0,\pi],\sin^{k-1}\psi)$. However, at points
+
+% inside the open interval $(0,\pi)$, so
+% the only places the $f'$ cannot be controlled are the boundaries of $[0,\pi]$.\\
 
 Because of the reflection symmetry $f(\psi)\ra f(\pi-\psi)$ of the
-Euler-Legendre equations we can focus our analysis on one of the edges
-solely, lets say $\psi=0$. Also as the possibly uncontrolled behaviour
-is expected within the small neighbourhood of some given point on
-$S^k$ the curvature of the domain of the map won't play any role so we
-change the domain manifold to $\mathbb{R}^k$ being the space tangent
-to $S^k$ at $\psi=0$. Therefore in this section we will analyse the
-behaviour of the gradient flow for maps $\mathbb{R}^k\ra S^k$
-satisfying the ansatz analogous to \eqref{eq:16} where the role of
-$\psi$ is taken by the radial variable $r$ and $f$ is replaced by $h$.
-For such map the energy is
-\begin{align}
-  \label{eq:51}
-  E(h)=\frac{1}{2}\int_0^\infty \left(h'^2+(k-1)\frac{\sin^2 h}{r^2}\right)r^{k-1}dr,
+gradient flow equations we can focus our analysis on one of the edges,
+lets say $\psi=0$. Also as the possibly uncontrolled behaviour is
+expected only within some small neighbourhood of a pole of $S^k$ where
+the curvature of the domain won't play any role so we change the
+domain manifold to $\mathbb{R}^k$ being the space tangent to $S^k$ at
+$\psi=0$. Therefore in this section we will analyse the behaviour of
+the gradient flow for maps $\mathbb{R}^k\ra S^k$ satisfying the ansatz
+analogous to \eqref{eq:17} but with the metric tensors of the domain
+and the target manifolds given by
+\begin{align}\label{eq:630}
+  &\text{domain:}&\quad &ds^2=dr^2+r^2ds^2\big|_{S^{k-1}}\\
+  &\text{target:}&\quad &dS^2=dh(r)^2+\sin^2h(r)dS^2\big|_{S^{k-1}}.
 \end{align}
-while the equation for the gradient flow is
+The role of $\psi$ is then taken by the radial variable $r$ and $f$ is
+replaced by $h$. The Dirichlet energy of $h$ is
 \begin{align}
-  \label{eq:2}
-  \partial_t
-  h=h''+\frac{(k-1)}{r}h'-\frac{k-1}{2}\frac{\sin2h}{r^2}.
+  \label{eq:64}
+  E(h)=\frac{1}{2}\int_0^\infty \left(h'^2+(k-1)\frac{\sin^2
+      h}{r^2}\right)r^{k-1}dr,
 \end{align}
-The first thing that distinguishes this equation from
-\eqref{eq:en_flow} is that the above equation now possesses the
-scaling symmetry
+from which the following tension field can be derived
 \begin{align}
-  \label{eq:6}
-  r&\ra\lambda r \\
-  (T-t)&\ra\lambda^2(T-t)
+  \label{eq:65}
+  \tau(h)=h''+\frac{(k-1)}{r}h'-\frac{k-1}{2}\frac{\sin2h}{r^2}.
 \end{align}
-where we recall $T$ as the blow up time. This motivates the use of the
-self-similar variables of the form
+The Euler-Lagrange equations for the stationary point of $E(h)$ are
 \begin{align}
-  \label{eq:3}
-  y=\frac{y}{\sqrt{T-t}}\quad s=-\log(T-t)\quad H(s,y)=h(t,r),
+  \label{eq:63}
+  \tau(h)=0,\\
+  h(0)=0,\quad h(\infty)=m\pi.
 \end{align}
-to transform \eqref{eq:2} into
+The boundary condition at $\infty$ follows from the finiteness of
+$E(h)$. As in the case of the maps $S^k\ra S^k$, \eqref{eq:64} has no
+stable stationary points apart from $n\pi$. This can be shown using
+the conformal transform of $r_A:\mathbb{R}^k\ra\mathbb{R}^k$ and the
+rescaled function $h_A$ defined as follows
 \begin{align}
-  \label{eq:4}
+  \label{eq:76}
+  r_A(r)=e^A r,\quad h_A=h\circ r_A.
+\end{align}
+The energy of $h_A$ is
+\begin{align}
+  \label{eq:77}
+  E(h_A)=e^{(2-k)A}E(h)
+\end{align}
+and therefore for any $h\ne n\pi$ the energy can be decreased by
+rescaling the domain manifold. Also the tension field scales as
+follows
+\begin{align}
+  \label{eq:78}
+  \tau(h_A)_r=e^{2A}\tau(h)_{r_A}
+\end{align}
+where $\tau(h)_r$ is the tension field at the point $r$. The gradient
+flow for $E(h)$ is defined as
+\begin{align}
+  \label{eq:66}
+  \partial_t h=\tau(h).
+\end{align}
+The simple scaling property of the tension field motivates the ansatz
+\begin{align}
+  \label{eq:79}
+  h(t,r)=H_0(e^{A(t)}r).
+\end{align}
+The idea behind such ansatz is that the solutions to \eqref{eq:66}
+could consist of a constant profile sliding along the path generated
+by the conformal transform. Substituting \eqref{eq:79} to
+\eqref{eq:66} gives us
+\begin{align}
+  \label{eq:80}
+  A'e^{-2A}yH_0'(y)=\tau(H_0)_y.
+\end{align}
+$H_0$ is the function of $y$ only, so the term involving $t$ has to be
+constant and we get
+\begin{align}
+  \label{eq:86}
+  A'e^{-2A}=C,\\
+  \label{eq:81}
+  e^{2A}=\frac{1}{\sqrt{2C(T-t)}},\\
+  \label{eq:82}
+  CyH_0(y)=\tau(H_0)_y.
+\end{align}
+The choice of the sign of $C$ corresponds to the choice between the
+solutions which expand or shrink in time. The possibly singular
+behaviour is displayed only by the function which shrinks in time
+because if $H_0$ solves \eqref{eq:82}, its first spatial derivative at
+$r=0$ is
+\begin{align}
+  \label{eq:83}
+  \partial_r\left[ H_0(y)\right]_{r=0} =\frac{1}{\sqrt{2C(T-t)}}H_0'(0).
+\end{align}
+Therefore for $C>0$ as long as $H_0'(0)\ne0$ this quantity blows up in
+time $T$. We can fix $C$ to $1/2$ by setting the argument of $H_0$ to
+% The freedom to choose any $C>0$ is due to the rescaling of
+% $y$ by some constant factor, there is however a canonical choice
+% $C=1/2$ when the argument $y$ of $H_0$ becomes
+\begin{align}
+  \label{eq:84}
+  y=\frac{r}{\sqrt{T-t}},\\
+  \label{eq:85}
+  \frac{1}{2}yH_0'(y)=\tau(H_0)_y.
+\end{align}
+Setting $h=H_0(y)$ with $y$ as in \eqref{eq:84} a priori to solving
+\eqref{eq:86} is called the self-similar ansatz with $y$ being the
+self-similar variable, as it is conserved by the self-similar symmetry
+of \eqref{eq:66} given by
+\begin{align}
+  \label{eq:67}
+  r&\ra\lambda r,\\(T-t)&\ra\lambda^2(T-t).
+\end{align}
+The complete set of self-similar variables consists of $y$ and the
+logarithmic time $s$ defined by the relations
+\begin{align}
+  \label{eq:68}
+  y=\frac{r}{\sqrt{T-t}},\quad s=-\log(T-t),\quad h(t,r)=H(s,y).
+\end{align}
+
+% To this point we haven't mentioned if the equation \eqref{eq:85} does
+% have any solutions at all, there is however a paper by Fan
+% \cite{Fan1999} in which the author proves the existence of the family
+% of solutions to \eqref{eq:85} with the structure similar to that of
+% harmonic maps.
+
+In such variables \eqref{eq:66} takes the form
+\begin{align}
+  \label{eq:69}
   \partial_s
-  H=H''+\left(\frac{(k-1)}{y}-\frac{y}{2}\right)H'-\frac{k-1}{2}\frac{\sin2H}{y^2}.
+  H=H''+\left(\frac{(k-1)}{y}-\frac{y}{2}\right)H'-\frac{k-1}{2}\frac{\sin2H}{y^2}
 \end{align}
-The given change of variables is tuned to the analysis of the
-self-similar type of blow up which is the stationary points of the
-above equation. If $H_0$ is such stationary point we have
+The self-similar solution $H_0(y)$ is therefore a stationary point of
+\eqref{eq:69}. By the fact that the solution has to be regular for any
+$r>0$ and any time $t$ including $t=T$ we have to impose the condition
+on $H_0$
 \begin{align}
-  \label{eq:5}
-  H_0=H_0(y)=H_0\left(\frac{r}{\sqrt{T-t}}\right),
-\end{align}
-this $H_0$ is sometimes also called the self-similar anasatz. The
-intuition behind such approach is that given an initial data
-$h(0,r)=H_0(r/\sqrt{T})$, the solution to \eqref{eq:2} will
-shrink with the rate $1/\sqrt{T-t}$ until it reaches some singular
-state at $t=T$. Now, by the fact that the solution has to be regular
-for any finite $r>0$ and any time $t$ including $t=T$ we have to
-impose the condition on $H_0$
-\begin{align}
-  \label{eq:1}
-  \forall{r>0}:\lim_{t\ra
-    T}H_0\left(\frac{r}{\sqrt{T-t}}\right)=H_0(\infty)<\infty.
+  \label{eq:71}
+  \forall{r>0}:\lim_{t\ra T}
+  \left|H_0\left(\frac{r}{\sqrt{T-t}}\right)\right|=\left|H_0(\infty)\right|<\infty.
 \end{align}
 Such requirement, together with $0=f(t,0)=H(s,0)$, gives us the proper
-boundary conditions for possible static solutions to \eqref{eq:4}. We
-are therefore looking for the possible solutions to the ODE
+boundary conditions for possible static solutions to \eqref{eq:69}. We
+are therefore looking for the solutions to the ODE
 \begin{align}
-  \label{eq:7}
+  \label{eq:72}
   H_0''+\left(\frac{(k-1)}{y}-\frac{y}{2}\right)H_0'-\frac{k-1}{2}\frac{\sin2H_0}{y^2},\\
   H_0(0)=0\quad H_0'(\infty)=0.
 \end{align}
-The existence of solutions to \eqref{eq:7} were proved in [] and
-[]. Both authors have found the countable family of solutions
-$\{H_n\}_{n\ge0}$ displaying some interesting properties (possibly
-mentioned in the appendix), with the important one being the fact that
-$n$-th solution has exactly $n$ extremas.\\
-
-If we want the possible solution $H_n$ to appear as a final sate of
-some class of the initial data broader than $H_n$ itself, we
-additionally demand that $H_n$ is linearly stable. The stability
-analysis leads to the eigenproblem of the operator
+Fan \cite{Fan1999} used ODE techniques to prove the existence of the
+family of solutions to \eqref{eq:72} $H_n$, $n\ge0$, for $3\le k\le6$
+with the structure similar to that of the harmonic maps between
+spheres. Namely each $H_n$ has the nodal number $n$, $n-1$ extrema and
+$H_n\in[0,\pi]$. The index of $H_n$ is however not known, but the
+numerical evidence shows that $H_n$ is of index $n+1$. Comparing to
+the harmonic maps $S^k\ra S^k$ each $H_n$ has one unstable direction
+more than $f_n$, particularly $H_0$ is unstable. However, this
+instability turns out to be the artifact of the self-similar variables
+\eqref{eq:68}. As we recall, we have chosen the blow up time $T$ by
+hand and the self-similar variables \eqref{eq:68} are fine tuned to
+match this specific time. We shall ask what happens if the blow up
+time for the given initial data is a bit different, lets say that it
+is $T'=T+\delta$. We have
 \begin{align}
-  \label{eq:8}
-  A_n u=u''+\left(\frac{(k-1)}{y}-\frac{y}{2}\right)u'-(k-1)\frac{\cos2H_n}{\sin
-    y^2}u.
-\end{align}
-Using the identity \eqref{eq:strange_variation}, one can check, that
-$A_n$ is bounded, self-adjoint and possesses an eigenvector $yH_n'(y)$
-to the eigenvalue $-1$ (TODO:check the quantity). By the standard
-results of the Sturm-Liouville theory we know that the eigenvector of
-$A_n$ to the smallest eigenvalue shall have no zeroes at all, and the
-eigenvectors to the successive eigenvalues ordered by magnitude shall
-have one zero more then the previous ones. By this fact, and by the
-number of zeroes of $H_n'$ we deduce that $A_n$ has $n$ eigenvalues
-smaller that $-1$. This leaves us with the hypothesis that there are
-no eigenvalues in the interval $(-1,0]$ which, by the time of writing
-this thesis, can be verified only by numerical calculations.\\
-The prescription $yH_n'(y)$ for the unstable mode, common for all the
-static solutions, originates from our arbitrary choice of the blow up
-time $T$, without the restrictions on the initial data. As it was
-already mentioned, author is not aware of any explicit criterion for
-the given initial data to blow up, not to even mention the time of the
-blow up. Now as the coordinate system \eqref{eq:3} is fine tuned to
-match the blow up time $T$, we shall ask what happens if the real blow
-up time is a bit different, lets say $T'=T+\delta$. We shall have
-\begin{align}
-  \label{eq:9}
-  H_0\left(\frac{r}{\sqrt{T+\delta-t}}\right)
-  &=H_0\left(\frac{r}{\sqrt{T-t}}\right)-\delta\frac{1}{2}\frac{r}{(T-t)^{3/2}}H_0'\left(\frac{r}{\sqrt{T-t}}\right)+\mathcal{O}(\delta^2)\\
-  &=H_0(y)-\delta\frac{1}{2} e^{-(-1)s} \underbrace{yH_0'(y)}_{\text{unstable
-    mode}}+\mathcal{O}(\delta^2)
+  \label{eq:87}
+  \begin{split}
+    H_n\left(\frac{r}{\sqrt{T+\delta-t}}\right)
+    &=H_n\left(\frac{r}{\sqrt{T-t}}\right)-\delta\frac{1}{2}\frac{r}{(T-t)^{3/2}}H_n'\left(\frac{r}{\sqrt{T-t}}\right)+\mathcal{O}(\delta^2)\\
+    &=H_n(y)-\frac{\delta}{2} e^{s}
+    yH_n'(y)+\mathcal{O}(\delta^2)
+  \end{split}
 \end{align}
 which means that the change of the blow up time by $\delta$ results in
-the exponentially increasing perturbation in the coordinates
-\eqref{eq:3}, thus the mode $yH_n'(y)$ arises from the coordinate
-system not tuned to the blow up time.
+the exponentially increasing perturbation \eqref{eq:68} along
+$yH_n'$. As this mode arises due to the ambiguity in the choice of the
+self-similar variables it is also called the gauge mode, and does not
+appear if $T$ is chosen appropriately ($\delta=0$). This means that by
+the right choice of $T$ we can kill the gauge mode and claim the
+following hypothesis.
 
-Assuming that the last hypothesis (...) holds, the only stable blow up
-profile is $H_0$. The more detailed analysis of the blow up scenario
-and the possibility of continuation after the blow up will show up in
-the, now in preparation, paper.
+\begin{conjecture}
+  $H_n$ is of index $n$.
+\end{conjecture}
+
+In consequence, $H_0$ is the only linearly stable stationary point of
+\eqref{eq:69} apart from $H=0$, and thus blow up is of self-similar
+type and its profile is $H_0$.
+
+% Assuming that the last hypothesis (...) holds, the only stable blow up
+% profile is $H_0$. The more detailed analysis of the blow up scenario
+% and the possibility of continuation after the blow up will show up in
+% the, now in preparation, paper.
 
 
 %%% Local Variables:

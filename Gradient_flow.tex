@@ -1,149 +1,149 @@
 \section{Gradient flow}
 \label{sec:gradient-flow}
 
-One can approach determining the properties of the critical points of
-a functional by numerous ways. For example one can prove the existence
-of solutions to Euler-Lagrange equations using some ODE techniques,
-but this rarely gives any insight into the geometry underlying the
-functional. Another more sophisticated way is to analyse the level
-sets of the functional and use the infinite dimensional variant of the
-Morse theory to obtain the number of critical points. There is however
-a distinguishable technique called the gradient flow, which consists
-of defining the flow, which solutions move along the gradient lines of
-the functional in the direction of the negative gradient.\\
+We can approach the problem of existence and the properties of
+critical points of a functional in several ways. For example in one
+dimensional case one can prove the existence of solutions to
+Euler-Lagrange equations using some ODE techniques, but this rarely
+gives insight into the geometry underlying the functional. Another
+more sophisticated way is to analyse the level sets of the functional
+and use the infinite dimensional variant of the Morse theory to obtain
+critical points as it has been done e.g. in
+\cite{Corlette2001}. Finally, there is a powerful technique called the
+gradient flow, which consists of defining the flow, which solutions
+move along the gradient lines of the functional in the direction of
+the negative gradient. \\
 
-
-The intuition behind the gradient flow is that if we start with some
-initial state, the gradient flow will push the solution into the
-minimum of the functional (if the functional is bounded from below),
-and if the flow exists for all times it will always obtain its
-asymptotic state. This approach is especially useful for finding the
-harmonic map of a given degree, because the degree is conserved during
-the flow, so the flow can possibly deform any map into its homotopy
-equivalent harmonic map. However, this scenario can hardly ever be
-realized because the flow usually runs into singular solutions in
-finite or infinite time. This is the case for Dirichlet
-energy of the maps $S^k\ra S^k$.\\
+The intuition behind the gradient flow is that, if it exists for all
+times, it will push the solution into the minimum of the functional
+(if the functional is bounded from below). This approach is especially
+useful for finding the harmonic map of a given degree, because the
+degree is conserved during the flow.
 
 The formal setup for the gradient flow of the Dirichlet energy
 \eqref{eq:6} is
 \begin{align}
-  \label{eq:29}
+  \label{eq:32}
     \begin{split}
     F\big|_{t=0}&=F_0\\
-    \partial_t F^A&=-\frac{\delta E}{\delta F_A}=-L(F)^A
+    \partial_t F^A&=-\delta E(F^A)=\tau(F)^A
   \end{split}
 \end{align}
-Where $L$ is calculated to be
+where $\tau(F)$ is
 \begin{align}
-  \label{eq:30}
-  -L(F)^C=\Delta_g F^C+(\Gamma_{h(F)})_{AB}^{C}\frac{\partial
+  \label{eq:33}
+  \tau(F)^C=\Delta_g F^C+(\Gamma_{h(F)})_{AB}^{C}\frac{\partial
     F^A}{\partial x^a}\frac{\partial F^B}{\partial x^b}g^{ab}
 \end{align}
 and generally is a quasi-linear operator. By our assumption on the
-domain and the target, \eqref{eq:29} is the set of parabolic
-PDE's. The differentiation of \eqref{eq:29} w.r.t. $t$ gives
+domain and the target, \eqref{eq:32} is the set of parabolic
+PDE's. Utilizing \eqref{eq:32} we get
 \begin{align}
-  \label{eq:31}
-  E_t(F)=-\int_M \partial_t F_A\partial_t F_B h^{AB} dV_M\le0
+  \label{eq:34}
+  \frac{dE}{dt}=-\int_M \partial_t F_A\partial_t F_B h^{AB}
+  dV_M\le0
 \end{align}
-with $E_t(F)=0$ if and only if $F$ is harmonic. The flow \eqref{eq:29}
-therefore reduces the energy and asymptotically tends to some
+with $dE/dt=0$ if and only if $F$ is harmonic. The flow \eqref{eq:32}
+therefore reduces the energy and asymptotically tends to a
 critical point of $E$.\\
 
 The question if there exists the harmonic map of the same homotopy
 class as the initial data $F_0$ is thus reduced to the existence of
-the solution to \eqref{eq:29} for all $t$ which is not singular at
+the solution to \eqref{eq:32} for all $t$ which is not singular as
 $t\ra\infty$. This method was used in \cite{Eells1964} to prove the
 theorem \ref{thm:Eells-Sampson}, which now can be reformulated in the
-following form.
+following form:
 
 \begin{theorem}[Eells-Sampson \cite{Eells1964}]\label{thm:Eells-Sampson2}
-  If $N$ is compact and has non-positive Riemannian curvature, then
-  for every $F_0$ the solution to \eqref{eq:29} exists for
-  $t\in[0,\infty)$ and converges to a harmonic map for $t\ra\infty$.
+  If $N$ is compact and has non-positive sectional Riemannian
+  curvature, then for every $F_0$ the solution to \eqref{eq:32} exists
+  and converges to the minimizing harmonic map as $t\ra\infty$.
 \end{theorem}
 
-As it has been mentioned, the solutions to \eqref{eq:29} are not
-guaranteed to exists for arbitrary large times. The criterion which
-guarantees that the solution will blow up at some time $T$ is given by
-Struwe
+Unfortunately the technique of heat flow is not always so successful
+-- the solutions to \eqref{eq:32} are not guaranteed to exists for
+arbitrary large times. Actually, there is criterion which guarantees
+that the solution will cease to exist at some time $T$ which is given
+by Struwe.
 
-\begin{theorem}[Struwe]\label{thm:Struwe}
-  For any time $T>0$ there exists a constant
-  $\epsilon=\epsilon(M,N,T)>0$ such that for any map $F_0:M\ra N$
-  which is not homotopic to a constant and satisfies $E(F_0)<\epsilon$
-  the solution $F$ to \eqref{eq:29} must blow up before time $2T$.
+\begin{theorem}[Struwe \cite{Struwe1996}]\label{thm:Struwe}
+  For any time $T>0$ there exists a constant $\epsilon=\epsilon(T)>0$
+  such that for any map $F_0:M\ra N$ which is not homotopic to a
+  constant and satisfies $E(F_0)<\epsilon$ the solution $F$ to
+  \eqref{eq:32} must blow up before time $2T$.
 \end{theorem}
 
 In the case when $M$ has non-positive Riemannian curvature the theorem
-also applies but, within a given homotopy class, the smooth harmonic
-map obtains the global minimum which is greater than the constant
-$\epsilon(M,N,T)$, thus no initial data can fulfill the criterion
-$E(F_0)<\epsilon$.
+is still true but empty, because within a given homotopy class, the
+smooth harmonic map attains the global minimum which is greater than
+the constant $\epsilon(T)$, thus no initial data can fulfill the
+criterion $E(F_0)<\epsilon$.
 
 \subsection{Gradient flow for $S^k\ra S^k$}
 \label{sec:gradient-flow-skra}
 
 From this point we will assume the map $F:S^k\ra S^k$ is consistent
-with the ansatz \eqref{eq:16} and we shall consider the functional
-$E(f)$ as defined in \eqref{eq:21} as a base for
-\eqref{eq:29}. Applying the gradient flow to \eqref{eq:21} we obtain
-the following Cauchy problem
+with the ansatz \eqref{eq:17} and we shall consider the functional
+$E(f)$ as defined in \eqref{eq:20} as a base for
+\eqref{eq:32}. Applying the gradient flow to \eqref{eq:20} we obtain
+the following initial boundary problem
 \begin{equation}
   \label{eq:en_flow}
   \begin{split}
     f_t&=\frac{1}{\sin^{k-1}\psi}\left(\sin^{k-1}\psi
       f'\right)'-\frac{(k-1)}{2}\frac{\sin2f}{\sin^2\psi},\\
     f(0,\psi)&=g(\psi),\\
-    f(t,0)&=g(0)\quad f(t,\pi)=g(\pi).
+    f(t,0)&=0\quad f(t,\pi)=m\pi.
   \end{split}
 \end{equation}
 For convenience we have set $g(0)=0$ and $g(\pi)=m\pi$. The choice of
 $m$ is responsible for the homotopy degree of $g$ and therefore
-$f$. Under evolution according to \eqref{eq:31} the energy decreases
+$f$. Under evolution according to \eqref{eq:34} the energy decreases
 \begin{align}
-  \label{eq:32}
-  E_t(f)=-\int_0^{\pi}f_t^2\sin^{k-1}\psi d\psi<0
+  \label{eq:35}
+  \frac{dE}{dt}=-\int_0^{\pi}f_t^2\sin^{k-1}\psi d\psi<0
 \end{align}
 unless $f$ is a stationary point of $E(f)$. By the theorem
 \ref{thm:harmonic-map-index} the only point to which the flow can
 converge starting from a generic initial data is the constant map
-$f=n\pi$ for which The energy is zero. The flow will thus reduce the
-energy to an arbitrary small value. If the initial data is not
-homotopic to a constant, the theorem \ref{thm:Struwe} comes into play,
-which combined with \ref{thm:harmonic-map-index} guarantees that the
-blow up will occur. Moreover, by the numerical evidence, even if the
-boundary values are of the form $g(0)=g(\pi)=0$ the blow up can occur
+$f=n\pi$ for which the energy is zero. The flow will thus reduce the
+energy from $E(g)$ to an arbitrary small value. If the initial data is
+not homotopic to a constant, the theorem \ref{thm:Struwe} comes into
+play, which combined with theorem \ref{thm:harmonic-map-index}
+guarantees that the blow up will occur. Moreover, by the numerical
+evidence, even if the boundary values are of the form $g(0)=g(\pi)=0$
+the blow up can occur
 if the initial data lies in the attraction pool of e.g. $f=\pi$.\\
 
 The flow \eqref{eq:en_flow} conserves the parity of $g$, namely if
 \begin{align}
-  \label{eq:33}
+  \label{eq:36}
   g(\psi)=\pm g(\pi-\psi)
 \end{align}
 then at any given time $t\ge0$ we have
-\begin{align}\label{eq:35}
+\begin{align}\label{eq:37}
   f(t,\psi)=\pm f(t,\pi-\psi).
 \end{align}
 Our aim is to make the flow converge to one of the stationary points
-of $E$, which we know that have parity specified by \eqref{eq:34}. We
-will from now on use $g_+$ and $g_-$ as initial data obeying
+of $E$, of which we know that have parity specified by
+\eqref{eq:28}. We will henceforth denote $g_+$ and $g_-$ as initial
+data obeying
 \begin{align}
-  \label{eq:36}
+  \label{eq:38}
   g_+(\psi)=g_+(\pi-\psi),\\
   g_-(\psi)=-g_-(\pi-\psi)
 \end{align}
-which evolve inside the symmetric and antisymmetric subspaces
+which evolve in the apace of symmetric and antisymmetric maps
 respectively. We shall call such subspaces $H_+$ and $H_-$
-respectively. On each such subspace there are global energy minima
+respectively. For each such subspace there are global energy minima
 which are $f_0$ and $f_1$ respectively. The energy minimizing property
-of $f_0$ is a straight forward, the case of $f_1$ being the minimizer
-for $H_-$ is not that obvious but follows from the Morse analysis made
-in \cite{Corlette2001}. The generic initial data in any of those
-subspaces will converge to one of their respective vacua unless the
-blow up occurs. We will discuss the linear stability of the vacua
-$f_0$ and $f_1$ in the following section.
+of $f_0$ is a straight forward, the case of $f_1$ being the energy
+minimizer for $H_-$ is not that obvious but follows from the Morse
+analysis made in \cite{Corlette2001}. The generic initial data with
+suitable boundary conditions in any of those subspaces will converge
+to one of their respective vacua unless the blow up occurs. We will
+discuss the linear stability of the vacua $f_0$ and $f_1$ in the
+following section.
 
 %%% Local Variables:
 %%% mode: latex

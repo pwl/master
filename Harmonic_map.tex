@@ -46,7 +46,7 @@ indeed, for real function $u$ we have
 Integrating $e(F)$ over $M$, we obtain the Dirichlet energy of the
 mapping $F$
 \begin{align}\label{eq:En_general}
-  E(F)=\frac{1}{2}\int_M e(F)dV_M.
+  E(F)=\int_M e(F)dV_M.
 \end{align}
 % For various choices of the source manifold and the target manifold, we
 % obtain various models, which by physicists are also called the sigma
@@ -64,37 +64,43 @@ is a Minkowski manifold.
   Riemannian manifold is non-negative.
 \end{remark}
 
-By choosing the local coordinate frames
-$x^a$ on $M$ and $F^A$ on $N$ we can write \eqref{eq:En_general} as
+By choosing the local coordinate chart $x^a$ on $M$ and $F^A$ on $N$
+we can write \eqref{eq:En_general} as
 \begin{align}
   \label{eq:6}
   E(F)=\frac{1}{2}\int_M h_{AB}(F)\frac{\partial F^A}{\partial
     x^a}\frac{\partial F^B}{\partial x^b}g^{ab}dV_M.
 \end{align}
 
-% which resembles the Lagrangian for a sigma model (TODO:example).
-By the variational calculus, the critical points of \eqref{eq:6} are
-the solutions to the following Euler-Lagrangian equations
+It is convenient to introduce the so called tension field
 \begin{align}
   \label{eq:7}
-  \Delta_g F^C+(\Gamma_{h(F)})_{AB}^{C}\frac{\partial F^A}{\partial
-    x^a}\frac{\partial F^B}{\partial x^b}g^{ab}=0,
+  \tau(F)^C=\Delta_g F^C+\Gamma_{AB}^{C}(h)\frac{\partial
+    F^A}{\partial x^a}\frac{\partial F^B}{\partial x^b}g^{ab},
 \end{align}
 where $\Delta_g$ is the Laplace-Beltrami operator on $M$ and
-$\Gamma_{h(F)}$ is the Christoffel symbol of the Levi-Civita
-connection on $N$. From now on, we shall assume that both, the domain
+$\Gamma(h)$ is the Christoffel symbol of the Levi-Civita
+connection on $N$. The set of PDE's which the critical points of
+\eqref{eq:6} has to satisfy can then be stated as
+\begin{align}
+  \label{eq:8}
+  \tau(F)^C=0
+\end{align}
+
+From now on, we shall assume that both the domain
 and the target manifolds, are Riemannian, and in consequence the above
 set of semi-linear PDE's is elliptic.\\
 
-The problem of existence of nontrivial solutions to \eqref{eq:7} in
-general is still open, but there are variety of partial results
+The problem of existence of nontrivial solutions to \eqref{eq:8} in
+general is still open, but there is a variety of partial results
 including e.g.
 
 \begin{theorem}[Eells-Sampson
   \cite{Eells1964}]\label{thm:Eells-Sampson}
-  If $N$ is compact and has non-positive Riemannian curvature, then
-  every homotopy class of maps $M\ra N$ contains a harmonic map whose
-  energy is an absolute minimum in the given homotopy class.
+  If $N$ is compact and has non-positive sectional Riemannian
+  curvature, then every homotopy class of maps $M\ra N$ contains a
+  harmonic map whose energy is an absolute minimum in the given
+  homotopy class.
   % Suppose $M$ is compact, $\partial M=\varnothing$ and that the
   % sectional curvature $K^N$ of $N$ is non-positive. Then there exists
   % a harmonic map of any given homotopy class.
@@ -102,7 +108,7 @@ including e.g.
 
 One can also easily verify that the identity map $\id:M\ra M$ is a
 harmonic map, regardless of the choice of $M$, by substituting
-$F^A=x^A$ into \eqref{eq:7}. The energy density of the identity map
+$F^A=x^A$ into \eqref{eq:8}. The energy density of the identity map
 is $e(\id)=\dim(M)/2$.\\
 
 \begin{remark}\label{rem:1}
