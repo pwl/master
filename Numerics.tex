@@ -1,0 +1,78 @@
+\section{Numerical realization of the bisection}
+\label{sec:numer-real-mount}
+
+The procedure described in \ref{sec:bisection} can be easily realized
+by solving the PDE \eqref{eq:en_flow} numerically. For $H_+$, we start
+by choosing $g_+$ to be
+\begin{align}
+  \label{eq:98}
+  g_+(\psi)=\pi\sin\psi.
+\end{align}
+Then, the proper $A^*$ is found by bisection between the blow-up and
+the convergence to $0$. As the bisection cannot yield an exact value
+of $A^*$ (due to the finite machine precision) we are not able to
+reach precisely the saddle point. Rather, as we are starting a bit off
+the mid-line between attractors, the solution slides along it reaching
+the neighbourhood of $f_2$ along its stable direction, it stays put
+for some time but then starts to move again, slowly decaying along the
+unstable direction to finally either fall into $0$ or blow up. The
+smaller the numerical error of $A^*$ the closer we get to the mid-line
+and the longer solutions stays near $f_2$.\\
+
+From the numerical solutions to PDE \eqref{eq:en_flow} we can read the
+quantities involved in approaching and leaving the neighbourhood of
+$f_2$. These are the first two modes of $f_2$ along with their
+respective eigenvalues as presented in \eqref{eq:69}. To obtain the
+eigenvalues $\lb{2}{0}$ and $\lb{2}{2}$ we use the function
+$\partial_tf\big|_{r=\pi/2}$ which, while in a close neighbourhood of
+$f_2$ is
+\begin{align}
+  \label{eq:99}
+  \partial_t
+  f\big|_{r=\pi/2}=-\lambda_0A_0e^{-\lambda_0t}v_0(\pi/2)-\lambda_2A_2e^{-\lambda_2t}v_2(\pi/2)
+\end{align}
+(we have dropped the upper index for clarity). $v_0(\pi/2)$ and
+$v_2(\pi/2)$ are quantities depending on the normalization of our
+choice, and to further simplify the calculations we set
+\begin{align}
+  \label{eq:100}
+  v_{0,2}(\pi/2)=1.
+\end{align}
+The quantities $A_{0,2}$ and $\lb{2}{0,2}$ resulting from fitting the
+function \eqref{eq:99} to its analog from numerically solved PDE along
+with $A^*$ calculated from the bisection are presented in Table ???.\\
+
+Figures ??? present the stages of the evolution.
+
+% \begin{sideways}
+%     \centering
+%     \label{fig:Evol2}
+
+% \hspace*{-1.5in}
+\begin{figure}[h]
+  \label{fig:snapshot2}
+  \centering
+  \advance\leftskip-3cm
+  \input{./graphics/snapshot_to_multiplot.tex}
+  \caption{This figure contains a sequence of snapshots of numerical
+    solutions to the gradient flow equation with initial data
+    $g_-(\psi)=\psi+B^*\cdot \sin(2\psi)$ with $B^*=...$. Each
+    snapshot depicts $\lvert \partial_t f\rvert$ normalized so that
+    $\lvert \partial_{tr} f(t,\pi/2)\rvert=1$ along with the plot of
+    $f(t)$ in the upper right corner. For comparison the first two
+    modes of $f_3$ (blue dashed lines), normalized to
+    $v_{1,3}^{(3)\prime}(\pi/2)=1$ have been also depicted. The
+    evolution can now be divided into the following stages: ($t=0$)
+    non-linear evolution, ($t=1.5-2$) linear convergence to $f_3$
+    along $\vn{3}{3}$, ($t=2.5-3.$) linear divergence along
+    $\vn{1}{3}$, ($t=3.5$) non-linear approach to ground state $f_1$,
+    ($t\ge4$) linear convergence to $f_1$ along $\vn{1}{1}$.}
+\end{figure}
+    % \caption{The first six non-trivial solutions to}
+    %   \eqref{eq:f_psi_EL}}
+% \end{sideways}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "master"
+%%% End:
