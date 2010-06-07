@@ -1,74 +1,66 @@
 \section{Bisection}
 \label{sec:bisection}
 
-Now as we know, that for $k<k_{\text{crit}}$ equatorial map is of infinite
-index and thus does not play any role in the dynamics of the
-time-dependent equation we can proceed to the actual problem of
-finding the solutions to the nonlinear equation of harmonic maps. Let
-us first focus on the subspace $H_+$ (functions which are symmetric around
-$\pi/2$). We assume
-\begin{align}
-  f(0,\psi)=f(0,\pi-\psi).
-\end{align}
-Our aim is to prepare the one parameter family of symmetric initial
-data i.e.
-\begin{align}
-  f(0,x)=g_A(x)=A\cdot g(x)
-\end{align}
-and observe how do the asymptotic states look like for different
-choices of $A$. First of all, we take $g$ such that the flow for $A=1$
-converges to $\bar{f}_0$. As mentioned, the convergence to $\bar{f}_0$
-is preceded by the blow up of the first derivative at $\psi=0$
-according to the scenario described in \ref{sec:blow-up}.  On
-the other hand, if $0<A<<1$ then $g_A$ is just a linear perturbation
-of the ground state $f_0$, thus the flow will converge to
-$f_0$.
+% We will now use the gradient flow \eqref{eq:en_flow} to implement the
+% dynamical version of simple yet powerful technique called the mountain
+% pass, which allows to prove the existence of the saddle point of the
+% given functional. The intuition behind this technique is that given
+% the path connecting two valleys which are separated by mountains,
+% there has to be a point along that path from which if we have dropped
+% a ball it won't fall into neither of the valleys, and thus it will has
+% to roll down to some saddle point.\\
 
-% The sets of $A$
-% for which $f$ converges to one of the ground states are open, which
-% means that there is a closed set between them for which $f$ does not
-% converge to any of the ground states. (TODO: formalize!). (TODO: what
-% is an argument for such set to be one element only?).
+Although we already know, that $f_2$ and $f_3$ are saddle points of
+$E(f)$ we shall demonstrate in this section how to obtain them using
+only the gradient flow \eqref{eq:en_flow}.\\
 
-% \begin{align}
-%   \Gamma&=\{A\in\mathbb{R}_+|\lim_{t\ra\infty} f=f_0\}\\
-%   \bar{\Gamma}&=\{A\in\mathbb{R}_+|\lim_{t\ra\infty} f=\bar{f}_0\}.
-% \end{align}
-
-With the appropriate choice of $g$ (monotonic, $g'<0$) there will be
-only one $A^*$ such that for $A<A^*$ solution tends to the ground
-state $f_0$ and for $A>A^*$ it converges to $\bar{f}_0$ (TODO: how to
-show this?). For any initial data the energy has to decrease along the
-flow and for $A=A^*$ it cannot asymptotically decrease to $0$, so it
-has to be bounded from below by some constant $E^*$
+% The implementation of this procedure to $H_+$ will look as follows.
+Let us formally denote the basins of attraction of $0$ and $\pi$ as
+$\Gamma(0)$ and $\Gamma(\pi)$ respectively. We say formally, because
+the solutions to \eqref{eq:en_flow} will blow up (e.g. by Theorem
+\ref{thm:Struwe}) before asymptotically converging to either of the
+ground states. We start by choosing $g_+\in\Gamma(\pi)\cap H_+$ and
+$g_+(0)=g_+(\pi)=0$. We now form a path $g_A\in H_+$ such that
 \begin{align}
-  E(t)>E^*>0\quad E_t(t)<0.
+  \label{eq:93}
+  g_A=A\cdot g_+,\quad A\in[0,1].
 \end{align}
-Thus there is a limit
-\begin{align}
-  \lim_{t\ra\infty}E(t)=E^*\quad \lim_{t\ra\infty}E_t(t)=0
+Obviously for $0\le A\ll1$, $g_A\in \Gamma(0)$, so the curve is hooked
+up to both, $\Gamma(0)$ and $\Gamma(\pi)$. As $\Gamma(\pi)$ and
+$\Gamma(0)$ are disjoint open sets, the curve leading from one of them
+into the another has to contain the closed set which does not belong
+to neither of the open sets. By definition, initial data from this set
+cannot fall into any of those attractors. This means that there is at
+least one $A^*$ such that the flow starting from $g_{A^*}$ is not
+going to converge to the global energy minimum. Still, for any initial
+data the energy has to decrease along the flow and for $A=A^*$ it
+cannot asymptotically decrease to $0$, so its infimum $E^*$ obeys
+\begin{align}\label{eq:94}
+  E^*=\inf_{t\ge0} E(t)>0
 \end{align}
-but, by \eqref{eq:en_t}, $E_t(t)\ra0$ can happen only if $f_t\ra0$ so
-\begin{align}
+and hence, if $g_{A^*}$ won't blow up, there limiting values are
+\begin{align}\label{eq:95}
+  \lim_{t\ra\infty}E(t)=E^*>0,\quad \lim_{t\ra\infty}\frac{dE}{dt}(t)=0
+\end{align}
+but, $dE/dt\ra0$ can happen only if $\partial_t f\ra0$ so
+\begin{align}\label{eq:96}
   \lim_{t\ra\infty}f(t,\psi)=f^*(\psi)
 \end{align}
-which means, that $f^*$ is a symmetric solution to \eqref{eq:en_flow}
-Apart From $f_0$ As any change of $A^*$ in initial data $A^*\cdot g$
-changes the attractor to one of the ground states, $f^*$ will have at
-least one unstable mode due to the continuity of the solution
-w.r.t. the perturbation in $A$ (TODO: chance of getting the expression
-for such mode?). Moreover, as $f^*$ is nonconstant, it has an
-additional unstable mode due to the Killing vector
-$K=\sin(\psi)\frac{\partial}{\partial\psi}$. Those two unstable modes
-do not coincide because $Kf^*$ is antisymmetric while $\partial_A f$
-is symmetric (as the perturbated data is in $H^+$), so $f^*$ is of
-index at least $2$. Given, we choose $g$ to be generic (but still
-appropriate), we obtain the critical point $f_2:=f^*$ of index
-$2$.\\
-Analogous analysis for $H_-$ leads to the existence of the third
-stationary point $f_3$ of index $3$. (TODO: where does the third mode
-come from? From the argument about the zeroes of the Sturm-Liouville
-problem?)
+which means, that $f^*$ is a symmetric solution to
+\eqref{eq:f_psi_EL} with $E(f^*)=E^*$, different from the ground
+states and, by construction, it is a saddle point in $H_+$. As $g_+$
+was chosen to be generic, by such procedure we will obtain the saddle
+point of the lowest index, namely $f^*=f_2$.\\
+
+Analogous procedure can be applied to $H_-$ with $(\psi+g_-)\in
+H_-\cap\Gamma(\pi-\psi)$, $g_-(0)=g_-(\pi)=0$ and
+\begin{align}
+  \label{eq:97}
+  g_B=\psi+B\cdot g_-,\quad B\in[0,1]
+\end{align}
+to obtain $f_3$.\\
+
+
 
 %%% Local Variables:
 %%% mode: latex

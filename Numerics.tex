@@ -6,7 +6,7 @@ by solving the PDE \eqref{eq:en_flow} numerically. For $H_+$, we start
 by choosing $g_+$ to be
 \begin{align}
   \label{eq:98}
-  g_+(\psi)=\pi\sin\psi.
+  g_+(\psi)=\sin\psi.
 \end{align}
 Then, the proper $A^*$ is found by bisection between the blow-up and
 the convergence to $0$. As the bisection cannot yield an exact value
@@ -23,54 +23,150 @@ From the numerical solutions to PDE \eqref{eq:en_flow} we can read the
 quantities involved in approaching and leaving the neighbourhood of
 $f_2$. These are the first two modes of $f_2$ along with their
 respective eigenvalues as presented in \eqref{eq:69}. To obtain the
-eigenvalues $\lb{2}{0}$ and $\lb{2}{2}$ we use the function
-$\partial_tf\big|_{r=\pi/2}$ which, while in a close neighbourhood of
-$f_2$ is
+eigenvalues $\lb{2}{0,2}$ we use the function $\partial_t\partial_\psi
+f\big|_{\psi=0}$ which, while in a close neighbourhood of $f_2$ is
 \begin{align}
   \label{eq:99}
-  \partial_t
-  f\big|_{r=\pi/2}=-\lambda_0A_0e^{-\lambda_0t}v_0(\pi/2)-\lambda_2A_2e^{-\lambda_2t}v_2(\pi/2)
+  \partial_t\partial_\psi
+  f\big|_{\psi=0}=C_0e^{-\lb{2}{0}t}+C_2e^{-\lb{2}{2}t}.
 \end{align}
-(we have dropped the upper index for clarity). $v_0(\pi/2)$ and
-$v_2(\pi/2)$ are quantities depending on the normalization of our
-choice, and to further simplify the calculations we set
+After obtaining the data points from numerically solving PDE
+\eqref{eq:en_flow}, we fit \eqref{eq:99} with $C_{0,2}$ and
+$\lb{2}{0,2}$ as free parameters.  $C_{0,2}$ depend on the
+normalization of the unknown functions $v_{0,2}$ and their numerical
+values are insignificant to us. The same relation can be used to
+determine $\lb{3}{1,3}$ while close to $f_3$ by
+\begin{align}
+  \label{eq:101}
+  \partial_t\partial_\psi
+  f\big|_{\psi=0}=C_0e^{-\lb{3}{1}t}+C_2e^{-\lb{3}{3}t},
+\end{align}
+and similarly for $f_{0,1}$
 \begin{align}
   \label{eq:100}
-  v_{0,2}(\pi/2)=1.
+  \partial_t\partial_\psi f\big|_{\psi=0}&=D_{0}e^{-\lb{0}{0}} \\
+  \label{eq:102}
+  \partial_t\partial_\psi f\big|_{\psi=0}&=D_{1}e^{-\lb{1}{0}}.
 \end{align}
-The quantities $A_{0,2}$ and $\lb{2}{0,2}$ resulting from fitting the
-function \eqref{eq:99} to its analog from numerically solved PDE along
-with $A^*$ calculated from the bisection are presented in Table ???.\\
 
-Figures ??? present the stages of the evolution.
+The results from fitting to \eqref{eq:99} and \eqref{eq:101} compared
+to numerically solving \eqref{eq:42} are shown in the table
+\ref{tab:Lambda_comp}.
 
-% \begin{sideways}
-%     \centering
-%     \label{fig:Evol2}
-
-% \hspace*{-1.5in}
-\begin{figure}[h]
-  \label{fig:snapshot2}
+\begin{table}[h]
   \centering
-  \advance\leftskip-3cm
-  \input{./graphics/snapshot_to_multiplot.tex}
-  \caption{This figure contains a sequence of snapshots of numerical
-    solutions to the gradient flow equation with initial data
-    $g_-(\psi)=\psi+B^*\cdot \sin(2\psi)$ with $B^*=...$. Each
-    snapshot depicts $\lvert \partial_t f\rvert$ normalized so that
-    $\lvert \partial_{tr} f(t,\pi/2)\rvert=1$ along with the plot of
-    $f(t)$ in the upper right corner. For comparison the first two
-    modes of $f_3$ (blue dashed lines), normalized to
-    $v_{1,3}^{(3)\prime}(\pi/2)=1$ have been also depicted. The
-    evolution can now be divided into the following stages: ($t=0$)
-    non-linear evolution, ($t=1.5-2$) linear convergence to $f_3$
-    along $\vn{3}{3}$, ($t=2.5-3.$) linear divergence along
-    $\vn{1}{3}$, ($t=3.5$) non-linear approach to ground state $f_1$,
-    ($t\ge4$) linear convergence to $f_1$ along $\vn{1}{1}$.}
+  \begin{tabular}{| c | c | c | c |}\hline
+    $\lb{n}{m}$ & Gradient flow  &  Eigenproblem  \\\hline
+    $\lb{0}{0}$ & 2.9670  & 3 \\\hline
+    $\lb{1}{1}$ & 3.9963  & 4 \\\hline
+    $\lb{2}{0}$ & -2.8924  & -2.8926 \\\hline
+    $\lb{2}{2}$ & 4.5899  & 4.5911  \\\hline
+    $\lb{3}{1}$ & -10.5946  & -10.6650  \\\hline
+    $\lb{3}{3}$ & 4.4004 & 4.3942 \\\hline
+  \end{tabular}
+  \caption{Comparison of the eigenvalues calculated by solving
+    \eqref{eq:en_flow} and by solving \eqref{eq:42} for $k=3$. The
+    values from solving eigenproblem for $n=0,1$ are exact by
+    \eqref{eq:61} and \eqref{eq:68}.}
+  \label{tab:Lambda_comp}
+\end{table}
+
+
+\section{Details of numerical calculations}
+\label{sec:deta-numer-calc}
+
+Both, the eigenproblem and the gradient flow have been simulated using
+the programs written in ANSI C and using double precision
+arithmetic. The GSL library provided the set of standard time marching
+procedures using Runge-Kutta algorithms \cite{Galassi}.\\
+
+ODE \eqref{eq:f_psi_EL} have been solved by shooting from
+$(\psi,f)=(0,0)$ to the saddle points $(\pi,0)$ and $(\pi,\pi)$.
+Eigenproblem has been solved parallel to the ODE \eqref{eq:f_psi_EL}
+and eigenvalues have been obtained by the shooting method as well. In
+both problems we have used the series approximation to start near
+$(0,0)$ but not at $(0,0)$, as $(0,0)$ is a saddle point.\\
+
+The PDE \eqref{eq:33} have been solved using the methods of lines with
+the derivatives on r.h.s. of \eqref{eq:33} approximated by the three
+point stencils (order $2$ for the first derivative, order $1$ for the
+second derivative). Stencils were symmetric inside the grid and
+asymmetric on both of its edges. The time marching was run by the
+Runge-Kutta-Fehlberg (4,5) method from the GSL
+library\cite{Galassi}. The details of the simulations giving rise to
+the figures \ref{fig:snapshot_f2}--\ref{fig:Stages_f3} are given in
+table \ref{tab:num_details}.
+
+
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{|c|c|c|}\hline
+    Grid points       & 400                          & 400                        \\\hline
+    Domain            & $[0,\pi/2]$                  & $[0,\pi]$                  \\\hline
+    Initial data      & $\psi+B\sin(2\psi)$          & $A\sin(\psi)$              \\\hline
+    Critical value    & $B=1.24571310318894035$ & $A=2.10669393489537526$ \\\hline
+    Bisection error   & $B^*=B\pm10^{-15}\%$          & $A^*=A\pm10^{-15}\%$       \\\hline
+    Stepping function & \verb|rkf45|                 & \verb|rkf45|               \\\hline
+  \end{tabular}
+  \caption{Detailed parameters of numerical simulations.}
+  \label{tab:num_details}
+\end{table}
+
+
+\begin{figure}[h]
+  \centering \advance\leftskip-3cm
+  \input{./graphics/snapshot_f2.tex}
+  \caption{Sequence of snapshots of numerical solutions to the
+    gradient flow with initial data $g_+(\psi)=A^*\cdot \sin(\psi)$
+    with $A^*\approx2.106694$. Each snapshot depicts
+    $\lvert \partial_t f\rvert$ (red line, larger plot) normalized so
+    that $\lvert \partial_t\partial_\psi f(t,0)\rvert=1$ along with the
+    plot of $f(t)$ (the plot in the upper right corner). For
+    comparison the first two modes of $f_2$ (blue dashed lines),
+    normalized to $v_{0,2}^{(2)\prime}(0)=1$ have been also
+    depicted. The evolution can now be divided into the following
+    stages: ($t=0.0$) non-linear approach to $f_2$, ($t=1.4-2.9$)
+    linear convergence to $f_2$ along $\vn{2}{2}$, ($t=4.3-10.$)
+    linear divergence along $\vn{0}{2}$, ($t=3.5$) non-linear approach
+    to ground state $f_0$, ($t\ge4$) linear convergence to $f_1$ along
+    $\vn{1}{1}$.}\label{fig:snapshot_f2}
 \end{figure}
-    % \caption{The first six non-trivial solutions to}
-    %   \eqref{eq:f_psi_EL}}
-% \end{sideways}
+
+\begin{figure}[h]
+  \centering \advance\leftskip-3cm
+  \input{./graphics/snapshot_f3.tex}
+  \caption{Sequence of snapshots of numerical solutions to the
+    gradient flow with initial data $g_-(\psi)=\psi+B^*\cdot
+    \sin(2\psi)$ with $B^*\approx1.24568$. Each snapshot depicts
+    $\lvert \partial_t f\rvert$ (red line, larger plot) normalized so
+    that $\lvert \partial_t\partial_\psi f(t,\pi/2)\rvert=1$ along with
+    the plot of $f(t)$ (the plot in the upper right corner). For
+    comparison the first two modes of $f_3$ (blue dashed lines),
+    normalized to $v_{1,3}^{(3)\prime}(\pi/2)=1$ have been also
+    depicted. The evolution can now be divided into the following
+    stages: ($t=0$) non-linear evolution, ($t=1.5-2$) linear
+    convergence to $f_3$ along $\vn{3}{3}$, ($t=2.5-3.$) linear
+    divergence along $\vn{1}{3}$, ($t=3.5$) non-linear approach to
+    ground state $f_1$, ($t\ge4$) linear convergence to $f_1$ along
+    $\vn{1}{1}$.}\label{fig:snapshot_f3}
+\end{figure}
+
+\begin{figure}[h]
+  \centering \advance\leftskip-3cm
+  \input{./graphics/Gradient_flow_stages_f2}
+  \caption{Stages of the gradient flow evolution for symmetric initial
+    data described in the caption of figure \ref{fig:snapshot_f2}.}
+  \label{fig:Stages_f2}
+\end{figure}
+
+\begin{figure}[h]
+  \centering \advance\leftskip-3cm
+  \input{./graphics/Gradient_flow_stages_f3}
+  \caption{Stages of the gradient flow evolution for antisymmetric
+    initial data as described in the caption of figure \ref{fig:snapshot_f3}.}
+  \label{fig:Stages_f3}
+\end{figure}
 
 %%% Local Variables:
 %%% mode: latex

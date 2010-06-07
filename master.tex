@@ -1,15 +1,17 @@
-\documentclass{article}
+% \documentclass{report}
+\documentclass[oneside]{memoir}
 % \documentclass[preprint,prl,nofootinbib]{revtex4}
-% \documentclass[preprint,prl,nofootinbib]{revtex4-1}
+% \documentclass[prl]{revtex4-1}
 
 \usepackage{graphicx}% Include figure files
 \usepackage{dcolumn}% Align table columns on decimal point
 \usepackage{amsmath,amsthm,amssymb,amscd}
 \usepackage[utf8]{inputenc}
+\usepackage{pstricks}
 \usepackage{cite}
+\usepackage{verbatim}
 % \usepackage[pdftex]{hyperref}
 
-\begin{document}
 
 \newcommand{\ra}{\rightarrow}
 \newcommand{\xa}{x}
@@ -19,6 +21,10 @@
 \newcommand{\LSq}{L^2([0,\pi])}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\id}{\text{id}}
+\newcommand{\vn}[2]{v_{#1}^{(#2)}}
+\newcommand{\wn}[2]{w_{#1}^{(#2)}}
+\newcommand{\lb}[2]{\lambda_{#2}^{(#1)}}
+
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{definition}{Definition}
@@ -26,42 +32,81 @@
 \newtheorem{remark}{Remark}
 \newtheorem{conjecture}{Conjecture}
 
-% \renewcommand{cite}[1]{}
+
+\makechapterstyle{mychapterstyle}{%
+  \renewcommand{\chapnamefont}{\LARGE\sffamily\bfseries}%
+  \renewcommand{\chapnumfont}{\LARGE\sffamily\bfseries}%
+  \renewcommand{\chaptitlefont}{\Huge\sffamily\bfseries}%
+  \renewcommand{\printchaptertitle}[1]{%
+    \chaptitlefont\hrule height 0.5pt \vspace{1em}%
+    {##1}\vspace{1em}\hrule height 0.5pt%
+  }%
+  \renewcommand{\printchapternum}{%
+    \chapnumfont\thechapter%
+  }%
+}
+
+\chapterstyle{mychapterstyle}
+\setsecheadstyle{\Large\sffamily\bfseries}
+\setsubsecheadstyle{\large\sffamily\bfseries}
+\setsubsubsecheadstyle{\normalfont\sffamily\bfseries}
+\setparaheadstyle{\normalfont\sffamily}
+
+\numberwithin{equation}{chapter}
+\numberwithin{figure}{chapter}
+\numberwithin{table}{chapter}
 
 
 \setlength{\parindent}{0in}
 
-\input{Harmonic_map.tex}
+\begin{document}
 
-\input{SkToSk.tex}
+\frontmatter
 
-\input{Gradient_flow.tex}
+\input{titlepage}
 
-% \input{Equatorial_stability_new.tex}
+\tableofcontents
 
-% \input{Equatorial_stability1.tex}
+\newpage
 
-% \input{Equatorial_stability2.tex}
+\mainmatter
 
-% \input{Equatorial_stability3.tex}
+\chapter{Introduction}
+\label{cha:introduction}
 
-% \input{Equatorial_stability4.tex}
+\input{Introduction}
 
-% \input{Equatorial_stability.tex}
+\chapter{Preliminaries}
+\label{cha:preliminaries}
 
-\input{Ground_state_stability.tex}
+\input{Harmonic_map}
 
-\input{Blow-up.tex}
+\input{SkToSk}
 
-% \input{Bisection.tex}
+\chapter{Gradient flow}
+\label{cha:gradient-flow}
 
-% \input{Static_solutions.tex}
+\input{Gradient_flow}
 
-% \input{k_le_kcrit.tex}
+\input{Ground_state_stability}
 
-\input{Appendix.tex}
+\input{Blow-up}
 
-\input{Bibliography.tex}
+\input{Bisection}
+
+\chapter{Numerical results}
+\label{cha:numerical-results}
+
+\input{Numerics}
+
+% \input{Summary}
+
+\appendix
+
+\input{Appendix}
+
+\input{Bibliography}
+
 
 \end{document}
 

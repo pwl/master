@@ -7,7 +7,7 @@
 From now on we shall set both the domain and target manifolds to
 $S^k$. We choose the coordinates on the domain sphere as
 \begin{align}
-  \label{eq:9}
+  \label{eq:10}
   x^a=(\psi,\theta),
 \end{align}
 where $\psi\in(0,\pi)$ is the longitudal angle with
@@ -16,16 +16,16 @@ $S^{k-1}$ -- the equator of $S^k$. Analogously we introduce
 coordinates $(\Psi,\Theta)$ on the target sphere in which the map $F$
 takes the form
 \begin{align}
-  \label{eq:10}
+  \label{eq:11}
   F^A(\psi,\theta)&=(\Psi,\Theta).
 \end{align}
 The metric tensors for the given coordinate frames are
 \begin{align}
-  \label{eq:11}
+  \label{eq:12}
   &\text{domain:}&\quad &ds^2=d\psi^2+\sin^2\psi ds^2\big|_{S^{k-1}}\\
   &\text{target:}&\quad &dS^2=d\Psi^2+\sin^2\Psi dS^2\big|_{S^{k-1}}.
 \end{align}
-Solving equations \eqref{eq:8} without any further assumptions
+Solving equations \eqref{eq:9} without any further assumptions
 presents an impossible task, we therefore in section
 \ref{sec:basic-setup} introduce a simple ansatz. Still without any
 simplifications we can state the following.
@@ -38,9 +38,9 @@ simplifications we can state the following.
 \begin{proof}
   The proof is based on the fact that on a sphere there exists a one
   parameter group of conformal maps, which in the coordinates
-  \eqref{eq:9} has the form
+  \eqref{eq:10} has the form
   \begin{align}
-    \label{eq:12}
+    \label{eq:13}
     \psi_A=2\arctan(e^A\tan(\psi/2)).
   \end{align}
   The above conformal map can be depicted as dragging the whole sphere
@@ -48,7 +48,7 @@ simplifications we can state the following.
   poles (for $A$ large, this would be the north pole). We define the
   map $F_A$ to be the composition
   \begin{align}
-    \label{eq:13}
+    \label{eq:14}
     F_A=F\circ\psi_A.
   \end{align}
   As $\psi_A$ does leave the points $\psi=0$ and $\psi=\pi$ unchanged,
@@ -56,7 +56,7 @@ simplifications we can state the following.
   properties of the map $\psi_A$ we obtain the following energy
   density of $F_A$
   \begin{align}
-    \label{eq:14}
+    \label{eq:15}
     e(F_A)_\psi=&e(F)_{\psi_A}\rho_A^2,\\
     \rho_A=&\frac{1}{\cosh A-\cos\psi\sinh A},
   \end{align}
@@ -64,16 +64,18 @@ simplifications we can state the following.
   map $F$ is regular, and therefore $e(F)_{\psi_A}$ is bounded by its
   maximal value $C(F)=\max_\psi\left(e(F)_\psi\right)$ therefore
   \begin{align}
-    \label{eq:15}
+    \label{eq:16}
     e(F_A)_\psi&\le C(F)\rho_A^2.
   \end{align}
   Assuming $k\ge3$, the Dirichlet energy of $F_A$ can be bounded by
   \begin{align}
-    \label{eq:16}
-    E(F_A)&=\int_{S^k}e(F_A)dV_{S^k}\\
-    &\le C(F)V(S^{k-1})\int_{0}^{\pi}\rho_A^2\sin^{k-1}\psi d\psi\\
-    &\le C(F)V(S^{k-1})\max_\psi(\sin^{k-3}\psi)\int_{0}^{\pi}\rho_A^2\sin^2\psi d\psi\\
-    &\le C_1(F,k)\frac{1}{1+\cosh A}.
+    \label{eq:17}
+    \begin{split}
+      E(F_A)&=\int_{S^k}e(F_A)dV_{S^k}\\
+      &\le C(F)V(S^{k-1})\int_{0}^{\pi}\rho_A^2\sin^{k-1}\psi d\psi\\
+      &\le C(F)V(S^{k-1})\max_\psi(\sin^{k-3}\psi)\int_{0}^{\pi}\rho_A^2\sin^2\psi d\psi\\
+      &\le C_1(F,k)\frac{1}{1+\cosh A}.
+    \end{split}
   \end{align}
   which can be made arbitrary small by an appropriate choice of
   $A$. The above bound is not optimal, but is sufficient for our
@@ -91,7 +93,7 @@ simplifications we can state the following.
 We simplify our problem by assuming that $\Theta=\theta$ and
 $\Psi=f(\psi)$ so the map $F$ takes the form
 \begin{align}
-  \label{eq:17}
+  \label{eq:18}
   F:(\psi,\theta)\ra(f(\psi),\theta),
 \end{align}
 which leaves us with one function as a degree of freedom. The given
@@ -102,13 +104,13 @@ $(0,\pi)\times S^{k-1}$, for which we can use remarks \ref{rem:1} and
 
 For $F$ to be continuous, we require that
 \begin{align}
-  \label{eq:18}
+  \label{eq:19}
   \lim_{\psi\ra0}f(\psi)=n\pi,\quad\lim_{\psi\ra\pi}f(\psi)=m\pi.
 \end{align}
 Moreover, closing the domain of $\psi$ will not have any implications
-as long as $F$ is regular so we can drop the limits from \eqref{eq:18}
+as long as $F$ is regular so we can drop the limits from \eqref{eq:19}
 \begin{align}
-  \label{eq:19}
+  \label{eq:20}
   f(0)=n\pi\quad f(\pi)=m\pi.
 \end{align}
 The number $n-m$ stands for the homotopy degree of a
@@ -117,7 +119,7 @@ map.\\
 The Dirichlet energy of the considered map has now a more transparent
 form
 \begin{align}
-  \label{eq:20}
+  \label{eq:21}
   E(f)=\frac{1}{2}\int_{0}^{\pi}
   \left(f'^2+(k-1)\frac{\sin^2f}{\sin^2\psi}\right) \sin^{k-1}\psi
   d\psi,
@@ -126,21 +128,21 @@ where we have changed the argument of $E$ from $F$ to $f$ as
 effectively it is a functional of $f$ and we have dropped the volume
 term $V(S^{k-1})$ which has no qualitative impact on the behaviour of
 the system.
-% The energy density of \eqref{eq:20} with the volume
+% The energy density of \eqref{eq:21} with the volume
 % term $V(S^{k-1})$ dropped is
 % \begin{align}
-%   \label{eq:21}
+%   \label{eq:22}
 %   e(f)=\frac{1}{2}\left(f'^2+(k-1)\frac{\sin^2f}{\sin^2\psi}\right).
 % \end{align}
 By the definition \ref{def:regular-map}, the map $f$ is regular if
 \begin{align}
-  \label{eq:22}
+  \label{eq:23}
   e(f)=\frac{1}{2}\left(f'^2+(k-1)\frac{\sin^2f}{\sin^2\psi}\right)<\infty.
 \end{align}
 % The Dirichlet energy of $f$ is
-% \eqref{eq:20}
+% \eqref{eq:21}
 % \begin{align}
-%   \label{eq:23}
+%   \label{eq:24}
 %   E(f)=\int_0^\pi e(f)\sin^{k-1}\psi d\psi\ge0.
 % \end{align}
 
@@ -151,7 +153,7 @@ Euler-Lagrange equation
     f'\right)'-\frac{(k-1)}{2}\frac{\sin2f}{\sin^2\psi}=0.
 \end{align} with the boundary values
 \begin{align}
-  \label{eq:24} f(0)=n\pi,\quad f(\pi)=m\pi.
+  \label{eq:25} f(0)=n\pi,\quad f(\pi)=m\pi.
 \end{align} The equation \eqref{eq:f_psi_EL} has trivial solutions
 $f=n\pi$ of homotopy degree zero for which $E(f)$ attains absolute
 minimum: $E(n\pi)=0$. By remark \ref{rem:1}, the identity map
@@ -159,7 +161,7 @@ $f=\psi+n\pi$ is also the solution but of the homotopy degree one.
 Hereafter we set $n=0$ without loss of generality.
 % Because in general, the symmetry
 % \begin{align}
-%   \label{eq:25}
+%   \label{eq:26}
 %   E(f+n\pi)=E(f)
 % \end{align} implies that any stationary point of $E$ remains
 % stationary after being translated by $n\pi$ we henceforth drop the
@@ -168,19 +170,19 @@ Hereafter we set $n=0$ without loss of generality.
 By the nontrivial $\mathbb{Z}_2$ symmetry (the antipodal
 reflection)
 \begin{align}
-  \label{eq:26}
+  \label{eq:27}
   f&\ra \bar{f}=\pi-f,\\
   E(f)&\ra E(\bar{f})=E(f),
 \end{align}
 every possible critical point will have its partner of the same
 homotopy degree. This is true unless $f$ is invariant under
-\eqref{eq:26}, but the only such case is $f_e=\pi/2$ which is not
+\eqref{eq:27}, but the only such case is $f_e=\pi/2$ which is not
 continuous thus not harmonic. (TODO: it does however play an important
 role and is described in grater detail in appendix). To be consistent
 with \cite{Bizon1997} we shall denote the constant and identity
 solutions as
 \begin{align}
-  \label{eq:27}
+  \label{eq:28}
   f_0=0\quad f_1=\psi.
 \end{align}
 These, are the only solutions to \eqref{eq:f_psi_EL} known in the
@@ -192,57 +194,61 @@ solutions as $f_n$, where $n\in\mathbb{N}_0$. The parametrization by
 $n$ is motivated by the property that $f_n$ has exactly $n$
 intersections with $\pi/2$ and $n-1$ extrema. Each of $f_n$ is of
 homotopy degree zero for $n$ even or one for $n$ odd and stays inside
-the square $[0,\pi]\times[0,\pi]$. To be consistent with \eqref{eq:27}
+the square $[0,\pi]\times[0,\pi]$. To be consistent with \eqref{eq:28}
 we set $f_n(0)=0$. The first few such harmonic maps are depicted in
 figure \ref{fig:Harmonic_maps}. From \cite{Bizon1997} it also follows
 that the solutions obey the following parity relation
 \begin{align}
-  \label{eq:28}
+  \label{eq:29}
   f_n(\psi)=(-1)^n f_n(\pi-\psi).
 \end{align}
 
 \begin{figure}[ht]
   \centering
+  \input{./graphics/Harmonic_static_to_multiplot.tex}
+  \caption{The first six non-trivial harmonic maps between spheres
+    (solutions to \eqref{eq:f_psi_EL}). $\ln(\tan(\psi/2))$ scale of
+    the abscissa is due to the fact that each $f_n$ is steeper near
+    the boundaries.}
   \label{fig:Harmonic_maps}
-  \input{./graphics/Harmonic_static_to_multiplot}
-  \caption{The first six non-trivial solutions to \eqref{eq:f_psi_EL}}
 \end{figure}
 
 In \cite{Corlette2001} the authors proved that $f_n$ has index $n$
 (there are $n$ negative eigenvalues of the Hessian of the
 energy). From the last statement it follows that there are no local
 minima of $E(f)$ apart from $f_0$. As we will need the following
-property later on we introduce it in a form of the theorem
-\begin{theorem}[Wald,Corlette]
+property later on we introduce it in a form of the theorem.
+\begin{theorem}[Wald, Corlette\cite{Corlette2001}]
   \label{thm:harmonic-map-index}
   There are no local minima of $E(f)$ apart from $f=n\pi$.
 \end{theorem}
 \begin{proof}
   This can also be proved by showing that for each $n>0$, $f_n$ there
   is at least one direction $v$ for which the Hessian is negative
-  \begin{align}\label{eq:29}
-    \delta^2E(f_n)(v,v) &=\int_0^{\pi} \left(
-      v'^2+(k-1)\frac{\cos2f_n}{\sin^2\psi}v^2 \right)\sin^{k-1}\psi
-    d\psi\\
-    &=(v,\mathcal{L}_n v),\\
+  \begin{align}\label{eq:30}
+    \begin{split}
+      \delta^2E(f_n)(v,v) &=\int_0^{\pi} \left(
+        v'^2+(k-1)\frac{\cos2f_n}{\sin^2\psi}v^2 \right)\sin^{k-1}\psi
+      d\psi\\
+      &=(v,\mathcal{L}_n v),
+    \end{split}\\
     \mathcal{L}_nv&=-\frac{1}{\sin^{k-1}\psi}\left(\sin^{k-1}\psi
-      v'\right)'+(k-1)\frac{\cos2f_n}{\sin^2\psi}v
+      v'\right)'+(k-1)\frac{\cos2f_n}{\sin^2\psi}v.
   \end{align}
   It turns out that the conformal Killing on $S^k$
   field
   \begin{align}
-    \label{eq:30}
+    \label{eq:31}
     K=\sin\psi\frac{\partial}{\partial\psi}
   \end{align}
-  related to \eqref{eq:12} generates such $v$, namely for $v=\sin\psi
+  related to \eqref{eq:13} generates such $v$, namely for $v=\sin\psi
   f_n'(\psi)$ by \eqref{eq:strange_variation} we have
   \begin{align}
-    \label{eq:31}
+    \label{eq:32}
     \mathcal{L}_n v&=(2-k)v\\
     \delta^2 E(f_n)(v,v)&=(v,\mathcal{L}_n v)=(2-k)\lVert v\rVert^2<0.
   \end{align}
-  This construction does not hold for $n=0$ in which case $v$ is the
-  null direction.
+  This construction does not apply for $n=0$ in which case $v=0$.
 \end{proof}
 
 %%% Local Variables:
