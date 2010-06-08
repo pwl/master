@@ -33,6 +33,154 @@ and used the fact that
 % perturbation operator. Moreover $B=0$ implies that
 % $V(f,x)=U(f)/g^2(x)$.
 
+\chapter{Numerical methods}
+\label{cha:numerical-methods}
+
+\section{Method of lines}
+\label{sec:method-lines}
+
+In order to solve the Cauchy problem
+\begin{align}
+  \label{eq:118}
+  \partial_t f=\tau(f),\quad f(0,\psi)=g(\psi)
+\end{align}
+we discretize the spatial domain in a uniform way to create the grid
+of $N$ points
+\begin{align}
+  \label{eq:107}
+  \psi_i=\frac{i-1}{N-1}\pi\in[0,\pi],\quad i\in{1,\dots,N}.
+\end{align}
+To each point we assign a function of time $f_i(t)$, and we denote the
+set of $f_i$ as a vector $\vec{f}\in\mathbb{R}^N$. Then, the solution
+to \eqref{eq:118} at points $\psi_i$ can be approximated by $f_i(t)$
+if $\vec{f}$ is a solution to the following ordinary differential
+equation
+\begin{align}
+  \label{eq:121}
+  \frac{d \vec{f}}{dt}=\hat{\tau}(\vec{f}),\quad f_i(0)=g(\psi_i).
+\end{align}
+The map $\vec{\tau}:\mathbb{R}^N\ra \mathbb{R}^N$ is a discretized
+approximation of $\tau$. As $\tau=\tau(f,\partial_\psi
+f,\partial_{\psi\psi} f)$ it is sufficient to choose the
+differentiation schemes approximating the first and second
+derivatives. We choose the following discretizations of derivatives
+called the three point stencil
+\begin{align}
+  \label{eq:123}
+  \partial_\psi f\big|_{\psi_i}\approx D_i\vec{f}=\frac{1}{2h}(f_{i+1}-f_{i-1}),\\
+  \partial_{\psi\psi} f\big|_{\psi_i}\approx D_i^2\vec{f}=\frac{1}{h^2}(f_{i+1}-2f_i+f_{i-1}),
+\end{align}
+where $1\ge i\ge N-1$. We do not define the $D_0$, $D_N$ etc. because
+the boundary values imply $df_0/dt=0$ and $df_N/dt=0$ so we don't need
+the approximations of $\tau(f)$ at points $\psi_0$ and $\psi_N$. The
+above schemes are of order $2$ and $1$ respectively, which means that
+\begin{align}
+  \label{eq:124}
+  \partial_\psi f\big|_{\psi_i}= D_i\vec{f}+\mathcal{O}(h^2),\\
+  \partial_{\psi\psi} f\big|_{\psi_i}= D_i^2\vec{f}+\mathcal{O}(h).
+\end{align}
+With such choice of differentiation schemes we end up with a following
+form of \eqref{eq:121}
+\begin{align}
+  \label{eq:125}
+  \frac{d f_i}{dt}=\tau(f_i,D_i\vec{f},D_i^2\vec{f}),\quad f_i(0)=g(\psi_i).
+\end{align}
+We solve the above equation using a Runge-Kutta method with adaptive
+step size described in the next section.
+
+\section{Time marching method}
+\label{sec:time-marching-method}
+
+To approximate the solution to the initial value problem for ordinary
+differential equation
+\begin{align}
+  \label{eq:114}
+  y'(t)=f(t,y(t)),\quad y(0)=y_0
+\end{align}
+where $y\in \mathbb{R}^N$ and
+$f:\mathbb{R}\times\mathbb{R}^N\ra\mathbb{R}^N$ we use the explicit
+Runge-Kutta method with $s$ intermediate steps which approximates
+$y_{n+1}=y(t_{n+1})$ by
+\begin{align}
+  \label{eq:115}
+  y_{n+1}=y_n+h\sum_{i=1}^s b_i k_i,
+\end{align}
+where $k_i$ are the values of the intermediate steps given by
+\begin{align}
+  \label{eq:117}
+  \begin{split}
+    k_1 &= f(t_n,y_n), \\
+    k_2 &= f(t_n+c_2 h, y_n+a_{21}k_1), \\
+    & \ \ \vdots \\
+    k_s &= f(t_n+c_s h, y_n + \sum_{j=1}^{s-1} a_{sj}k_j).
+  \end{split}
+\end{align}
+The choice of the constants $c_i$, $a_{ij}$ and $b_i$ uniquely
+determines a specific Runge-Kutta (RK) method, there is also a
+systematical way of presenting those coefficient called the Butcher's
+tableau (table \ref{tab:RKexplicit}).
+
+\begin{table}[h]
+  \begin{equation*}
+    % \label{eq:19}
+    \begin{array}{l | c c c c c}
+      \rule{0pt}{2,3ex} 0      \quad &             &               &              &         &   \\
+      \rule{0pt}{2,3ex} c_2    \quad & \quad a_{21}  &              &              &         &   \\
+      \rule{0pt}{2,3ex} c_3    \quad & \quad a_{31}  & \quad a_{32}  &              &         &   \\
+      \rule{0pt}{2,3ex} \vdots \quad & \quad \vdots & \quad \vdots & \quad \ddots &         &   \\
+      \rule{0pt}{2,3ex} c_s    \quad & \quad a_{s1}  & \quad a_{s2}  & \quad \cdots & \quad a_{s,s-1} & \\[2,0ex] \hline
+      \rule{0pt}{3,3ex}              & \quad b_{1}  & \quad b_{2}    & \quad \cdots & \quad b_{s-1}  & \quad b_{s}
+    \end{array}
+  \end{equation*}
+  \caption{The Butcher tableau for the explicit Runge–Kutta method.}
+  \label{tab:RKexplicit}
+\end{table}
+
+To calculate the solution in an efficient way one can vary the time
+step size $\Delta t_n=t_{n+1}-t_{n}$ to decrease the number of
+calculations per a unit of time, keeping the relative error constant
+per unit of time. This is realized by combining two $s$-stage RK
+methods, one of order $p$ and the other of order $p+1$ which use the
+same intermediate values $k_i$, so having the same parameters $c_i$
+and $a_{ij}$ but different $b_i$. The solutions are then approximated
+by
+\begin{align}
+  \label{eq:105}
+  y_{n+1}=y_n+h\sum_{i=1}^s b_i k_i,\quad y_{n+1}^*=y_n+h\sum_{i=1}^s
+  b^*_i k_i,
+\end{align}
+where stars have been used to denote the coefficients of the method of
+order $p+1$. The difference between $y_{n+1}$ and $y_{n}$ gives the
+error estimate
+\begin{align}
+  \label{eq:106}
+  \epsilon_i=|(y_{n+1})_i-(y_{n+1}^*)_i|=h\left|\sum_{j=1}^s(b_j-b_j^*)(k_j)_i\right|,\quad
+  i\in\{1,\dots,N\}.
+\end{align}
+If the calculated error or too small compared with the desired error
+level the method changes step accordingly to the algorithm described
+in \cite{Galassi}. The method of our choice was embedded
+Runge–Kutta–Fehlberg (RKF45) of order $4/5$ with the Butcher tableau
+presented in table \ref{tab:rkf45}.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{l|lllll}
+    0      &           &            &             &           &        \\
+    1/4    & 1/4       &            &             &           &        \\
+    3/8    & 3/32      & 9/32       &             &           &        \\
+    12/13  & 1932/2197 & -7200/2197 & 7296/2197   &           &        \\
+    1      & 439/216   & -8         & 3680/513    & -845/4104 &        \\
+    1/2    & -8/27     & 2          & -3544/2565  & 1859/4104 & -11/40 \\\hline
+    25/216 & 0         & 1408/2565  & 2197/4104   & -1/5      & 0      \\
+    16/135 & 0         & 6656/12825 & 28561/56430 & -9/50     & 2/55
+  \end{tabular}
+  \caption{Butcher tableau for embedded Runge-Kutta-Fahlberg
+    method. The lowest row contains $b_i^*$.}
+  \label{tab:rkf45}
+\end{table}
+
+
 
 %%% Local Variables:
 %%% mode: latex

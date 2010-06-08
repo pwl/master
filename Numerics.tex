@@ -12,16 +12,16 @@ Then, the proper $A^*$ is found by bisection between the blow-up and
 the convergence to $0$. As the bisection cannot yield an exact value
 of $A^*$ (due to the finite machine precision) we are not able to
 reach precisely the saddle point. Rather, as we are starting a bit off
-the mid-line between attractors, the solution slides along it reaching
-the neighbourhood of $f_2$ along its stable direction, it stays put
-for some time but then starts to move again, slowly decaying along the
+the border between attractors, the solution slides along it reaching
+the neighbourhood of $f_2$ along its stable direction, it stays there
+for some time but then starts to move away, slowly decaying along the
 unstable direction to finally either fall into $0$ or blow up. The
-smaller the numerical error of $A^*$ the closer we get to the mid-line
+smaller the numerical error of $A^*$ the closer we get to the border
 and the longer solutions stays near $f_2$.\\
 
-From the numerical solutions to PDE \eqref{eq:en_flow} we can read the
-quantities involved in approaching and leaving the neighbourhood of
-$f_2$. These are the first two modes of $f_2$ along with their
+From the numerical solutions to PDE \eqref{eq:en_flow} we can read off
+the quantities involved in approaching and leaving the neighbourhood
+of $f_2$. These are the first two modes of $f_2$ along with their
 respective eigenvalues as presented in \eqref{eq:69}. To obtain the
 eigenvalues $\lb{2}{0,2}$ we use the function $\partial_t\partial_\psi
 f\big|_{\psi=0}$ which, while in a close neighbourhood of $f_2$ is
@@ -56,13 +56,13 @@ to numerically solving \eqref{eq:42} are shown in the table
 \begin{table}[h]
   \centering
   \begin{tabular}{| c | c | c | c |}\hline
-    $\lb{n}{m}$ & Gradient flow  &  Eigenproblem  \\\hline
-    $\lb{0}{0}$ & 2.9670  & 3 \\\hline
-    $\lb{1}{1}$ & 3.9963  & 4 \\\hline
-    $\lb{2}{0}$ & -2.8924  & -2.8926 \\\hline
-    $\lb{2}{2}$ & 4.5899  & 4.5911  \\\hline
-    $\lb{3}{1}$ & -10.5946  & -10.6650  \\\hline
-    $\lb{3}{3}$ & 4.4004 & 4.3942 \\\hline
+    $\lb{n}{m}$ & Heat flow & Eigenproblem \\\hline
+    $\lb{0}{0}$ & 2.9670        & 3            \\\hline
+    $\lb{1}{1}$ & 3.9963        & 4            \\\hline
+    $\lb{2}{0}$ & -2.8924       & -2.8926      \\\hline
+    $\lb{2}{2}$ & 4.5899        & 4.5911       \\\hline
+    $\lb{3}{1}$ & -10.5946      & -10.6650     \\\hline
+    $\lb{3}{3}$ & 4.4004        & 4.3942       \\\hline
   \end{tabular}
   \caption{Comparison of the eigenvalues calculated by solving
     \eqref{eq:en_flow} and by solving \eqref{eq:42} for $k=3$. The
@@ -75,7 +75,7 @@ to numerically solving \eqref{eq:42} are shown in the table
 \section{Details of numerical calculations}
 \label{sec:deta-numer-calc}
 
-Both, the eigenproblem and the gradient flow have been simulated using
+Both, the eigenproblem and the heat flow have been simulated using
 the programs written in ANSI C and using double precision
 arithmetic. The GSL library provided the set of standard time marching
 procedures using Runge-Kutta algorithms \cite{Galassi}.\\
@@ -102,12 +102,12 @@ table \ref{tab:num_details}.
 \begin{table}[ht]
   \centering
   \begin{tabular}{|c|c|c|}\hline
-    Grid points       & 400                          & 400                        \\\hline
-    Domain            & $[0,\pi/2]$                  & $[0,\pi]$                  \\\hline
-    Initial data      & $\psi+B\sin(2\psi)$          & $A\sin(\psi)$              \\\hline
+    Grid points       & 400                     & 400                     \\\hline
+    Domain            & $[0,\pi/2]$             & $[0,\pi]$               \\\hline
+    Initial data      & $\psi+B\sin(2\psi)$     & $A\sin(\psi)$           \\\hline
     Critical value    & $B=1.24571310318894035$ & $A=2.10669393489537526$ \\\hline
-    Bisection error   & $B^*=B\pm10^{-15}\%$          & $A^*=A\pm10^{-15}\%$       \\\hline
-    Stepping function & \verb|rkf45|                 & \verb|rkf45|               \\\hline
+    Bisection error   & $B^*=B\pm10^{-15}\%$    & $A^*=A\pm10^{-15}\%$    \\\hline
+    Stepping function & \verb|rkf45|            & \verb|rkf45|            \\\hline
   \end{tabular}
   \caption{Detailed parameters of numerical simulations.}
   \label{tab:num_details}
@@ -117,11 +117,11 @@ table \ref{tab:num_details}.
 \begin{figure}[h]
   \centering \advance\leftskip-3cm
   \input{./graphics/snapshot_f2.tex}
-  \caption{Sequence of snapshots of numerical solutions to the
-    gradient flow with initial data $g_+(\psi)=A^*\cdot \sin(\psi)$
-    with $A^*\approx2.106694$. Each snapshot depicts
-    $\lvert \partial_t f\rvert$ (red line, larger plot) normalized so
-    that $\lvert \partial_t\partial_\psi f(t,0)\rvert=1$ along with the
+  \caption{Sequence of snapshots of numerical solutions to the heat
+    flow with initial data $g_+(\psi)=A\cdot \sin(\psi)$ with $A$ as
+    in \ref{tab:num_details}. Each snapshot depicts $\lvert \partial_t
+    f\rvert$ (red line, larger plot) normalized so that
+    $\lvert \partial_t\partial_\psi f(t,0)\rvert=1$ along with the
     plot of $f(t)$ (the plot in the upper right corner). For
     comparison the first two modes of $f_2$ (blue dashed lines),
     normalized to $v_{0,2}^{(2)\prime}(0)=1$ have been also
@@ -136,12 +136,12 @@ table \ref{tab:num_details}.
 \begin{figure}[h]
   \centering \advance\leftskip-3cm
   \input{./graphics/snapshot_f3.tex}
-  \caption{Sequence of snapshots of numerical solutions to the
-    gradient flow with initial data $g_-(\psi)=\psi+B^*\cdot
-    \sin(2\psi)$ with $B^*\approx1.24568$. Each snapshot depicts
+  \caption{Sequence of snapshots of numerical solutions to the heat
+    flow with initial data $g_-(\psi)=\psi+B\cdot \sin(2\psi)$ with
+    $B$ as in \ref{tab:num_details}. Each snapshot depicts
     $\lvert \partial_t f\rvert$ (red line, larger plot) normalized so
-    that $\lvert \partial_t\partial_\psi f(t,\pi/2)\rvert=1$ along with
-    the plot of $f(t)$ (the plot in the upper right corner). For
+    that $\lvert \partial_t\partial_\psi f(t,\pi/2)\rvert=1$ along
+    with the plot of $f(t)$ (the plot in the upper right corner). For
     comparison the first two modes of $f_3$ (blue dashed lines),
     normalized to $v_{1,3}^{(3)\prime}(\pi/2)=1$ have been also
     depicted. The evolution can now be divided into the following
@@ -155,7 +155,7 @@ table \ref{tab:num_details}.
 \begin{figure}[h]
   \centering \advance\leftskip-3cm
   \input{./graphics/Gradient_flow_stages_f2}
-  \caption{Stages of the gradient flow evolution for symmetric initial
+  \caption{Stages of the heat flow evolution for symmetric initial
     data described in the caption of figure \ref{fig:snapshot_f2}.}
   \label{fig:Stages_f2}
 \end{figure}
@@ -163,7 +163,7 @@ table \ref{tab:num_details}.
 \begin{figure}[h]
   \centering \advance\leftskip-3cm
   \input{./graphics/Gradient_flow_stages_f3}
-  \caption{Stages of the gradient flow evolution for antisymmetric
+  \caption{Stages of the heat flow evolution for antisymmetric
     initial data as described in the caption of figure \ref{fig:snapshot_f3}.}
   \label{fig:Stages_f3}
 \end{figure}

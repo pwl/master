@@ -2,24 +2,24 @@
 \label{sec:blow-up}
 
 Although the theorem \ref{thm:Struwe} states that some kind of
-singular behaviour will occur, it does not tell what form will it
-take. We shall now turn onto the mechanism of the blow up for the
+singular behaviour will occur, it does not tell us what is the form of
+blow-up. We shall now turn onto the mechanism of blow-up for the
 gradient flow of the maps $S^k\ra S^k$.\\
 
-From now on we assume that the blow up time $T$ is known a priori. By
-symmetry, the blow up can be localized only on the edges of the
+From now on we assume that the blow-up time $T$ is known a priori. By
+symmetry, the blow-up can be localized only on the edges of the
 interval $[0,\pi]$.%(Jak to łatwo pokazać?).\\
 
 Because of the reflection symmetry $f(\psi)\ra f(\pi-\psi)$ of the
-gradient flow equations we can focus our analysis on one of the edges,
-lets say $\psi=0$. Also as the possibly uncontrolled behaviour is
-expected only within some small neighbourhood of a pole of $S^k$ where
-the curvature of the domain won't play any role so we change the
-domain manifold to $\mathbb{R}^k$ being the space tangent to $S^k$ at
-$\psi=0$. Therefore in this section we will analyse the behaviour of
-the gradient flow for maps $\mathbb{R}^k\ra S^k$ satisfying the ansatz
-analogous to \eqref{eq:18} but with the metric tensors of the domain
-and the target manifolds given by
+gradient flow equations we can focus our analysis at one of the edges,
+say $\psi=0$. Because the blow-up is localized within some small
+neighbourhood of a pole of $S^k$, the curvature of the domain does not
+play any role so we change the domain manifold to $\mathbb{R}^k$ being
+the space tangent to $S^k$ at $\psi=0$. Therefore in this section we
+will analyse the behaviour of the gradient flow for maps
+$\mathbb{R}^k\ra S^k$ satisfying the ansatz analogous to \eqref{eq:18}
+but with the metric tensors of the domain and the target manifolds
+given by
 \begin{align}\label{eq:71}
   &\text{domain:}&\quad &ds^2=dr^2+r^2ds^2\big|_{S^{k-1}}\\
   &\text{target:}&\quad &dS^2=dh(r)^2+\sin^2h(r)dS^2\big|_{S^{k-1}}.
@@ -39,13 +39,13 @@ from which the following tension field can be derived
 The Euler-Lagrange equations for the stationary point of $E(h)$ are
 \begin{align}
   \label{eq:74}
-  &\tau(h)=0,\\
-  &h(0)=0,\quad h(\infty)=m\pi.
+  \tau(h)=0,\quad
+  h(0)=0,\quad h(\infty)=m\pi.
 \end{align}
 The boundary condition at $\infty$ follows from the finiteness of
 $E(h)$. As in the case of the maps $S^k\ra S^k$, \eqref{eq:72} has no
 stable stationary points apart from $n\pi$. This can be shown using
-the conformal transform of $r_A:\mathbb{R}^k\ra\mathbb{R}^k$ and the
+the conformal transformation $r_A:\mathbb{R}^k\ra\mathbb{R}^k$ and the
 rescaled function $h_A$ defined as follows
 \begin{align}
   \label{eq:75}
@@ -68,8 +68,8 @@ flow for $E(h)$ is defined as
 \begin{align}
   \label{eq:78}
   \begin{split}
-    &\partial_t h=\tau(h),\\
-    &h(0)=0,\quad h(\infty)=m\pi.
+    \partial_t h=\tau(h),\quad
+    h(0)=0,\quad h(\infty)=m\pi.
   \end{split}
 \end{align}
 The simple scaling property of the tension field motivates the ansatz
@@ -136,14 +136,14 @@ are therefore looking for the solutions to the ODE
   \end{split}
 \end{align}
 
-There is also another approach to obtaining \eqref{eq:88} called a
+There is also another approach to obtain \eqref{eq:88} called a
 self-similar ansatz. It consist of setting $h=H(y)$ with $y$ as in
 \eqref{eq:85} a priori to solving \eqref{eq:81}. It took its name from
 the fact that such ansatz is invariant under the self-similar symmetry
 of \eqref{eq:78} given by
 \begin{align}
   \label{eq:89}
-  r&\ra\lambda r,\\(T-t)&\ra\lambda^2(T-t).
+  r\ra\lambda r,\quad(T-t)\ra\lambda^2(T-t).
 \end{align}
 The complete set of self-similar variables consists of $y$ and the
 logarithmic time $s$ defined by the relations
@@ -168,38 +168,50 @@ $H_0=0$. Then, for $n\ge1$ each $H_n$ has the nodal number $n$, $n-1$
 extrema and $H_n\in[0,\pi]$. Also the index of $H_n$, albeit not known
 analytically, can be found numerically to be $n$.
 
-However, there is one major difference. For $n\ge1$ each $H_n$
-possesses one unstable mode which turns out to be the artifact of the
-self-similar variables \eqref{eq:90}. As we recall, we have chosen the
-blow up time $T$ a priori and the self-similar variables \eqref{eq:90}
-are fine tuned to match this specific time. We shall ask what happens
-if the blow-up is realized by $H_n$, but it occurs at time $T'$ which
-is a bit different from $T$, lets say $T'=T+\delta$. In such situation
-we have
+%%%
+% For $n\ge1$ each $H_n$ possesses one unstable mode which turns out to
+% be the artifact of the self-similar variables \eqref{eq:90}. As we
+% recall, we have chosen the blow-up time $T$ a priori and the
+% self-similar variables \eqref{eq:90} are fine tuned to match this
+% specific time.
+%%%
+
+The original equation possesses a translational symmetry in the time
+variable, this means that $H_n(r/\sqrt{T-t})$ is a solution to
+\eqref{eq:78} for any choice of the blow-up time $T$. The ambiguity in
+the choice of $T$ manifests itself as a gauge mode. To obtain the
+explicit form of this mode we can ask what happens if the blow-up is
+realized by $H_n$, but it occurs at time $T'$ which is a bit different
+from $T$, say $T'=T+\delta$. In such situation we have
 \begin{align}
   \label{eq:92}
   \begin{split}
     H_n\left(\frac{r}{\sqrt{T+\delta-t}}\right)
-    &=H_n\left(\frac{r}{\sqrt{T-t}}\right)-\delta\frac{1}{2}\frac{r}{(T-t)^{3/2}}H_n'\left(\frac{r}{\sqrt{T-t}}\right)+\mathcal{O}(\delta^2)\\
-    &=H_n(y)-\frac{\delta}{2} e^{s}
-    yH_n'(y)+\mathcal{O}(\delta^2)
+    &=H_n\left(\frac{r}{\sqrt{T-t}}\right)
+    -\delta\frac{1}{2}\frac{r}{(T-t)^{3/2}}H_n'\left(\frac{r}{\sqrt{T-t}}\right)
+    +\mathcal{O}(\delta^2)\\
+    &=H_n(y)-\frac{\delta}{2} e^{s} yH_n'(y)+\mathcal{O}(\delta^2)
   \end{split}
 \end{align}
-which means that the change of the blow up time by $\delta$ results in
-the exponentially increasing perturbation along the mode $yH_n'$. As
-this mode arises due to the ambiguity in the choice of the
-self-similar variables it is also called the gauge mode and does not
-appear if $T$ is chosen appropriately ($\delta=0$). This means that,
-for the right choice of $T$ and $n\ge1$, $H_n$ has index $n-1$, and
-thus $H_1$ is linearly stable. Therefore, apart from the trivial
-solution $H_0$, there is one more final state of evolution as
-$s\ra\infty$ available for generic initial data, the state $H_1$ which
-is the profile of the self-similar blow-up solution. We can once again
-use Theorem \ref{thm:Struwe} applying it to the initial boundary
-problem \eqref{eq:78} to claim that if $m\ne0$ the blow-up will occur,
-and as $H_1$ is the only stable solution to \eqref{eq:91}, the blow-up
-will be of type I (to chyba zbyt silne stwierdzenie). (TODO: rysunek
-$H_1$)
+which means that the change of the blow-up time by $\delta$ results in
+the exponentially increasing perturbation along the mode $yH_n'$ with
+the associated eigenvalue $-1$. This means, that among $n$ unstable
+modes of $H_n$ there is one gauge mode and thus $H_1$ possesses no
+unstable modes apart from the gauge one and the blow-up can be
+realized by the profile of $H_1$.
+
+% We can once again use Theorem \ref{thm:Struwe} applying it to the
+% initial boundary problem \eqref{eq:78} to claim that if $m\ne0$ the
+% blow-up will occur, and as $H_1$ is the only solution to \eqref{eq:91}
+% which is stable apart from the gauge mode the blow up
+
+% This means that,
+% for the right choice of $T$ and $n\ge1$, $H_n$ has index $n-1$, and
+% thus $H_1$ is linearly stable. Therefore, apart from the trivial
+% solution $H_0$, there is one more final state of evolution as
+% $s\ra\infty$ available for generic initial data, the state $H_1$ which
+% is the profile of the self-similar blow-up solution.
+
 
 
 %%% Local Variables:

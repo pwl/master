@@ -1,11 +1,11 @@
 \section{Harmonic maps}
 \label{sec:preliminaries}
 
-Given two compact manifolds $(M,g)$ and $(N,h)$ we define the smooth
-map $F:M\ra N$. To comply with the terminology used in literature, we
-will from now on call $M$ the domain manifold and $N$ the target
-manifold. We shall construct the simplest possible scalar,
-which would engage the metric tensors of both $(M,g)$ and $(N,h)$ and the mapping $F$.\\
+Given two manifolds $(M,g)$ and $(N,h)$ we define a smooth map $F:M\ra
+N$. To comply with the terminology used in literature, from now on we
+will call $M$ the domain manifold and $N$ the target manifold. We
+shall construct the simplest possible scalar,
+which involves the metric tensors of both $(M,g)$ and $(N,h)$ and the mapping $F$.\\
 Given the basis $e^i$ on $T_x M$, the simplest scalar function on $T_x
 M\otimes T_x M$ is the scalar product $<,>_x$ defined as
 \begin{align}
@@ -53,11 +53,10 @@ mapping $F$
 % models.
 
 By defining a functional on the space of maps $M\ra N$ we distinguish
-the class of maps for which the functional is extremalized. Depending
-on the domain manifold, the extrema of \eqref{eq:6} have
-different names in literature. We will be dealing with harmonic maps
-with Riemannian manifold as a domain, or with wave maps if the domain
-is a Minkowski manifold.
+a class of maps for which the functional is extremalized. Depending on
+the domain manifold, the extrema of \eqref{eq:6} have different names
+in literature: harmonic maps if the domain is Riemannian manifold, or
+wave maps if the domain is a Lorentzian manifold.
 
 % The harmonic maps simplify to a number of special cases
 % \begin{enumerate}[(a)]
@@ -72,8 +71,8 @@ is a Minkowski manifold.
   Riemannian manifold is non-negative.
 \end{remark}
 
-By choosing the local coordinate chart $x^a$ on $M$ and $F^A$ on $N$
-we can write \eqref{eq:6} as
+Using local coordinate charts $x^a$ on $M$ and $F^A$ on $N$ we can
+write \eqref{eq:6} as
 \begin{align}
   \label{eq:7}
   E(F)=\frac{1}{2}\int_M h_{AB}(F)\frac{\partial F^A}{\partial
@@ -87,20 +86,20 @@ It is convenient to introduce the so called tension field
     F^A}{\partial x^a}\frac{\partial F^B}{\partial x^b}g^{ab},
 \end{align}
 where $\Delta_g$ is the Laplace-Beltrami operator on $M$ and
-$\Gamma(h)$ is the Christoffel symbol of the Levi-Civita
-connection on $N$. The set of PDE's which the critical points of
-\eqref{eq:7} has to satisfy can then be stated as
+$\Gamma_{AB}^{C}(h)$ is the Christoffel symbol of the Levi-Civita
+connection on $N$. The set of partial differential equations which the
+critical points of \eqref{eq:7} has to satisfy can then be stated as
 \begin{align}
   \label{eq:9}
   \tau(F)^C=0.
 \end{align}
-From now on we shall assume that both, the domain and the target
-manifolds, are Riemannian and in consequence the above
-set of semi-linear PDE's is elliptic.\\
+From now on we shall assume that both the domain and the target
+manifolds are Riemannian and in consequence the above
+set of semi-linear partial differential equations is elliptic.\\
 
 The problem of existence of nontrivial solutions to \eqref{eq:9} in
 general is still open, but there is a variety of partial results
-including e.g.
+starting from the classical theorem:
 
 \begin{theorem}[Eells-Sampson
   \cite{Eells1964}]\label{thm:Eells-Sampson}
@@ -113,13 +112,11 @@ including e.g.
   % a harmonic map of any given homotopy class.
 \end{theorem}
 
-One can also easily verify that the identity map $\id:M\ra M$ is a
-harmonic map, regardless of the choice of $M$, by substituting
-$F^A=x^A$ into \eqref{eq:9}. The energy density of the identity map
-is $e(\id)=\dim(M)/2$.\\
-
 \begin{remark}\label{rem:1}
-  The identity map $\text{\emph{id}}:M\ra M$ is harmonic.
+  One can also easily verify that the identity map $\id:M\ra M$ is a
+  harmonic map, regardless of the choice of $M$, by substituting
+  $F^A=x^A$ into \eqref{eq:9}. The energy density of the identity map
+  is $e(\id)=\dim(M)/2$.
 \end{remark}
 
 The following remark can be also proved easily.

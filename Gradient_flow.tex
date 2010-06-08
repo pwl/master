@@ -1,4 +1,4 @@
-\section{Gradient flow}
+\section{Heat flow}
 \label{sec:gradient-flow}
 
 We can approach the problem of existence and the properties of
@@ -10,29 +10,29 @@ more sophisticated way is to analyse the level sets of the functional
 and use the infinite dimensional variant of the Morse theory to obtain
 critical points as it has been done e.g. in
 \cite{Corlette2001}. Finally, there is a powerful technique called the
-gradient flow, which consists of defining the flow, which moves along
+heat flow, which consists of defining the flow, which moves along
 the gradient lines of the functional in the direction of
 the negative gradient. \\
 
-The intuition behind the gradient flow is that, if it exists for all
+The intuition behind the heat flow is that, if it exists for all
 times, it will push the solution into a minimum of the functional (if
 the functional is bounded from below). This approach is especially
 useful in finding a harmonic map of a given degree, because the degree
 is conserved during the flow.
 
-The formal setup for the gradient flow of the Dirichlet energy
+The formal setup for the heat flow of the Dirichlet energy
 \eqref{eq:7} is
 \begin{align}
   \label{eq:33}
     \begin{split}
-    F\big|_{t=0}&=F_0,\\
-    \partial_t F^A&=-\delta E(F^A)=\tau(F)^A
+    \partial_t F^A&=-\delta E(F^A)=\tau(F)^A,\\
+    F\big|_{t=0}&=F_0
   \end{split}
 \end{align}
-where $\tau(F)$ is
+where
 \begin{align}
   \label{eq:34}
-  \tau(F)^C=\Delta_g F^C+(\Gamma_{h(F)})_{AB}^{C}\frac{\partial
+  \tau(F)^C=\Delta_g F^C+\Gamma_{AB}^{C}(h)\frac{\partial
     F^A}{\partial x^a}\frac{\partial F^B}{\partial x^b}g^{ab}.
 \end{align}
 By our assumption on the domain and the target, \eqref{eq:33} is the
@@ -48,7 +48,7 @@ critical point of $E$.\\
 
 The question if there exists a harmonic map in the same homotopy class
 as the initial data $F_0$ is thus reduced to the question of existence
-of a solution of \eqref{eq:33} for all $t$ which is not singular as
+of a solution of \eqref{eq:33} for all $t$ which is non singular as
 $t\ra\infty$. This method was used in \cite{Eells1964} to prove
 Theorem \ref{thm:Eells-Sampson}, which now can be reformulated in the
 following form:
@@ -78,13 +78,13 @@ smooth harmonic map attains the global minimum which is greater than
 the constant $\epsilon(T)$, thus no initial data can fulfill the
 criterion $E(F_0)<\epsilon$.
 
-\subsection{Gradient flow for $S^k\ra S^k$}
+\subsection{Heat flow for $S^k\ra S^k$}
 \label{sec:gradient-flow-skra}
 
 From this point we will assume that the map $F:S^k\ra S^k$ satisfies
 the ansatz \eqref{eq:18} and we shall consider the functional $E(f)$
 as defined in \eqref{eq:21} as a base for \eqref{eq:33}. Applying the
-gradient flow to \eqref{eq:21} we obtain the following initial
+heat flow to \eqref{eq:21} we obtain the following initial
 boundary problem
 
 \begin{equation}
@@ -126,17 +126,15 @@ then at any given time $t\ge0$ we have
   f(t,\psi)=\pm f(t,\pi-\psi).
 \end{align}
 Our aim is to make the flow converge to one of the stationary points
-of $E$, of which we know that have parity specified by
-\eqref{eq:29}. We will henceforth denote $g_+$ and $g_-$ as initial
+of $E$, which we know to have the parity specified by
+\eqref{eq:29}. We will henceforth denote by $g_+$ and $g_-$ initial
 data obeying
 \begin{align}
   \label{eq:39}
-  g_+(\psi)&=g_+(\pi-\psi),\\
+  g_+(\psi)&=g_+(\pi-\psi),\quad
   g_-(\psi)&=-g_-(\pi-\psi)
 \end{align}
-which evolve in the apace of symmetric and antisymmetric maps
-respectively. We shall call such subspaces $H_+$ and $H_-$ and define
-them
+which evolve in the subspaces $H_+$ and $H_-$ defined by
 
 \begin{align}
   \label{eq:40}
@@ -150,15 +148,15 @@ We also remark that
   f_{2n}\in H_+,\quad f_{2n+1}\in H_-.
 \end{align}
 
-For each such subspace there are global energy minima which are $f_0$
-and $f_1$ respectively. The energy minimizing property of $f_0$ is a
-straightforward, the case of $f_1$ being the energy minimizer for
+$f_0$ is the global energy minimizer in $H_+$ and $f_1$ is the global
+energy minimizer in $H_-$. The energy minimizing property of $f_0$ is
+a straightforward, the case of $f_1$ being the energy minimizer for
 $H_-$ is not that obvious but follows from the Morse analysis made in
 \cite{Corlette2001}. Generic initial data with suitable boundary
 conditions in any of those subspaces will converge to one of their
-respective ground states unless the blow up occurs. We will discuss
-the linear stability of the ground states $f_0$ and $f_1$ in the
-following section.
+respective ground states unless blow-up occurs. We will discuss the
+linear stability of the ground states $f_0$ and $f_1$ in the following
+section.
 
 %%% Local Variables:
 %%% mode: latex

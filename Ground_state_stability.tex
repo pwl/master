@@ -15,7 +15,7 @@ solving the eigenproblem
   &\mathcal{L}_n v = \lambda v, \\
   \label{eq:43}
   &\mathcal{L}_n v = -\frac{1}{\sin^{k-1}\psi}\left(\sin^{k-1}\psi
-      v'\right)'+(k-1)\frac{\cos2f_n}{\sin^2\psi}v.
+    v'\right)'+(k-1)\frac{\cos2f_n}{\sin^2\psi}v.
 \end{align}
 The Hilbert space for this problem is
 $\mathcal{H}=L^2([0,\pi],\sin^{k-1}\psi d\psi)$. If we perturb $f_n$
@@ -33,8 +33,8 @@ By $f_n(0)=0$, the equation \eqref{eq:42} near $\psi=0$ takes the form
   \label{eq:45}
   v''+\frac{k-1}{\psi}v'-\frac{k-1}{\psi^2}v=0.
 \end{align}
-We can extract the leading part of $v$ by substituting
-$v\sim\psi^\gamma$ obtaining
+We obtain the indicial equation by substituting $v(\psi)=\psi^\gamma$
+obtaining
 \begin{align}
   \label{eq:46}
   \gamma(\gamma-1)+(k-1)\gamma-(k-1)=0
@@ -47,18 +47,19 @@ with the solutions
 of which only the first one corresponds to $v\in\mathcal{H}$. The
 analogous asymptotic behaviour can be derived at $\psi=\pi$ where also
 only one solution is in $\mathcal{H}$. We will denote the $m$-th
-eigenvalue of $\mathcal{L}_n$ as $\lambda_m^n$ along with its
-respective eigenvectors $v_m^n$ with $m\in\mathbb{N}_0$. The
-eigenvalues to any $n$ are ordered as follows
+eigenvalue of $\mathcal{L}_n$ as $\lb{n}{m}$ and the associated
+eigenvectors as $\vn{m}{n}$ with $m\in\mathbb{N}_0$. The eigenvalues
+are ordered as follows
 \begin{align}
   \label{eq:48}
   \lb{n}{0}<\lb{n}{1}<\lb{n}{2}<\dots\quad.
 \end{align}
 From the fact that $\mathcal{L}_n$ is symmetric under
 $\psi\ra\pi-\psi$ (by \eqref{eq:29}), it follows that $v$ can be
-either symmetric or antisymmetric. We can use the Sturm-Liouville
-theorem to determine the exact parity of eigenvectors by the fact that
-$v_m^n$ should have $m-1$ zeroes, from which it follows that
+either symmetric or antisymmetric. We can use the Sturm oscillation
+theorem \cite{Reed4} to determine the exact parity of eigenvectors by
+the fact that $\vn{m}{n}$ should have $m-1$ zeroes, from which it
+follows that
 \begin{align}
   \label{eq:49}
   \vn{m}{n}(\psi)=(-1)^m \vn{m}{n}(\pi-\psi).
@@ -71,10 +72,10 @@ Killing field and defined as follows
   \label{eq:50}
   \vn{\text{conf}}{n}=\sin\psi f_n'(\psi),
 \end{align}
-corresponding to the $\lambda_{\text{conf}}^n=(2-k)$. As $f_n'$ has
-exactly $n-1$ zeroes, there are $n-1$ eigenvalues smaller than
-$\lambda_{\text{conf}}^n=(2-k)$ which follows from the Sturm-Liouville
-theorem. We shall therefore denote
+corresponding to the $\lambda_{\text{conf}}^n=(2-k)$. As $f_n'(\psi)$
+has exactly $n-1$ zeroes, there are $n-1$ eigenvalues smaller than
+$\lambda_{\text{conf}}^n=(2-k)$ which follows from the Sturm
+oscillation theorem. We shall therefore denote
 \begin{align}
   \label{eq:51}
   \vn{n-1}{n}=\sin\psi f_n'(\psi)\quad
@@ -90,18 +91,18 @@ By \eqref{eq:42}\eqref{eq:43}, the eigenproblem for $f_0$ is
   &\mathcal{L}_0 v = \lambda v, \\
   \label{eq:53}
   &\mathcal{L}_0 v = -\frac{1}{\sin^{k-1}\psi}\left(\sin^{k-1}\psi
-      v'\right)'+\frac{(k-1)}{\sin^2\psi}v.
+    v'\right)'+\frac{(k-1)}{\sin^2\psi}v.
 \end{align}
 We can multiply \eqref{eq:42} by $v\sin^{k-1}\psi$ and integrate on
 the interval $[0,\pi]$ to get
 \begin{align}\label{eq:54}
   \lambda\int_0^\pi v^2w
-  d\psi=\int_0^\pi\left(v'^2+\frac{k-1}{\sin^2\psi}v^2\right)\sin^{k-1}d\psi.
+  d\psi=\int_0^\pi\left(v'^2+\frac{k-1}{\sin^2\psi}v^2\right)\sin^{k-1}d\psi>0.
 \end{align}
 All the terms under the integrals are positive for $v\ne0$ so
-$\lambda>0$ and $f_0$ is linearly stable. We can, however, calculate
-the spectrum of \eqref{eq:53} explicitly. First we change the
-independent function to
+$\lambda>0$ and $f_0$ is linearly stable. We can calculate the
+spectrum of \eqref{eq:53} explicitly. First we change the independent
+function to
 \begin{align}
   \label{eq:55}
   w(\psi)= v(\psi)\sin^{(k-1)/2}\psi
@@ -134,8 +135,8 @@ $P_\beta^{-\alpha}$ around $\cos\pi=-1$
 \end{align}
 The quantization of $\lambda$ is obtained by setting the coefficient
 in the first term to zero. This can be achieved only by selecting
-$\beta$ so that one of the functions $1/\Gamma(z)$ will zero, which
-induces $\beta\in\R$. But then $\beta+\alpha+1>0$ and the only
+$\beta$ so that one of the functions $1/\Gamma(z)$ will be zero, which
+implies $\beta\in\R$. But then $\beta+\alpha+1>0$ and the only
 possible zeroes are for
 \begin{align}
   \label{eq:60}
@@ -144,10 +145,9 @@ possible zeroes are for
 which gives rise to the following quantization of $\lambda$
 \begin{align}
   \label{eq:61}
-  \lb{0}{m}&=(1+m)(k+m),
+  \lb{0}{m}&=(1+m)(k+m).
 \end{align}
-which yields positive eigenvalues for any $k\ge1$. The eigenvectors
-corresponding to \eqref{eq:21} are
+The eigenvectors corresponding to \eqref{eq:21} are
 \begin{align}
   \label{eq:62}
   \wn{0}{m}(\psi)=\sqrt{\sin\psi}P_{k/2+m}^{-k/2}(\cos\psi).
@@ -164,7 +164,31 @@ $\mathcal{L}_0$ we obtain
   \label{eq:64}
   \vn{0}{m}(\psi)=\sin(\psi)C^{\left(\frac{1+k}{2}\right)}_m(\cos\psi),
 \end{align}
-where $C^{(\lambda)}_m$ are the Gegenbauer polynomials.
+where $C^{(\lambda)}_m$ are the Gegenbauer polynomials connected to
+the Legendre polynomials \cite{nist} by
+\begin{align}
+  \label{eq:103}
+  % \begin{split}
+  %   P_\beta^{-\alpha}(x)=A(\alpha,\beta)(1-x^2)^{\frac{\alpha}{2}}
+  %   C^{(\frac{1}{2}+\alpha)}_{\beta-\alpha}(x),\\
+  %   A(\alpha,\beta)=\\
+  \mathop{P^{{\mu}}_{{\nu}}\/}\nolimits\!\left(x\right)=\frac{2^{{\mu}}\mathop{\Gamma\/}\nolimits\!\left(1-2\mu\right)\mathop{\Gamma\/}\nolimits\!\left(\nu+\mu+1\right)}{\mathop{\Gamma\/}\nolimits\!\left(\nu-\mu+1\right)\mathop{\Gamma\/}\nolimits\!\left(1-\mu\right)\left(1-x^{2}\right)^{{\mu/2}}}\mathop{C^{{(\frac{1}{2}-\mu)}}_{{\nu+\mu}}\/}\nolimits\!\left(x\right).
+  % \end{split}
+\end{align}
+The relation to Gegenbauer polynomial was emphasized because
+$C_m^{(\delta)}(x)$ are polynomials in $x$ of degree $m$. The closed
+form of $\vn{m}{0}$ for first few $m$ are given below.
+\begin{align}\label{eq:104}
+  \begin{split}
+    &v_0^{(0)} = \sin (\psi ), \\
+    &v_1^{(0)} = \frac{1}{2} (k+1) \sin (2 \psi ), \\
+    &v_2^{(0)} = \frac{1}{8} \left(k^2-1\right) \sin (\psi
+    )+\frac{1}{8} \left(k^2+4 k+3\right) \sin (3 \psi ), \\
+    &v_3^{(0)} = \frac{1}{48} \left(2 k^3+6 k^2-2 k-6\right)
+    \sin (2 \psi )+\frac{1}{48} \left(k^3+9 k^2+23 k+15\right) \sin (4
+    \psi ).
+  \end{split}
+\end{align}
 
 \subsection{Stability of $f_1$}
 \label{sec:stability-f_1}
@@ -175,7 +199,7 @@ For $f_1$ the eigenproblem is stated as
   &\mathcal{L}_1 v = \lambda v. \\
   \label{eq:66}
   &\mathcal{L}_1 v = -\frac{1}{\sin^{k-1}\psi}\left(\sin^{k-1}\psi
-      v'\right)'+(k-1)\frac{\cos2\psi}{\sin^2\psi}v
+    v'\right)'+(k-1)\frac{\cos2\psi}{\sin^2\psi}v
 \end{align}
 
 We can get the bound similar to \eqref{eq:54} but valid only for the
@@ -185,7 +209,7 @@ the interval $[0,\pi/2]$
 \begin{align}
   \label{eq:f1_lambda}
   \lambda\int_0^{\pi/2} v^2w
-  d\psi=\int_0^{\pi/2}\left(v'^2+(k-1)\frac{\cos2\psi}{\sin^2\psi}v^2\right)\sin^{k-1}d\psi
+  d\psi=\int_0^{\pi/2}\left(v'^2+(k-1)\frac{\cos2\psi}{\sin^2\psi}v^2\right)\sin^{k-1}d\psi>0.
 \end{align}
 \eqref{eq:65} is also solvable by the procedure similar to that used
 in the case of $f_0$ which yields
@@ -196,7 +220,9 @@ in the case of $f_0$ which yields
   \lb{1}{m}=2 + k (-1 + m) + m + m^2.
 \end{align}
 The only eigenvalue smaller than zero is $\lb{1}{0}=2-k$ and, by
-$C^{(a)}_0(x)=1$, the corresponding eigenvector is $\vn{1}{0}=\sin\psi$.
+$C^{(\delta)}_0(x)=1$, the corresponding eigenvector is
+$\vn{1}{0}=\sin\psi$. By \eqref{eq:64}, $\vn{m}{0}=\vn{m}{1}$ so the
+table \eqref{eq:104} gives the closed forms of $\vn{m}{1}$.
 
 \subsection{Stability of $f_2$ and $f_3$}
 \label{sec:stability-f_2-f_3}
@@ -204,8 +230,8 @@ $C^{(a)}_0(x)=1$, the corresponding eigenvector is $\vn{1}{0}=\sin\psi$.
 Although we cannot solve \eqref{eq:42} analytically for $n\ge2$ we
 know the number of negative eigenvalues from theorem
 \ref{thm:harmonic-map-index} and the parity of the corresponding
-eigenvectors from \eqref{eq:49}. We utilize that knowledge to cut down
-the number of unstable directions by restricting the possible
+eigenvectors from \eqref{eq:49}. We use that knowledge to reduce the
+number of unstable directions by restricting the possible
 perturbations to those belonging to $H_+$ or $H_-$. By this procedure
 we kill all the antisymmetric modes of $\mathcal{L}_2$ and the
 symmetric ones of $\mathcal{L}_3$ reducing the number of instabilities
@@ -217,10 +243,9 @@ around $f_2$ and $f_3$ as
   \label{eq:70}
   f_-=f_3+B_1e^{-\lb{3}{1}t}\vn{3}{1}+B_3e^{-\lb{3}{3}t}\vn{3}{3}+\dots.
 \end{align}
-The first modes are the unstable while the latter are stable. This
-will be used in the following sections where we shall determine the
-first two modes of $f_{2,3}$ by solving the PDE \eqref{eq:en_flow}
-numerically.
+The first modes are unstable while the latter are stable. This will be
+used in the following sections where we shall determine the first two
+modes of $f_{2,3}$ by solving the PDE \eqref{eq:en_flow} numerically.
 
 
 %%% Local Variables:

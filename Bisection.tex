@@ -1,7 +1,7 @@
 \section{Bisection}
 \label{sec:bisection}
 
-% We will now use the gradient flow \eqref{eq:en_flow} to implement the
+% We will now use the heat flow \eqref{eq:en_flow} to implement the
 % dynamical version of simple yet powerful technique called the mountain
 % pass, which allows to prove the existence of the saddle point of the
 % given functional. The intuition behind this technique is that given
@@ -10,9 +10,9 @@
 % a ball it won't fall into neither of the valleys, and thus it will has
 % to roll down to some saddle point.\\
 
-Although we already know, that $f_2$ and $f_3$ are saddle points of
+Although we already know that $f_2$ and $f_3$ are saddle points of
 $E(f)$ we shall demonstrate in this section how to obtain them using
-only the gradient flow \eqref{eq:en_flow}.\\
+only the heat flow \eqref{eq:en_flow}.\\
 
 % The implementation of this procedure to $H_+$ will look as follows.
 Let us formally denote the basins of attraction of $0$ and $\pi$ as
@@ -25,11 +25,11 @@ $g_+(0)=g_+(\pi)=0$. We now form a path $g_A\in H_+$ such that
   \label{eq:93}
   g_A=A\cdot g_+,\quad A\in[0,1].
 \end{align}
-Obviously for $0\le A\ll1$, $g_A\in \Gamma(0)$, so the curve is hooked
-up to both, $\Gamma(0)$ and $\Gamma(\pi)$. As $\Gamma(\pi)$ and
+Obviously for $0\le A\ll1$, $g_A\in \Gamma(0)$, so the curve
+intersects both, $\Gamma(0)$ and $\Gamma(\pi)$. As $\Gamma(\pi)$ and
 $\Gamma(0)$ are disjoint open sets, the curve leading from one of them
-into the another has to contain the closed set which does not belong
-to neither of the open sets. By definition, initial data from this set
+into another has to contain the closed set which does not belong to
+either of the open sets. By definition, initial data from this set
 cannot fall into any of those attractors. This means that there is at
 least one $A^*$ such that the flow starting from $g_{A^*}$ is not
 going to converge to the global energy minimum. Still, for any initial
@@ -38,11 +38,11 @@ cannot asymptotically decrease to $0$, so its infimum $E^*$ obeys
 \begin{align}\label{eq:94}
   E^*=\inf_{t\ge0} E(t)>0
 \end{align}
-and hence, if $g_{A^*}$ won't blow up, there limiting values are
+and hence, if $g_{A^*}$ does not blow up, the limiting values are
 \begin{align}\label{eq:95}
-  \lim_{t\ra\infty}E(t)=E^*>0,\quad \lim_{t\ra\infty}\frac{dE}{dt}(t)=0
+  \lim_{t\ra\infty}E(t)=E^*>0,\quad \lim_{t\ra\infty}\frac{dE}{dt}(t)=0.
 \end{align}
-but, $dE/dt\ra0$ can happen only if $\partial_t f\ra0$ so
+But, $dE/dt\ra0$ can happen only if $\partial_t f\ra0$ so
 \begin{align}\label{eq:96}
   \lim_{t\ra\infty}f(t,\psi)=f^*(\psi)
 \end{align}
